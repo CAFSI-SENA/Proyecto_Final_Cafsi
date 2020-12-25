@@ -11,6 +11,9 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
@@ -42,7 +45,6 @@
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
@@ -119,17 +121,18 @@
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
-      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
-      <path value="$PROJECT_DIR$/vendor/laravel/jetstream" />
       <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
-      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
-      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
-      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
-      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/vendor/laravel/jetstream" />
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
     </include_path>
   </component>
   <component name="ProjectId" id="1m1gITHtvO0EYyOz5qVTMBVyhGt" />
@@ -165,6 +168,7 @@
       <updated>1608666431073</updated>
       <workItem from="1608666432245" duration="3014000" />
       <workItem from="1608669463520" duration="9440000" />
+      <workItem from="1608850622063" duration="4872000" />
     </task>
     <servers />
   </component>
@@ -172,6 +176,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="576" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608854093998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="576" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608854093998" />
     <state x="764" y="277" key="FileChooserDialogImpl" timestamp="1608669917135">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
