@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\modules\AreaController;
+use App\Http\Controllers\modules\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::get('modules/areas/create',[AreaController::class,'create'])->name('area.
 Route::post('modules/areas',[AreaController::class,'store'])->name('area.store');
 Route::get('modules/areas/{id}',[AreaController::class,'show'])->name('area.show');
 Route::delete('modules/area/{id}',[AreaController::class,'destroy'])->name('area.destroy');
+Route::get('modules/area/edit/{id}',[AreaController::class,'edit'])->name('area.edit');
+Route::put('modules/areas/{id}',[AreaController::class,'update'])->name('area.update');
+
+Route::get('modules/categorias',[CategoriaController::class,'index'])->name('categoria.index');

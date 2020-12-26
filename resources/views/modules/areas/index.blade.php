@@ -42,7 +42,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{route('area.show',$area->id)}}" class="btn btn-info">Detalles</a>
-                                                    <a href="" class="btn btn-warning">Editar</a>
+                                                    <a href="{{route('area.edit',$area->id)}}" class="btn btn-warning">Editar</a>
                                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                                 </form>
                                             </td>

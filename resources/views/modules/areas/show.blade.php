@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Detalle') }}
+            {{ __('Detalle Área') }}
         </h2>
     </x-slot>
 
@@ -19,13 +19,14 @@
                                 <tbody>
                                 <th>Estado</th>
                                 @foreach($estados as $estado)
-                                    @if($estado->id == $area->estado_id)
+                                    @if($estado->id == $areas->estado_id)
                                         <td>{{$estado->estado}}</td>
                                     @endif
                                 @endforeach
-
                                 </tbody>
                             </table>
+                            <a href="{{route('area.index')}}" class="btn btn-default mb-2">Volver</a>
+                            <a href="{{route('area.edit',$areas->id)}}" class="btn btn-warning mb-2">Editar</a>
                         </div>
                     </div>
                 </div>

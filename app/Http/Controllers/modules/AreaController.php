@@ -39,4 +39,17 @@ class AreaController extends Controller
             'message'=>'el área fue eliminada con exito :_(', 'type'=>'danger'
         ]);
     }
+
+    public function edit($id){
+        $areas = Area::find($id);
+        $estados = Estado::all();
+        return view('modules/areas/edit',compact('areas','estados'));
+    }
+
+    public function update(Request $request,$id){
+        $areas = Area::find($id)->update($request->all());
+        return redirect()->route('area.show',$id)->with([
+           'message'=>'El área fue actualizada con exito :)','type'=>'success'
+        ]);
+    }
 }

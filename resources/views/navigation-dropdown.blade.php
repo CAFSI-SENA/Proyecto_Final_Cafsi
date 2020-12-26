@@ -35,7 +35,7 @@
                                 {{ __('Áreas') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('categoria.index') }}">
                                 {{ __('Categorias') }}
                             </x-jet-dropdown-link>
 
