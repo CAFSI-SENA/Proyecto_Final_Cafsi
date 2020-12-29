@@ -32,3 +32,5 @@ Route::get('modules/area/edit/{id}',[AreaController::class,'edit'])->name('area.
 Route::put('modules/areas/{id}',[AreaController::class,'update'])->name('area.update');
 
 Route::get('modules/categorias',[CategoriaController::class,'index'])->name('categoria.index');
+Route::get('modules/categorias/create',[CategoriaController::class,'create'])->name('categoria.create');
+Route::post('modules/categorias',[CategoriaController::class,'store'])->name('categoria.store');
