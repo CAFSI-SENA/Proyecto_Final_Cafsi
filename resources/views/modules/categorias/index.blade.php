@@ -33,9 +33,14 @@
                                             @endforeach
                                             <td>{{$categoria->created_at}}</td>
                                             <td>
-                                                <a href="" class="btn btn-info">Detalle</a>
-                                                <a href="" class="btn btn-warning">Editar</a>
-                                                <a href="" class="btn btn-danger">Eliminar</a>
+                                                <form action="{{route('categoria.destroy',$categoria->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{route('categoria.show',$categoria->id)}}" class="btn btn-info">Detalle</a>
+                                                    <a href="{{route('categoria.edit',$categoria->id)}}" class="btn btn-warning">Editar</a>
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+
                                             </td>
                                         </tr>
                                     @endforeach

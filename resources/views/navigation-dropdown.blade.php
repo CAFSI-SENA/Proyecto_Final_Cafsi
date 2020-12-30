@@ -43,7 +43,7 @@
                                 {{ __('Funcionarios') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('marca.index') }}">
                                 {{ __('Marcas') }}
                             </x-jet-dropdown-link>
 

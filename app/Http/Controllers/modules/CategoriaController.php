@@ -28,19 +28,29 @@ class CategoriaController extends Controller
         ]);
     }
 
-    public function show(){
-
+    public function show($id){
+        $categorias = CategoriaActivo::find($id);
+        $estados = Estado::all();
+        return view('modules/categorias/show',compact('categorias','estados'));
     }
 
-    public function destroy(){
-
+    public function destroy($id){
+        $categorias = CategoriaActivo::find($id)->delete();
+        return redirect()->route('categoria.index')->with([
+            'message'=>'La categoría fue eliminada con exito :_(','type'=>'danger'
+        ]);
     }
 
-    public function edit(){
-
+    public function edit($id){
+        $categorias = CategoriaActivo::find($id);
+        $estados = Estado::all();
+        return view('modules/categorias/edit',compact('categorias','estados'));
     }
 
-    public function update(){
-
+    public function update(Request $request,$id){
+        $categorias = CategoriaActivo::find($id)->update($request->all());
+        return redirect()->route('categoria.show', $id)->with([
+            'message'=>'La categoria fue actualizada con exito','type'=>'info'
+        ]);
     }
 }

@@ -29,8 +29,8 @@
                                                         @foreach($estados as $estado)
                                                             <option value="{{$estado->id}}"
                                                                     @if($estado->id == $areas->estado_id)
-                                                                    selected
-                                                                @endif
+                                                                        selected
+                                                                    @endif
                                                             >{{$estado->estado}}
                                                             </option>
                                                         @endforeach

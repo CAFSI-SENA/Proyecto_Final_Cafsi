@@ -49,7 +49,7 @@ class AreaController extends Controller
     public function update(Request $request,$id){
         $areas = Area::find($id)->update($request->all());
         return redirect()->route('area.show',$id)->with([
-           'message'=>'El área fue actualizada con exito :)','type'=>'success'
+           'message'=>'El área fue actualizada con exito :)','type'=>'info'
         ]);
     }
 }
