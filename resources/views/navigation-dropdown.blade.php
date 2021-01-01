@@ -47,7 +47,7 @@
                                 {{ __('Marcas') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('tipo.index') }}">
                                 {{ __('Tipos') }}
                             </x-jet-dropdown-link>
 

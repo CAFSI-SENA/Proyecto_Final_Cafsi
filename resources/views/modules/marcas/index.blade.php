@@ -12,6 +12,11 @@
                     <div class="row">
                         <div class="col-md-12 mt-3">
                             <a href="{{route('marca.create')}}" class="btn btn-primary">Crear Marca</a>
+                            @if(session('message'))
+                                <div class="alert alert-{{session('type')}} mt-2" role="alert">
+                                    {{session('message')}}
+                                </div>
+                            @endif
                             <table-responsive>
                                 <table class="table table-bordered mt-3">
                                     <thead>
@@ -33,9 +38,11 @@
                                             @endforeach
                                             <td>{{$marca->created_at}}</td>
                                             <td>
-                                                <form action="">
-                                                    <a href="" class="btn btn-info">Detalle</a>
-                                                    <a href="" class="btn btn-warning">Editar</a>
+                                                <form action="{{route('marca.destroy',$marca->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{route('marca.show',$marca->id)}}" class="btn btn-info">Detalle</a>
+                                                    <a href="{{route('marca.edit',$marca->id)}}" class="btn btn-warning">Editar</a>
                                                     <button class="btn btn-danger">Eliminar</button>
                                                 </form>
                                             </td>
