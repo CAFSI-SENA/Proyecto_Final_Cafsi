@@ -17,7 +17,8 @@ class TipoActivoController extends Controller
 
     public function create(){
         $tipos = TipoActivo::all();
-        return view('modules/tipos/create',compact('tipos'));
+        $estados = Estado::all();
+        return view('modules/tipos/create',compact('tipos','estados'));
     }
 
     public function store(Request $request){
@@ -27,17 +28,27 @@ class TipoActivoController extends Controller
 
     public function show($id){
         $tipos = TipoActivo::find($id);
-        return view('modules/tipos/show/{id}',compact('tipos'));
+        $estados = Estado::all();
+        return view('modules/tipos/show',compact('tipos','estados'));
+    }
+
+    public function destroy($id){
+        $tipos = TipoActivo::find($id)->delete();
+        return redirect()->route('tipo.index')->with([
+            'message'=>'El tipo de activo fue eliminado con exito','type'=>'danger'
+        ]);
     }
 
     public function edit($id){
         $tipos = TipoActivo::find($id);
         $estados= Estado::all();
-        return view('modules/tipos/{id}', compact('tipos'));
+        return view('modules/tipos/edit', compact('tipos','estados'));
     }
 
     public function update(Request $request,$id){
         $tipos = TipoActivo::find($id)->update($request->all());
-        return redirect()->route('tipo.show',$id,compact('tipos'));
+        return redirect()->route('tipo.show',$id)->with([
+            'message'=>'El tipo de activo fue actualizado con exito','type'=>'info'
+        ]);
     }
 }

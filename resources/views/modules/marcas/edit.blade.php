@@ -27,7 +27,7 @@
                                                 <option value="{{$estado->id}}"
                                                         @if($marcas->estado_id == $estado->id)
                                                         selected
-                                                    @endif
+                                                        @endif
                                                 >{{$estado->estado}}</option>
                                             @endforeach
                                         </select>

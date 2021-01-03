@@ -5,6 +5,7 @@ use App\Http\Controllers\modules\AreaController;
 use App\Http\Controllers\modules\CategoriaController;
 use App\Http\Controllers\modules\MarcaController;
 use App\Http\Controllers\modules\TipoActivoController;
+use App\Http\Controllers\modules\FuncionarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,11 @@ Route::put('modules/marcas/{id}',[MarcaController::class,'update'])->name('marca
 Route::get('modules/tipos/index',[TipoActivoController::class,'index'])->name('tipo.index');
 Route::get('modules/tipos/create',[TipoActivoController::class,'create'])->name('tipo.create');
 Route::post('modules/tipos/',[TipoActivoController::class,'store'])->name('tipo.store');
-Route::get('modules/tipos/show/{id}',[TipoActivoController::class,'show'])->name('tipo.show');
-Route::delete('modules/tipos/{id}',[TipoActivoController::class,'delete'])->name('tipo.delete');
-Route::get('modules/tipos/edit/{id]',[TipoActivoController::class,'edit'])->name('tipo.edit');
+Route::get('modules/tipos/{id}',[TipoActivoController::class,'show'])->name('tipo.show');
+Route::delete('modules/tipos/{id}',[TipoActivoController::class,'destroy'])->name('tipo.destroy');
+Route::get('modules/tipos/edit/{id}',[TipoActivoController::class,'edit'])->name('tipo.edit');
 Route::put('modules/tipos/{id}',[TipoActivoController::class,'update'])->name('tipo.update');
+
+Route::get('modules/funcionarios/index',[FuncionarioController::class,'index'])->name('funcionario.index');
+Route::get('modules/funcionarios/create',[FuncionarioController::class,'create'])->name('funcionario.create');
+Route::post('modules/funcionarios',[FuncionarioController::class,'store'])->name('funcionario.store');
