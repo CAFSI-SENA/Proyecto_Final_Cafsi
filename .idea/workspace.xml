@@ -177,7 +177,8 @@
       <workItem from="1609437966876" duration="4413000" />
       <workItem from="1609532349091" duration="5434000" />
       <workItem from="1609613447151" duration="10871000" />
-      <workItem from="1609699581635" duration="14140000" />
+      <workItem from="1609699581635" duration="14704000" />
+      <workItem from="1609788715449" duration="14365000" />
     </task>
     <servers />
   </component>
@@ -189,6 +190,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="576" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608854093998" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609803701164">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609803701164" />
     <state x="764" y="277" key="FileChooserDialogImpl" timestamp="1608669917135">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
