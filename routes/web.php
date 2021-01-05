@@ -73,3 +73,4 @@ Route::post('modules/activos',[ActivoController::class,'store'])->name('activo.s
 Route::get('modules/activos/{id}',[ActivoController::class,'show'])->name('activo.show');
 Route::delete('modules/activos/{id}',[ActivoController::class,'destroy'])->name('activo.destroy');
 Route::get('modules/activos/edit/{id}',[ActivoController::class,'edit'])->name('activo.edit');
+Route::put('modules/activos/{id}',[ActivoController::class,'update'])->name('activo.update');
