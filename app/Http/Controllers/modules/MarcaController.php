@@ -14,4 +14,43 @@ class MarcaController extends Controller
         $estados = Estado::all();
         return view('modules/marcas/index',compact('marcas','estados'));
     }
+
+    public function create(){
+        $marcas = Marca::all();
+        $estados = Estado::all();
+        return view('modules/marcas/create',compact('marcas','estados'));
+    }
+
+    public function store(Request $request){
+        $marcas = Marca::create($request->all());
+        return redirect()->route('marca.index')->with([
+           'message'=>'La marca fue creada con exito :)','type'=>'success'
+        ]);
+    }
+
+    public function show($id){
+        $marcas = Marca::find($id);
+        $estados = Estado::all();
+        return view('modules/marcas/show',compact('marcas','estados'));
+    }
+
+    public function destroy($id){
+        $marcas = Marca::find($id)->delete();
+        return redirect()->route('marca.index')->with([
+            'message'=>'La marca fue eliminada con exito :_(','type'=>'danger'
+        ]);
+    }
+
+    public function edit($id){
+        $marcas = Marca::find($id);
+        $estados = Estado::all();
+        return view('modules/marcas/edit',compact('marcas','estados'));
+    }
+
+    public function update(Request $request, $id){
+        $marcas = Marca::find($id)->update($request->all());
+        return redirect()->route('marca.show',$id)->with([
+            'message'=>'La marca fue actualizada con exito','type'=>'info'
+        ]);
+    }
 }

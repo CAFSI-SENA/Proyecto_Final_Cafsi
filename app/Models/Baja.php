@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Baja extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'fecha_baja','observacion','activo_id','tipo_baja_id','usuario_id'
+    ];
 }

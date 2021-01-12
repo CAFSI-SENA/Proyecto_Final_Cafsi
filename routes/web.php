@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\modules\AreaController;
 use App\Http\Controllers\modules\CategoriaController;
 use App\Http\Controllers\modules\MarcaController;
+use App\Http\Controllers\modules\TipoActivoController;
+use App\Http\Controllers\modules\FuncionarioController;
+use App\Http\Controllers\modules\ActivoController;
+use App\Http\Controllers\modules\BajaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +51,32 @@ Route::get('modules/marcas/{id}',[MarcaController::class,'show'])->name('marca.s
 Route::delete('modules/marcas/{id}',[MarcaController::class,'destroy'])->name('marca.destroy');
 Route::get('modules/marcas/edit/{id}',[MarcaController::class,'edit'])->name('marca.edit');
 Route::put('modules/marcas/{id}',[MarcaController::class,'update'])->name('marca.update');
+
+Route::get('modules/tipos/index',[TipoActivoController::class,'index'])->name('tipo.index');
+Route::get('modules/tipos/create',[TipoActivoController::class,'create'])->name('tipo.create');
+Route::post('modules/tipos/',[TipoActivoController::class,'store'])->name('tipo.store');
+Route::get('modules/tipos/{id}',[TipoActivoController::class,'show'])->name('tipo.show');
+Route::delete('modules/tipos/{id}',[TipoActivoController::class,'destroy'])->name('tipo.destroy');
+Route::get('modules/tipos/edit/{id}',[TipoActivoController::class,'edit'])->name('tipo.edit');
+Route::put('modules/tipos/{id}',[TipoActivoController::class,'update'])->name('tipo.update');
+
+Route::get('modules/funcionarios/index',[FuncionarioController::class,'index'])->name('funcionario.index');
+Route::get('modules/funcionarios/create',[FuncionarioController::class,'create'])->name('funcionario.create');
+Route::post('modules/funcionarios',[FuncionarioController::class,'store'])->name('funcionario.store');
+Route::get('modules/funcionarios/{id}',[FuncionarioController::class,'show'])->name('funcionario.show');
+Route::delete('modules/funcionarios/{id}',[FuncionarioController::class,'destroy'])->name('funcionario.destroy');
+Route::get('modules/funcionarios/edit/{id}',[FuncionarioController::class,'edit'])->name('funcionario.edit');
+Route::put('modules/funcionarios/{id}',[FuncionarioController::class,'update'])->name('funcionario.update');
+
+Route::get('modules/activos/index',[ActivoController::class,'index'])->name('activo.index');
+Route::get('modules/activos/create',[ActivoController::class,'create'])->name('activo.create');
+Route::post('modules/activos',[ActivoController::class,'store'])->name('activo.store');
+Route::get('modules/activos/{id}',[ActivoController::class,'show'])->name('activo.show');
+Route::delete('modules/activos/{id}',[ActivoController::class,'destroy'])->name('activo.destroy');
+Route::get('modules/activos/edit/{id}',[ActivoController::class,'edit'])->name('activo.edit');
+Route::put('modules/activos/{id}',[ActivoController::class,'update'])->name('activo.update');
+Route::get('modules/activos/{numero_serie}',[ActivoController::class,'search'])->name('activo.search');
+
+Route::get('modules/bajas/index',[BajaController::class,'index'])->name('baja.index');
+Route::get('modules/bajas/create',[BajaController::class,'create'])->name('baja.create');
+Route::post('modules/bajas',[BajaController::class,'store'])->name('baja.store');

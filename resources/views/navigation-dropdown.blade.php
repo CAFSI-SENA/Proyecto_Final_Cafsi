@@ -39,7 +39,7 @@
                                 {{ __('Categorias') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('funcionario.index') }}">
                                 {{ __('Funcionarios') }}
                             </x-jet-dropdown-link>
 
@@ -47,20 +47,30 @@
                                 {{ __('Marcas') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('tipo.index') }}">
                                 {{ __('Tipos') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('register') }}">
                                 {{ __('Usuarios') }}
                             </x-jet-dropdown-link>
 
                             <div class="border-t border-gray-100"></div>
 
-
-
                         </x-slot>
                     </x-jet-dropdown>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('activo.index') }}" :active="request()->routeIs('activo.index')">
+                        {{ __('Activos') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('baja.index') }}" :active="request()->routeIs('baja.index')">
+                        {{ __('Bajas') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
