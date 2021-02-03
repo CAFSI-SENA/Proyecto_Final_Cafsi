@@ -23,8 +23,20 @@
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Activo</th>
+                                    <th>Observación</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach($bajas as $baja)
+                                        <td>{{$baja->fecha_baja}}</td>
+                                        @foreach($activos as $activo)
+                                            @if($activo->id == $baja->activo_id)
+                                                <td>{{$activo->numero_serie}}</td>
+                                            @endif
+                                        @endforeach
+                                        <td>{{$baja->observacion}}</td>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

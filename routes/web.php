@@ -75,7 +75,7 @@ Route::get('modules/activos/{id}',[ActivoController::class,'show'])->name('activ
 Route::delete('modules/activos/{id}',[ActivoController::class,'destroy'])->name('activo.destroy');
 Route::get('modules/activos/edit/{id}',[ActivoController::class,'edit'])->name('activo.edit');
 Route::put('modules/activos/{id}',[ActivoController::class,'update'])->name('activo.update');
-Route::get('modules/activos/{numero_serie}',[ActivoController::class,'search'])->name('activo.search');
+Route::get('modules/activos',[ActivoController::class,'search'])->name('activo.search');
 
 Route::get('modules/bajas/index',[BajaController::class,'index'])->name('baja.index');
 Route::get('modules/bajas/create',[BajaController::class,'create'])->name('baja.create');

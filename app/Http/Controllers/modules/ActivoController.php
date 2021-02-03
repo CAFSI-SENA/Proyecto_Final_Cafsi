@@ -8,6 +8,7 @@ use App\Models\CategoriaActivo;
 use App\Models\Estado;
 use App\Models\Marca;
 use App\Models\TipoActivo;
+use App\Models\TipoBaja;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
 
@@ -70,12 +71,20 @@ class ActivoController extends Controller
         ]);
     }
 
-    public function search($serie){
-        $activos = Activo::find($serie);
+    public function search(Request $request){
         $categorias = CategoriaActivo::all();
         $tipos = TipoActivo::all();
         $marcas = Marca::all();
         $estados = Estado::all();
-        return view('modules/bajas/index',compact('activos','categorias','tipos','marcas','estados'));
+        $tiposbaja = TipoBaja::all();
+
+
+        if ($request){
+            $query = $request->get('numero_serie');
+            $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )
+            ->get();
+        }
+
+        return view('modules/bajas/create',compact('activos','categorias','tipos','marcas','estados','tiposbaja'));
     }
 }
