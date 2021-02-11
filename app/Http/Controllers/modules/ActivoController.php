@@ -77,7 +77,7 @@ class ActivoController extends Controller
         $marcas = Marca::all();
         $estados = Estado::all();
         $tiposbaja = TipoBaja::all();
-        
+
         if ($request){
             $query = $request->get('numero_serie');
             $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )

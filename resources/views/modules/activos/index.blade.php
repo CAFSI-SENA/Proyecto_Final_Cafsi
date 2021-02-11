@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-14 mb-3">
                             <a href="{{route('activo.create')}}" class="btn btn-primary mb-3 mt-3">Crear Activo</a>
                             @if(session('message'))
                                 <div class="alert alert-{{session('type')}} mt-2" role="alert">
@@ -63,10 +63,10 @@
                                             <form action="{{route('activo.destroy',$activo->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <div class="row g-3">
-                                                    <a href="{{route('activo.show',$activo->id)}}"><img src="/show.gif" alt="" width="40"></a>
-                                                    <a href="{{route('activo.edit',$activo->id)}}"><img src="/edit.gif" alt="" width="40"></a>
-                                                    <button type="submit"><img src="/delete.gif" alt="" width="40"></button>
+                                                <div class="col-md-3">
+                                                    <a href="{{route('activo.show',$activo->id)}}"><img src="/eye.svg"></a>
+                                                    <a href="{{route('activo.edit',$activo->id)}}"><img src="/pencil-square.svg"></a>
+                                                    <button type="submit"><img src="/trash.svg"></button>
                                                 </div>
                                             </form>
                                         </td>

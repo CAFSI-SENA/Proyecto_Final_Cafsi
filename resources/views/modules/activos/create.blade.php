@@ -59,13 +59,16 @@
                                     <label for="estado_id">Estado</label>
                                     <select name="estado_id" id="estado_id" class="form-select">
                                         @foreach($estados as $estado)
-                                            <option value="{{$estado->id}}">{{$estado->estado}}</option>
+                                            <option value="1">{{$estado->estado}}</option>
                                         @endforeach
                                     </select>
                                     <input type="text">
                                 </div>
-                                <a href="{{route('activo.index')}}" class="btn btn-default">Cancelar</a>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <div class="mb-3">
+                                    <a href="{{route('activo.index')}}" class="btn btn-default">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+
                             </form>
                         </div>
                     </div>
