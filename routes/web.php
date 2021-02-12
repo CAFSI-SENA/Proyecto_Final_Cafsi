@@ -8,6 +8,7 @@ use App\Http\Controllers\modules\TipoActivoController;
 use App\Http\Controllers\modules\FuncionarioController;
 use App\Http\Controllers\modules\ActivoController;
 use App\Http\Controllers\modules\BajaController;
+use App\Http\Controllers\modules\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +81,5 @@ Route::get('modules/activos',[ActivoController::class,'search'])->name('activo.s
 Route::get('modules/bajas/index',[BajaController::class,'index'])->name('baja.index');
 Route::get('modules/bajas/create',[BajaController::class,'create'])->name('baja.create');
 Route::post('modules/bajas',[BajaController::class,'store'])->name('baja.store');
+
+Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
