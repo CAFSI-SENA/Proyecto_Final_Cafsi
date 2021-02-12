@@ -23,6 +23,7 @@ mix.styles(
             'resources/skote/js/bootstrap.bundle.min.js',
             'resources/skote/js/metisMenu.min.js',
             'resources/skote/js/simplebar.min.js',
-            'resources/skote/js/waves.min.js'
+            'resources/skote/js/waves.min.js',
+            'resources/skote/js/app.js'
         ]
     ,'public/js/app.js');
