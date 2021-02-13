@@ -13,17 +13,21 @@ const mix = require('laravel-mix');
 
 mix.styles(
     [
+    'resources/skote/css/owl.carousel.min.css',
+    'resources/skote/css/owl.theme.default.min.css',
     'resources/skote/css/bootstrap.min.css',
     'resources/skote/css/icons.min.css',
     'resources/skote/css/app.min.css'
     ]
-    ,'public/css/app.css').scripts(
+    ,'public/css/applogin.css').scripts(
         [
             'resources/skote/js/jquery.min.js',
             'resources/skote/js/bootstrap.bundle.min.js',
             'resources/skote/js/metisMenu.min.js',
             'resources/skote/js/simplebar.min.js',
             'resources/skote/js/waves.min.js',
-            'resources/skote/js/app.js'
+            'resources/skote/js/app.js',
+            'resources/skote/js/owl.carousel.min.js',
+            'resources/skote/js/auth-2-carousel.init.js'
         ]
-    ,'public/js/app.js');
+    ,'public/js/applogin.js');
