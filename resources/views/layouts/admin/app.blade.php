@@ -23,7 +23,7 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    @include('layouts.admin.componentes.navbar')
+        @include('layouts.admin.componentes.navbar')
 
     <!-- ========== Left Sidebar Start ========== -->
 

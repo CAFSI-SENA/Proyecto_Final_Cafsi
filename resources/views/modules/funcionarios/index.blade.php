@@ -1,7 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-
-        <div class="row">
+    <div class="row">
         <div class="col-md-12 mt-3">
             <a href="{{route('funcionario.create')}}" class="btn btn-primary mb-3">Crear Funcionario</a>
             @if(session('message'))
@@ -69,4 +68,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection

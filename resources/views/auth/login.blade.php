@@ -73,20 +73,21 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <form action="index.html">
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
 
                                             <div class="mb-3">
-                                                <label for="username" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                <label for="email" class="form-label">email</label>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese Email" :value="old('email')" required autofocus>
                                             </div>
 
                                             <div class="mb-3">
                                                 <div class="float-end">
                                                     <a href="auth-recoverpw-2.html" class="text-muted">Forgot password?</a>
                                                 </div>
-                                                <label class="form-label">Password</label>
+                                                <label class="form-label">Contraseña</label>
                                                 <div class="input-group auth-pass-inputgroup">
-                                                    <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese Contraseña" required autocomplete="current-password" aria-label="Password" aria-describedby="password-addon">
                                                     <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                                 </div>
                                             </div>
@@ -94,46 +95,20 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="remember-check">
                                                 <label class="form-check-label" for="remember-check">
-                                                    Remember me
+                                                    Recordarme
                                                 </label>
                                             </div>
 
                                             <div class="mt-3 d-grid">
-                                                <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
-                                            </div>
-
-
-                                            <div class="mt-4 text-center">
-                                                <h5 class="font-size-14 mb-3">Sign in with</h5>
-
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
-                                                            <i class="mdi mdi-facebook"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
-                                                            <i class="mdi mdi-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
-                                                            <i class="mdi mdi-google"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                <button class="btn btn-primary waves-effect waves-light" type="submit">Ingresar</button>
                                             </div>
 
                                         </form>
-                                        <div class="mt-5 text-center">
-                                            <p>Don't have an account ? <a href="auth-register-2.html" class="fw-medium text-primary"> Signup now </a> </p>
-                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Cafsi. </p>
                                 </div>
                             </div>
 
