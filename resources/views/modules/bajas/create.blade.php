@@ -1,10 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Baja') }}
-        </h2>
-    </x-slot>
-
+@extends('layouts.admin.app')
+@section('title','Crear Baja')
+@section('content')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -35,7 +31,7 @@
                                         <input type="text" class="form-control" value="{{$tipo->tipo}}">
                                     @endif
                                 @endforeach
-                                <input type="hidden" value="{{$activo->id}}" name="activo_id">
+                                    <input type="hidden" value="{{$activo->id}}" name="activo_id">
                             @endforeach
                         </div>
                         <div class="col-md-3">
@@ -118,4 +114,4 @@
 
         </div>
     </div>
-</x-app-layout>
+@endsection

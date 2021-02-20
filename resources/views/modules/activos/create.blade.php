@@ -21,16 +21,14 @@
                                             <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
                                         @endforeach
                                     </select>
-                                    <input type="text">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="tipo_activo_id">Tipo</label>
-                                    <select name="tipo_activo_id" id="tipo_activo_id" class="form-select">
+                                    <select name="tipo_activo_id" id="tipo_activo_id" class="">
                                         @foreach($tipos as $tipo)
                                             <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                                         @endforeach
                                     </select>
-                                    <input type="text">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="marca_id">Marca</label>

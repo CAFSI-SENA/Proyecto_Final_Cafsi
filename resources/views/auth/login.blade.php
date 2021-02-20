@@ -15,17 +15,17 @@
                                         <div class="col-lg-7">
                                             <div class="text-center">
 
-                                                <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary">5k</span>+ Satisfied clients</h4>
+                                                <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i>Sistema de Información para el Control de Activos Fijos</h4>
 
                                                 <div dir="ltr">
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                         <div class="item">
                                                             <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" Fantastic theme with a ton of options. If you just want the HTML to integrate with your project, then this is the package. You can find the files in the 'dist' folder...no need to install git and all the other stuff the documentation talks about. "</p>
-
+                                                                <p class="font-size-16 mb-4"></p>
+                                                                <img src="/colina.jfif" class="d-block w-100" alt="...">
                                                                 <div>
-                                                                    <h4 class="font-size-16 text-primary">Abs1981</h4>
-                                                                    <p class="font-size-14 mb-0">- Skote User</p>
+                                                                    <h4 class="font-size-16 text-primary"></h4>
+                                                                    <p class="font-size-14 mb-0">Cafsi</p>
                                                                 </div>
                                                             </div>
 
@@ -33,11 +33,11 @@
 
                                                         <div class="item">
                                                             <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" If Every Vendor on Envato are as supportive as Themesbrand, Development with be a nice experience. You guys are Wonderful. Keep us the good work. "</p>
-
+                                                                <p class="font-size-16 mb-4"></p>
+                                                                <img src="/colina2.jfif" class="d-block w-100" alt="...">
                                                                 <div>
-                                                                    <h4 class="font-size-16 text-primary">nezerious</h4>
-                                                                    <p class="font-size-14 mb-0">- Skote User</p>
+                                                                    <h4 class="font-size-16 text-primary"></h4>
+                                                                    <p class="font-size-14 mb-0">Cafsi</p>
                                                                 </div>
                                                             </div>
 
@@ -61,14 +61,15 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5">
                                     <a href="index.html" class="d-block auth-logo">
-                                        <img src="assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
+
                                         <img src="assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
                                     </a>
                                 </div>
                                 <div class="my-auto">
 
                                     <div>
-                                        <h5 class="text-primary">Welcome Back !</h5>
+                                        <img src="/logocolina.jfif" alt="" height="100" class="auth-logo-dark offset-4 mb-3">
+                                        <h5 class="text-primary offset-4">Bienvenidos</h5>
                                         <p class="text-muted">Sign in to continue to Skote.</p>
                                     </div>
 

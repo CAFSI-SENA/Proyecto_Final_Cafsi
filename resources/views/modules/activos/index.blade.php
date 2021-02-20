@@ -1,6 +1,5 @@
 @extends('layouts.admin.app')
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-14 mb-3">
                 <a href="{{route('activo.create')}}" class="btn btn-primary mb-3 mt-3">Crear Activo</a>
@@ -55,11 +54,11 @@
                                     <form action="{{route('activo.destroy',$activo->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <div class="col-md-3">
-                                            <a href="{{route('activo.show',$activo->id)}}"><img src="/eye.svg"></a>
-                                            <a href="{{route('activo.edit',$activo->id)}}"><img src="/pencil-square.svg"></a>
-                                            <button type="submit"><img src="/trash.svg"></button>
-                                        </div>
+
+                                            <a href="{{route('activo.show',$activo->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                            <a href="{{route('activo.edit',$activo->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                            <button class="btn btn-outline-primary" type="submit"><img src="/trash.svg"></button>
+
                                     </form>
                                 </td>
                             </tr>
@@ -69,5 +68,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
