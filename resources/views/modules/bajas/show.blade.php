@@ -1,10 +1,19 @@
 @extends('layouts.admin.app')
 @section('title','Detalle Bajas')
 @section('content')
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md 6">
+                <table class="table">
+                    <tbody>
+                    <th>Fecha Baja</th>
+                    <td>{{$bajas->fecha_baja}}</td>
+                    
+                    <th>Tipo de Baja</th>
+                    <th>Serie Activo</th>
+                    <th>Observación</th>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

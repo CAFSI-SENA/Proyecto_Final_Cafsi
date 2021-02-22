@@ -20,17 +20,29 @@
                                     <th>Fecha</th>
                                     <th>Activo</th>
                                     <th>Observación</th>
+                                    <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($bajas as $baja)
-                                        <td>{{$baja->fecha_baja}}</td>
-                                        @foreach($activos as $activo)
-                                            @if($activo->id == $baja->activo_id)
-                                                <td>{{$activo->numero_serie}}</td>
-                                            @endif
-                                        @endforeach
-                                        <td>{{$baja->observacion}}</td>
+                                        <tr>
+                                            <td>{{$baja->fecha_baja}}</td>
+                                            @foreach($activos as $activo)
+                                                @if($activo->id == $baja->activo_id)
+                                                    <td>{{$activo->numero_serie}}</td>
+                                                @endif
+                                            @endforeach
+                                            <td>{{$baja->observacion}}</td>
+                                            <td>
+                                                <form action="{{route('baja.destroy', $baja->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{route('baja.show', $baja->id)}}" class="btn btn-info">Detalle</a>
+                                                    <a href="{{route('baja.edit', $baja->id)}}" class="btn btn-warning">Editar</a>
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

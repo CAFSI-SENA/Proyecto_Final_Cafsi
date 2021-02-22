@@ -46,7 +46,7 @@ class BajaController extends Controller
     }
 
     public function destroy($id){
-        $bajas = Baja::find($id);
+        $bajas = Baja::find($id)->delete();
         return redirect()->route('baja.index')->with([
             'message'=>'La baja fue eliminada con exito',
             'type'=>'danger'

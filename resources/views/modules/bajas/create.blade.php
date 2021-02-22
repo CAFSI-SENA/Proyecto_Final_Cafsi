@@ -44,9 +44,7 @@
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="fecha_adquisicion">Fecha Adquisición</label>
-                            @foreach($activos as $activo)
-                                <input type="text" class="form-control" value="{{$activo->fecha_adquisicion}}">
-                            @endforeach
+                            <input type="text" class="form-control" value="{{$activo->fecha_adquisicion}}">
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="estado_id">Estado</label>
@@ -67,9 +65,7 @@
                             @csrf
                             <div class="col-md-3">
                                 <label for="activo_id">Id Activo</label>
-                                @foreach($activos as $activo)
                                 <input type="text" name="activo_id" value="{{$activo->id}}" class="form-control">
-                                @endforeach
                             </div>
 
                             <div class="col-md-3">
