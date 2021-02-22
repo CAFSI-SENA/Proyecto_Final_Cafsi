@@ -20,12 +20,10 @@
                                     <th>Fecha</th>
                                     <th>Activo</th>
                                     <th>Observación</th>
-                                    <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($bajas as $baja)
-                                        <tr>
                                         <td>{{$baja->fecha_baja}}</td>
                                         @foreach($activos as $activo)
                                             @if($activo->id == $baja->activo_id)
@@ -33,12 +31,6 @@
                                             @endif
                                         @endforeach
                                         <td>{{$baja->observacion}}</td>
-                                        <td>
-                                            <a href="{{route('baja.show',$baja->id)}}" class="btn btn-info">Detalle</a>
-                                            <a href="{{route('baja.edit', $baja->id)}}" class="btn btn-warning">Editar</a>
-                                            <a href="" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
