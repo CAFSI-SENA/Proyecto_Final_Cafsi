@@ -85,5 +85,9 @@ Route::get('modules/activos',[ActivoController::class,'search'])->name('activo.s
 Route::get('modules/bajas/index',[BajaController::class,'index'])->name('baja.index');
 Route::get('modules/bajas/create',[BajaController::class,'create'])->name('baja.create');
 Route::post('modules/bajas',[BajaController::class,'store'])->name('baja.store');
+Route::get('modules/bajas/{id}',[BajaController::class,'show'])->name('baja.show');
+Route::delete('modules/bajas/{id}',[BajaController::class,'destroy'])->name('baja.destroy');
+Route::get('modules/bajas/edit/{id}',[BajaController::class,'edit'])->name('baja.edit');
+Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
 
 Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');

@@ -39,4 +39,29 @@ class BajaController extends Controller
         $bajas = Baja::create($request->all());
         return redirect()->route('baja.index',compact('bajas'));
     }
+
+    public function show($id){
+        $bajas = Baja::find($id);
+        return view('modules/bajas/show',compact('bajas'));
+    }
+
+    public function destroy($id){
+        $bajas = Baja::find($id);
+        return redirect()->route('baja.index')->with([
+            'message'=>'La baja fue eliminada con exito',
+            'type'=>'danger'
+        ]);
+    }
+
+    public function edit($id){
+        $bajas = Baja::find($id);
+        $activos = Activo::all();
+        $tipos = TipoBaja::all();
+        return view('modules/bajas/edit',compact('bajas','activos','tipos'));
+    }
+
+    public function update(Request $request,$id){
+        $bajas  =Baja::find($id)->update($request->all());
+        return redirect()->route('bajas.show',compact('bajas'));
+    }
 }

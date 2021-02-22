@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <form action="{{route('activo.search')}}" class="row g-3">
                         <div class="col-md-3 ml-3">
-                            <label for="">No. Serie</label>
+                            <label for="numero_serie">No. Serie</label>
                             <input type="text" class="form-control" name="numero_serie">
                         </div>
                         <div class="col-md-3 mt-3">
@@ -25,46 +25,37 @@
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="">Tipo</label>
-                            @foreach($activos as $activo)
                                 @foreach($tipos as $tipo)
                                     @if($activo->tipo_activo_id == $tipo->id)
                                         <input type="text" class="form-control" value="{{$tipo->tipo}}">
                                     @endif
                                 @endforeach
                                     <input type="hidden" value="{{$activo->id}}" name="activo_id">
-                            @endforeach
                         </div>
                         <div class="col-md-3">
                             <label for="">Marca</label>
-                            @foreach($activos as $activo)
                                 @foreach($marcas as $marca)
                                     @if($activo->marca_id == $marca->id)
                                         <input type="text" class="form-control" value="{{$marca->marca}}">
                                     @endif
                                 @endforeach
-                            @endforeach
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="modelo">Modelo</label>
-                            @foreach($activos as $activo)
-                                <input type="text" class="form-control" value="{{$activo->modelo}}">
-                            @endforeach
+                            <input type="text" class="form-control" value="{{$activo->modelo}}">
+
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="fecha_adquisicion">Fecha Adquisición</label>
-                            @foreach($activos as $activo)
-                                <input type="text" class="form-control" value="{{$activo->fecha_adquisicion}}">
-                            @endforeach
+                            <input type="text" class="form-control" value="{{$activo->fecha_adquisicion}}">
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="estado_id">Estado</label>
-                            @foreach($activos as $activo)
                                 @foreach($estados as $estado)
                                     @if($activo->estado_id == $estado->id)
                                         <input type="text" class="form-control" value="{{$estado->estado}}">
                                     @endif
                                 @endforeach
-                            @endforeach
                         </div>
                         @endforeach
 
@@ -78,13 +69,13 @@
                             @csrf
                             <div class="col-md-3">
                                 <label for="activo_id">Id Activo</label>
-                                @foreach($activos as $activo)
+
                                 <input type="text" name="activo_id" value="{{$activo->id}}" class="form-control">
-                                @endforeach
+
                             </div>
 
                             <div class="col-md-3">
-                                <label for="">Fecha</label>
+                                <label for="">Fecha Baja</label>
                                 <input type="date" value="<?php echo date("Y-m-d");?>" name="fecha_baja" class="form-control">
                             </div>
                             <div class="col-md-3">
