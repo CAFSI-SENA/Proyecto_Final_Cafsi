@@ -15,40 +15,32 @@
                         @foreach($activos as $activo)
                         <div class="col-md-3 ml-3">
                             <label for="">Categoría</label>
-
                             @foreach($categorias as $categoria)
                                 @if($activo->categoria_id == $categoria->id)
                                     <input type="text" class="form-control" value="{{$categoria->categoria}}">
                                 @endif
                             @endforeach
-
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="">Tipo</label>
-                            @foreach($activos as $activo)
                                 @foreach($tipos as $tipo)
                                     @if($activo->tipo_activo_id == $tipo->id)
                                         <input type="text" class="form-control" value="{{$tipo->tipo}}">
                                     @endif
                                 @endforeach
                                     <input type="hidden" value="{{$activo->id}}" name="activo_id">
-                            @endforeach
                         </div>
                         <div class="col-md-3">
                             <label for="">Marca</label>
-                            @foreach($activos as $activo)
                                 @foreach($marcas as $marca)
                                     @if($activo->marca_id == $marca->id)
                                         <input type="text" class="form-control" value="{{$marca->marca}}">
                                     @endif
                                 @endforeach
-                            @endforeach
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="modelo">Modelo</label>
-                            @foreach($activos as $activo)
-                                <input type="text" class="form-control" value="{{$activo->modelo}}">
-                            @endforeach
+                            <input type="text" class="form-control" value="{{$activo->modelo}}">
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="fecha_adquisicion">Fecha Adquisición</label>
@@ -58,16 +50,13 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="estado_id">Estado</label>
-                            @foreach($activos as $activo)
                                 @foreach($estados as $estado)
                                     @if($activo->estado_id == $estado->id)
                                         <input type="text" class="form-control" value="{{$estado->estado}}">
                                     @endif
                                 @endforeach
-                            @endforeach
                         </div>
                         @endforeach
-
                 </form>
             </div>
 
