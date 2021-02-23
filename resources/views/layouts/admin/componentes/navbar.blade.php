@@ -41,16 +41,15 @@
                     <a class="dropdown-item" href="{{ route('profile.show') }}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
                     <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
                     <div class="dropdown-divider"></div>
+
                     <form action="{{route('logout')}}" method="post">
                         @csrf
-                        @method('POST')
+                        <button type="submit" class="bx bx-power-off font-size-16 align-middle me-1 text-danger btn btn-link">Salir</button>
                         <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                            this.closest('form').submit();"
                         ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>
                     </form>
-
-
 
                 </div>
             </div>

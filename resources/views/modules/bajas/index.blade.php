@@ -18,6 +18,7 @@
                                 <thead>
                                 <tr>
                                     <th>Fecha</th>
+                                    <th>Tipo de Baja</th>
                                     <th>Activo</th>
                                     <th>Observación</th>
                                     <th>Opciones</th>
@@ -27,6 +28,11 @@
                                     @foreach($bajas as $baja)
                                         <tr>
                                             <td>{{$baja->fecha_baja}}</td>
+                                            @foreach($tiposbaja as $tipo)
+                                                @if($baja->tipo_baja_id == $tipo->id)
+                                                    <td>{{$tipo->tipo}}</td>
+                                                @endif
+                                            @endforeach
                                             @foreach($activos as $activo)
                                                 @if($activo->id == $baja->activo_id)
                                                     <td>{{$activo->numero_serie}}</td>

@@ -63,9 +63,11 @@
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <form action="{{route('baja.store')}}" method="post" class="row g-3">
                             @csrf
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="display: none;">
                                 <label for="activo_id">Id Activo</label>
+                                @foreach($activos as $activo)
                                 <input type="text" name="activo_id" value="{{$activo->id}}" class="form-control">
+                                @endforeach
                             </div>
 
                             <div class="col-md-3">
@@ -84,7 +86,7 @@
                                 <label for="">Observación</label>
                                 <input type="text" class="form-control" name="observacion">
                             </div>
-                            <div>{{ Auth::user()->id }}</div>
+
                             <input type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
                             <div class="mb-3">
                                 <a href="{{route('baja.index')}}" class="btn btn-outline-default">Cancelar</a>

@@ -1,16 +1,12 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Detalle de Activo') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
+@extends('layouts.admin.app')
+@section('title','Detalle Activo')
+@section('content')
+    <div class="py-12>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 offset-4"">
                             <table class="table">
                                 <tbody>
                                 <th>Nombre Activo</th>
@@ -69,4 +65,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

@@ -17,7 +17,8 @@ class BajaController extends Controller
     public function index(){
         $bajas = Baja::all();
         $activos = Activo::all();
-        return view('modules/bajas/index',compact('bajas','activos'));
+        $tiposbaja = TipoBaja::all();
+        return view('modules/bajas/index',compact('bajas','activos','tiposbaja'));
     }
 
     public function search(){
