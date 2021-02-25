@@ -45,10 +45,10 @@
                     <form action="{{route('logout')}}" method="post">
                         @csrf
                         <button type="submit" class="bx bx-power-off font-size-16 align-middle me-1 text-danger btn btn-link">Salir</button>
-                        <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                    <!--    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                            this.closest('form').submit();"
-                        ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>
+                        ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>-->
                     </form>
 
                 </div>

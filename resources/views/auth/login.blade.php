@@ -1,4 +1,5 @@
 @extends('layouts.admin.applogin')
+@section('title','Login')
 @section('content')
     <div>
         <div class="container-fluid p-0">
@@ -22,7 +23,7 @@
                                                         <div class="item">
                                                             <div class="py-3">
                                                                 <p class="font-size-16 mb-4"></p>
-                                                                <img src="/colina.jfif" class="d-block w-100" alt="...">
+                                                                <img src="/colina.jpeg" class="d-block w-100" alt="...">
                                                                 <div>
                                                                     <h4 class="font-size-16 text-primary"></h4>
                                                                     <p class="font-size-14 mb-0">Cafsi</p>
@@ -34,7 +35,7 @@
                                                         <div class="item">
                                                             <div class="py-3">
                                                                 <p class="font-size-16 mb-4"></p>
-                                                                <img src="/colina2.jfif" class="d-block w-100" alt="...">
+                                                                <img src="/colina2.jpeg" class="d-block w-100" alt="...">
                                                                 <div>
                                                                     <h4 class="font-size-16 text-primary"></h4>
                                                                     <p class="font-size-14 mb-0">Cafsi</p>
