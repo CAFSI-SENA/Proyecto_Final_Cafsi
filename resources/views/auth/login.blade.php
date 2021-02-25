@@ -16,7 +16,7 @@
                                         <div class="col-lg-7">
                                             <div class="text-center">
 
-                                                <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i>Sistema de Información para el Control de Activos Fijos</h4>
+                                                <h4 class="mb-3"><i class="text-primary h1 align-middle me-3"></i>Sistema de Información para el Control de Activos Fijos</h4>
 
                                                 <div dir="ltr">
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
@@ -71,7 +71,7 @@
                                     <div>
                                         <img src="/logocolina.jfif" alt="" height="100" class="auth-logo-dark offset-4 mb-3">
                                         <h5 class="text-primary offset-4">Bienvenidos</h5>
-                                        <p class="text-muted">Sign in to continue to Skote.</p>
+                                        <!--<p class="text-muted">Sign in to continue to Skote.</p>-->
                                     </div>
 
                                     <div class="mt-4">

@@ -21,7 +21,7 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Buscar...">
                     <span class="bx bx-search-alt"></span>
                 </div>
             </form>
