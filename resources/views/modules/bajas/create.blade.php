@@ -15,11 +15,7 @@
                         @foreach($activos as $activo)
                         <div class="col-md-3 ml-3">
                             <label for="">Categoría</label>
-                            @foreach($categorias as $categoria)
-                                @if($activo->categoria_id == $categoria->id)
-                                    <input type="text" class="form-control" value="{{$categoria->categoria}}">
-                                @endif
-                            @endforeach
+                            <input type="text" class="form-control" value="{{$activo->categoria}}">
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="">Tipo</label>
