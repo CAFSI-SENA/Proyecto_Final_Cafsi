@@ -16,9 +16,8 @@
                         <th>Nombres y Apellidos</th>
                         <th>Tipo</th>
                         <th>Identificación</th>
-                        <th>Telefono</th>
                         <th>Celular</th>
-                        <th>Genero</th>
+                        <th>Género</th>
                         <th>Área</th>
                         <th>Estado</th>
                         <th>Opciones</th>
@@ -34,7 +33,6 @@
                                 @endif
                             @endforeach
                             <td>{{$funcionario->identificacion}}</td>
-                            <td>{{$funcionario->telefono}}</td>
                             <td>{{$funcionario->celular}}</td>
                             @foreach($generos as $genero)
                                 @if($funcionario->genero_id == $genero->id)
@@ -56,9 +54,9 @@
                                 @method('DELETE')
                                 <td>
                                     <div>
-                                        <a href="{{route('funcionario.show',$funcionario->id)}}" class="btn btn-info">Detalle</a>
-                                        <a href="{{route('funcionario.edit',$funcionario->id)}}" class="btn btn-warning">Editar</a>
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <a href="{{route('funcionario.show',$funcionario->id)}}" class="btn btn-outline-info"><img src="/eye.svg" alt=""></a>
+                                        <a href="{{route('funcionario.edit',$funcionario->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg" alt=""></a>
+                                        <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg" alt=""></button>
                                     </div>
                                 </td>
                             </form>

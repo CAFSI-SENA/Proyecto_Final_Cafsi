@@ -55,9 +55,9 @@
                                     <form action="{{route('area.destroy',$area->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('area.show',$area->id)}}" class="btn btn-info">Detalles</a>
-                                        <a href="{{route('area.edit',$area->id)}}" class="btn btn-warning">Editar</a>
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <a href="{{route('area.show',$area->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                        <a href="{{route('area.edit',$area->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                        <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg"></button>
                                     </form>
                                 </td>
                             </tr>

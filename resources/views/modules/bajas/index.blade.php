@@ -43,9 +43,9 @@
                                                 <form action="{{route('baja.destroy', $baja->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{route('baja.show', $baja->id)}}" class="btn btn-info">Detalle</a>
-                                                    <a href="{{route('baja.edit', $baja->id)}}" class="btn btn-warning">Editar</a>
-                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    <a href="{{route('baja.show', $baja->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                                    <a href="{{route('baja.edit', $baja->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                                    <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg"></button>
                                                 </form>
                                             </td>
                                         </tr>

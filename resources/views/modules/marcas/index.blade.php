@@ -34,9 +34,9 @@
                                     <form action="{{route('marca.destroy',$marca->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('marca.show',$marca->id)}}" class="btn btn-info">Detalle</a>
-                                        <a href="{{route('marca.edit',$marca->id)}}" class="btn btn-warning">Editar</a>
-                                        <button class="btn btn-danger">Eliminar</button>
+                                        <a href="{{route('marca.show',$marca->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                        <a href="{{route('marca.edit',$marca->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                        <button class="btn btn-outline-danger"><img src="/trash.svg"></button>
                                     </form>
                                 </td>
                             </tr>

@@ -29,9 +29,9 @@
                                     <form action="{{route('tipo.destroy',$tipo->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('tipo.show',$tipo->id)}}" class="btn btn-info">Detalle</a>
-                                        <a href="{{route('tipo.edit',$tipo->id)}}" class="btn btn-warning">Editar</a>
-                                        <button class="btn btn-danger">Eliminar</button>
+                                        <a href="{{route('tipo.show',$tipo->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                        <a href="{{route('tipo.edit',$tipo->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                        <button class="btn btn-outline-danger"><img src="/trash.svg"></button>
                                     </form>
                                 </td>
                             </tr>
