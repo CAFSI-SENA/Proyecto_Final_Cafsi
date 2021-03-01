@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Listado de Áreas')
 @section('content')
 
     <!-- start page title -->

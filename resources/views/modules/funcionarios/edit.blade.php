@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Editar Funcionario')
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,11 +10,15 @@
                     <table class="table">
                         <tbody>
                         <th>Nombres</th>
-                        <td><input type="text" class="form-control" value="{{$funcionarios->nombres}}"></td>
+                        <td><input type="text" class="form-control" value="{{$funcionarios->nombres}}"
+                                   style="text-transform:uppercase"
+                                   onkeyup="javascript:this.value=this.value.toUpperCase();" name="nombres" maxlength="30"></td>
                         </tbody>
                         <tbody>
                         <th>Apellidos</th>
-                        <td><input type="text" class="form-control" value="{{$funcionarios->apellidos}}"></td>
+                        <td><input type="text" class="form-control" value="{{$funcionarios->apellidos}}"
+                                   style="text-transform:uppercase"
+                                   onkeyup="javascript:this.value=this.value.toUpperCase();" name="apellidos" maxlength="30"></td>
                         </tbody>
                         <tbody>
                         <th>Tipo Identificación</th>

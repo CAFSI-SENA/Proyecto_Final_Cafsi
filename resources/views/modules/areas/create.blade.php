@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Crear Área')
 @section('content')
     <div class="container">
     <div class="row">
@@ -7,16 +8,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="area">Área</label>
-                    <input type="text" class="form-control" name="area">
+                    <input type="text" class="form-control" name="area" style="text-transform:uppercase"
+                           onkeyup="javascript:this.value=this.value.toUpperCase();" name="area" maxlength="20">
                 </div>
                 <div class="form-group">
-                    <label for="estado_id">Estado</label>
-                    <select class="form-control" name="estado_id" id="estado_id">
-                        <option selected disabled value="">Seleccione...</option>
-                        @foreach($estados as $estado)
-                            <option value="{{$estado->id}}">{{$estado->estado}}</option>
-                        @endforeach
-                    </select>
+                    <input type="hidden" name="estado_id" value="1">
                 </div>
                 <a href="{{route('area.index')}}" class="btn btn-default">Cancelar</a>
                 <button class="btn btn-primary mt-3 mb-3">Guardar</button>

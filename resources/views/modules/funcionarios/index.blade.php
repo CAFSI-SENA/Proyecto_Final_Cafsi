@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Listado Funcionarios')
 @section('content')
     <div class="row">
         <div class="col-md-12 mt-3">

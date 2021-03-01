@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Editar Categoría')
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,7 +10,9 @@
                     <table class="table">
                         <tbody>
                         <th>Categoría</th>
-                        <td><input type="text" name="categoria" class="form-control" value="{{$categorias->categoria}}"></input></td>
+                        <td><input type="text" name="categoria" class="form-control" value="{{$categorias->categoria}}"
+                                   style="text-transform:uppercase"
+                                   onkeyup="javascript:this.value=this.value.toUpperCase();" name="categoria" maxlength="25"></input></td>
                         </tbody>
                         <tbody>
                         <th>Estado</th>

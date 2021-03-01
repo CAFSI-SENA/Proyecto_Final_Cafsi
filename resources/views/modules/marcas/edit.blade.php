@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Editar Marca')
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,7 +10,9 @@
                     <table class="table">
                         <tbody>
                         <th>Marcas</th>
-                        <td><input type="text" name="marca" class="form-control" value="{{$marcas->marca}}"></input></td>
+                        <td><input type="text" name="marca" class="form-control" value="{{$marcas->marca}}"
+                                   style="text-transform:uppercase"
+                                   onkeyup="javascript:this.value=this.value.toUpperCase();" name="marca" maxlength="20"></input></td>
                         </tbody>
                         <tbody>
                         <th>Estado</th>

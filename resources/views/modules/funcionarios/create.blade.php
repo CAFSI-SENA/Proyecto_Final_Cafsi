@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Crear Funcionario')
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,15 +8,18 @@
                     @csrf
                     <div class="col-md-6">
                         <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" name="nombres" class="form-control" style="text-transform:uppercase" required>
+                        <input type="text" name="nombres" class="form-control" style="text-transform:uppercase"
+                               onkeyup="javascript:this.value=this.value.toUpperCase();" name="nombres" maxlength="30" required>
                     </div>
                     <div class="col-md-6">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" name="apellidos" class="form-control" style="text-transform:uppercase" required>
+                        <input type="text" name="apellidos" class="form-control" style="text-transform:uppercase"
+                               onkeyup="javascript:this.value=this.value.toUpperCase();" name="apellidos" maxlength="30" required>
                     </div>
                     <div class="col-md-3">
                         <label for="tipo_identificacion_id" class="form-label">Tipo Identificación</label>
                         <select name="tipo_identificacion_id" id="tipo_identificacion_id" class="form-select">
+                            <option selected disabled value="">Seleccione tipo identificación...</option>
                             @foreach($tiposidentificacion as $tipoidentificacion)
                                 <option value="{{$tipoidentificacion->id}}">{{$tipoidentificacion->tipo}}</option>
                             @endforeach
@@ -36,26 +40,23 @@
                     <div class="col-md-6">
                         <label for="area_id" class="form-label">Área</label>
                         <select name="area_id" id="area_id" class="form-select">
+                            <option selected disabled value="">Seleccione área...</option>
                             @foreach($areas as $area)
                                 <option value="{{$area->id}}">{{$area->area}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label for="genero_id" class="form-label">Genero</label>
+                        <label for="genero_id" class="form-label">Género</label>
                         <select name="genero_id" id="genero_id" class="form-select">
+                            <option selected disabled value="">Seleccione género...</option>
                             @foreach($generos as $genero)
                                 <option value="{{$genero->id}}">{{$genero->genero}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label for="estado_id" class="form-label">Estado</label>
-                        <select name="estado_id" id="estado_id" class="form-select">
-                            @foreach($estados as $estado)
-                                <option value="1">Activo</option>
-                            @endforeach
-                        </select>
+                        <input type="hidden" name="estado_id" value="1">
                     </div>
                     <div class="col-md-4">
                         <a href="{{route('funcionario.index')}}" class="btn btn-default mb-3">Cancelar</a>

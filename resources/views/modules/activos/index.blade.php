@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Listado Activos')
 @section('content')
         <div class="row">
             <div class="col-md-14 mb-3">

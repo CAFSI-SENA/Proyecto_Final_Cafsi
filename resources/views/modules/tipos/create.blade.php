@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title','Crear Tipo')
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,13 +8,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="tipo">Tipo Activo</label>
-                        <input type="text" class="form-control" name="tipo">
+                        <input type="text" class="form-control" name="tipo" style="text-transform:uppercase"
+                               onkeyup="javascript:this.value=this.value.toUpperCase();" name="tipo" maxlength="20">
                     </div>
                     <div class="form-group">
-                        <label for="estado_id">Estado</label>
-                        <select name="estado_id" id="estado_id" class="form-control">
-                            <option value="1">Activo</option>
-                        </select>
+                        <input type="hidden" name="estado_id" value="1">
                     </div>
                     <br>
                     <a href="{{route('tipo.index')}}" class="btn btn-default mb-3">Cancelar</a>
