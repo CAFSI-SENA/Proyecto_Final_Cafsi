@@ -9,10 +9,6 @@
                                 @method('PUT')
                                 <table class="table">
                                     <tbody>
-                                    <th>Nombre Activo</th>
-                                    <td><input type="text" class="form-control" value="{{$activos->nombre_activo}}"></td>
-                                    </tbody>
-                                    <tbody>
                                     <th>No. Serie</th>
                                     <td><input type="text" class="form-control" value="{{$activos->numero_serie}}"></td>
                                     </tbody>

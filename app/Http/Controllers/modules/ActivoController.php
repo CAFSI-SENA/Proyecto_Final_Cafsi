@@ -72,11 +72,11 @@ class ActivoController extends Controller
     }
 
     public function search(Request $request){
-        $categorias = CategoriaActivo::all();
-        $tipos = TipoActivo::all();
-        $marcas = Marca::all();
-        $estados = Estado::all();
-        $tiposbaja = TipoBaja::all();
+       // $categorias = CategoriaActivo::all();
+       // $tipos = TipoActivo::all();
+       // $marcas = Marca::all();
+       // $estados = Estado::all();
+       // $tiposbaja = TipoBaja::all();
 
         if ($request){
             $query = $request->get('numero_serie');
@@ -84,6 +84,6 @@ class ActivoController extends Controller
             ->get();
         }
 
-        return view('modules/bajas/create',compact('activos','categorias','tipos','marcas','estados','tiposbaja'));
+        return view('modules/bajas/create',compact('activos'));
     }
 }

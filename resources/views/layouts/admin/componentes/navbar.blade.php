@@ -42,13 +42,10 @@
                     <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
                     <div class="dropdown-divider"></div>
 
-                    <form action="{{route('logout')}}" method="post">
+                    <a class="dropdown-item text-danger" href="javascript:document.getElementById('logout').submit()"
+                    ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>
+                    <form action="{{route('logout')}}" id="logout" style="display:none" method="post">
                         @csrf
-                        <button type="submit" class="bx bx-power-off font-size-16 align-middle me-1 text-danger btn btn-link">Salir</button>
-                    <!--    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                           this.closest('form').submit();"
-                        ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>-->
                     </form>
 
                 </div>

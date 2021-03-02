@@ -13,13 +13,12 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>Nombre Activo</th>
                             <th>No. Serie</th>
-                            <th>Modelo</th>
-                            <th>Fecha Adquisición</th>
                             <th>Categoria</th>
                             <th>Tipo</th>
                             <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Fecha Adquisición</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
@@ -27,10 +26,7 @@
                         <tbody>
                         @foreach($activos as $activo)
                             <tr>
-                                <td>{{$activo->nombre_activo}}</td>
                                 <td>{{$activo->numero_serie}}</td>
-                                <td>{{$activo->modelo}}</td>
-                                <td>{{$activo->fecha_adquisicion}}</td>
                                 @foreach($categorias as $categoria)
                                     @if($activo->categoria_id == $categoria->id)
                                         <td>{{$categoria->categoria}}</td>
@@ -46,6 +42,8 @@
                                         <td>{{$marca->marca}}</td>
                                     @endif
                                 @endforeach
+                                <td>{{$activo->modelo}}</td>
+                                <td>{{$activo->fecha_adquisicion}}</td>
                                 @foreach($estados as $estado)
                                     @if($activo->estado_id == $estado->id)
                                         <td>{{$estado->estado}}</td>
@@ -58,7 +56,7 @@
 
                                             <a href="{{route('activo.show',$activo->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
                                             <a href="{{route('activo.edit',$activo->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
-                                            <button class="btn btn-outline-primary" type="submit"><img src="/trash.svg"></button>
+                                            <button class="btn btn-outline-danger" type="submit"><img src="/trash.svg"></button>
 
                                     </form>
                                 </td>

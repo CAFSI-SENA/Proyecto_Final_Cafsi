@@ -9,10 +9,6 @@
                         <div class="col-md-4 offset-4"">
                             <table class="table">
                                 <tbody>
-                                <th>Nombre Activo</th>
-                                <td>{{$activos->nombre_activo}}</td>
-                                </tbody>
-                                <tbody>
                                 <th>No. Serie</th>
                                 <td>{{$activos->numero_serie}}</td>
                                 </tbody>

@@ -1,21 +1,27 @@
 @extends('layouts.admin.app')
 @section('title','Crear Baja')
 @section('content')
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 <form action="{{route('activo.search')}}" class="row g-3">
+
                         <div class="col-md-3 ml-3">
-                            <label for="">No. Serie</label>
-                            <input type="text" class="form-control" name="numero_serie">
+                            <label for="numero_serie">No. Serie</label>
+                            <input type="text" class="form-control" name="numero_serie" value="">
                         </div>
-                        <div class="col-md-3 mt-3">
+                        <div class="col-md-3">
                             <button type="submit" class="btn btn-outline-primary">Buscar</button>
                         </div>
-                        @foreach($activos as $activo)
+
                         <div class="col-md-3 ml-3">
                             <label for="">Categoría</label>
-                            <input type="text" class="form-control" value="{{$activo->categoria}}">
+
+                                @if($categorias->id == $activo->categoria_id)
+                                    <input type="text" class="form-control" value="{{$categoria->categoria}}">
+                                @endif
+
+
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="">Tipo</label>
@@ -50,7 +56,7 @@
                                     @endif
                                 @endforeach
                         </div>
-                        @endforeach
+
                 </form>
             </div>
 
@@ -73,6 +79,7 @@
                             <div class="col-md-3">
                                 <label for="">Tipo de Baja</label>
                                 <select name="tipo_baja_id" id="tipo_baja_id" class="form-select">
+                                    <option selected disabled value="">Seleccione tipo baja...</option>
                                     @foreach($tiposbaja as $tipo)
                                         <option class="form-select" value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                                     @endforeach
