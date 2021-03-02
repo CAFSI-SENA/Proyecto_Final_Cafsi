@@ -204,9 +204,9 @@
                         <span key="t-authentication">Activos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('activo.index')}}" key="t-login">Activos</a></li>
-                        <li><a href="{{route('baja.index')}}" key="t-login-2">Bajas</a></li>
-                        <li><a href="auth-register.html" key="t-register">Asignaciones</a></li>
+                        <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
+                        <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
+                        <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
                         <li><a href="auth-register-2.html" key="t-register-2">Register 2</a></li>
                         <li><a href="auth-recoverpw.html" key="t-recover-password">Recover Password</a></li>
 
@@ -216,7 +216,7 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-file"></i>
-                        <span key="t-utility">Utility</span>
+                        <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="pages-starter.html" key="t-starter-page">Starter Page</a></li>

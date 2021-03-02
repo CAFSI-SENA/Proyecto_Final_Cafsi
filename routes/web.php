@@ -9,6 +9,7 @@ use App\Http\Controllers\modules\FuncionarioController;
 use App\Http\Controllers\modules\ActivoController;
 use App\Http\Controllers\modules\BajaController;
 use App\Http\Controllers\modules\UsuarioController;
+use App\Http\Controllers\modules\AsignacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,9 @@ Route::middleware('auth')->group(function(){
     Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
 
     Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
+
+    Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
+    Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');
 });
 
 
