@@ -6,11 +6,10 @@
             <div class="col-md-6 offset-3">
                 <form action="">
                     <div class="form-group">
-                        <label for="">Fecha</label>
-                        <input type="datetime-local" class="form-control">
+                        <label for="fecha_inicio">Fecha</label>
+                        <input type="datetime-local" disabled class="form-control" value="{{date('d-m-Y')}}" name="fecha_inicio">
                     </div>
                     <div class="form-group">
-                        <script>document.write(new Date().getDate())</script>
                         <label for="">Serie</label>
                         <input type="text" class="form-control">
                     </div>

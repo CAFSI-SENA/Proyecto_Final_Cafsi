@@ -201,15 +201,12 @@
                     <a href="javascript: void(0);" class="waves-effect">
                         <span class="badge rounded-pill bg-success float-end" key="t-new">New</span>
                         <i class="bx bx-card"></i>
-                        <span key="t-authentication">Activos</span>
+                        <span key="t-activo">Activos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
                         <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
                         <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
-                        <li><a href="auth-register-2.html" key="t-register-2">Register 2</a></li>
-                        <li><a href="auth-recoverpw.html" key="t-recover-password">Recover Password</a></li>
-
                     </ul>
                 </li>
 
@@ -219,18 +216,12 @@
                         <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html" key="t-starter-page">Starter Page</a></li>
-                        <li><a href="pages-maintenance.html" key="t-maintenance">Maintenance</a></li>
-                        <li><a href="pages-comingsoon.html" key="t-coming-soon">Coming Soon</a></li>
-                        <li><a href="pages-timeline.html" key="t-timeline">Timeline</a></li>
-                        <li><a href="pages-faqs.html" key="t-faqs">FAQs</a></li>
-                        <li><a href="pages-pricing.html" key="t-pricing">Pricing</a></li>
-                        <li><a href="pages-404.html" key="t-error-404">Error 404</a></li>
-                        <li><a href="pages-500.html" key="t-error-500">Error 500</a></li>
+                        <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
+                        <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-title" key="t-components">Administración</li>
+                <li class="menu-title" key="t-administracion">Administración</li>
 <!---
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -264,7 +255,7 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bxs-eraser"></i>
-                        <span class="badge rounded-pill bg-danger float-end">10</span>
+                        <span class="badge rounded-pill bg-danger float-end">6</span>
                         <span key="t-forms">Administrador</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
