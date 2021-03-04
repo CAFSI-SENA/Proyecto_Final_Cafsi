@@ -13,15 +13,11 @@
                         <div class="col-md-3">
                             <button type="submit" class="btn btn-outline-primary">Buscar</button>
                         </div>
-
                         <div class="col-md-3 ml-3">
                             <label for="">Categoría</label>
-
                                 @if($categorias->id == $activo->categoria_id)
                                     <input type="text" class="form-control" value="{{$categoria->categoria}}">
                                 @endif
-
-
                         </div>
                         <div class="col-md-3 ml-3">
                             <label for="">Tipo</label>
