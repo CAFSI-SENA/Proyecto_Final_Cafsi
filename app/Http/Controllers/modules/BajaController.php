@@ -26,14 +26,32 @@ class BajaController extends Controller
     }
 
     public function create(){
+
+     //   if ($request){
+     //       $query = $request->get('numero_serie');
+     //       $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )
+     //           ->get();
+     //   }
+
+        $activos = [];
+        //$serie = @$_GET['numero_serie'];
+
+        if (@$_GET['numero_serie']) {
+            //$activo = Activo::where('numero_serie',$_GET['numero_serie'])->first();
+            $activos = Activo::join('categorias_activo','categorias_activo.id','=','categoria_id')
+                ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
+                ->join('marcas','marcas.id','=','activos.marca_id')
+                ->select('activos.id','activos.numero_serie','categorias_activo.categoria','tipos_activo.tipo','activos.tipo_activo_id','marcas.marca','activos.modelo')
+                ->where('activos.numero_serie', $_GET['numero_serie'])
+                ->first();
+        }
+        /*if ($_GET['numero_serie']){
+            $activos = Activo::where('activos.numero_serie', $_GET['numero_serie'])->firts
+        }*/
         $bajas = Baja::all();
-        $activos = Activo::all();
-        $categorias = CategoriaActivo::all();
-        $tipos = TipoActivo::all();
-        $marcas = Marca::all();
-        $estados = Estado::all();
         $tiposbaja = TipoBaja::all();
-        return view('modules/bajas/create',compact('bajas','activos','categorias','tipos','marcas','estados','tiposbaja'));
+
+        return view('modules/bajas/create',compact('bajas','activos','tiposbaja'));
     }
 
     public function store(Request $request){

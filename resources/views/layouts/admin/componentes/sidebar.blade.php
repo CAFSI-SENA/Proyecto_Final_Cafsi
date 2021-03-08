@@ -264,7 +264,7 @@
                         <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
                         <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
                         <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
-                        <li><a href="{{ route('login')}}" key="t-form-elements">Usuarios</a></li>
+                        <li><a href="{{ route('register')}}" key="t-form-elements">Usuario</a></li>
 
                     </ul>
                 </li>

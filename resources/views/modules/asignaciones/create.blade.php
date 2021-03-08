@@ -14,15 +14,15 @@
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="" class="form-label">Categoría</label>
-                    <input type="text" class="form-control" value="{{ @$activo->categoria_id }}">
+                    <input type="text" class="form-control" value="{{ @$activo->categoria }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Tipo</label>
-                    <input type="text" class="form-control" value="{{ @$activo->tipo_activo_id }}">
+                    <input type="text" class="form-control" value="{{ @$activo->tipo }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Marca</label>
-                    <input type="text" class="form-control" value="{{ @$activo->marca_id }}">
+                    <input type="text" class="form-control" value="{{ @$activo->marca }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Modelo</label>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4 mt-4">
                     <label for="">Funcionario Prestamo</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->nombres }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Celular</label>
@@ -48,33 +48,41 @@
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="">Área</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->area_id }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->area }}">
                 </div>
 
             </form>
             <form action="" class="row g-3">
                 <div class="col-md-3 mt-4">
-                    <label for="">Fecha Prestamo</label>
+                    <label for="fecha_inicio">Fecha Prestamo</label>
                     <input type="datetime-local" class="form-control" name="fecha_inicio">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="">Tipo Prestamo</label>
+                    <label for="tipo_asignacion">Tipo Prestamo</label>
+                    <select name="" id="">
+                        <option selected disabled value="Seleccione tipo de prestamo"></option>
+                        @foreach($tipos_asignaciones as $tipo)
+                            @if($tipo->id == @$asignaciones->tipo_asignacion_id)
+                                <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+                            @endif
+                        @endforeach
+                    </select>
                     <input type="text" class="form-control" name="tipo_asignacion">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="">Observación</label>
+                    <label for="observacion">Observación</label>
                     <input type="text" class="form-control" name="observacion">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="">Fecha Entrega</label>
+                    <label for="fecha_fin">Fecha Entrega</label>
                     <input type="datetime-local" class="form-control" name="fecha_fin">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for=""></label>
+                    <label for="activo_id"></label>
                     <input type="hidden" class="form-control" name="activo_id">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for=""></label>
+                    <label for="funcionario_id"></label>
                     <input type="hidden" class="form-control" name="funcionario_id">
                 </div>
                 <div class="mt-3">

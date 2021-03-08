@@ -4,98 +4,71 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('activo.search')}}" class="row g-3">
-
-                        <div class="col-md-3 ml-3">
-                            <label for="numero_serie">No. Serie</label>
-                            <input type="text" class="form-control" name="numero_serie" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <button type="submit" class="btn btn-outline-primary">Buscar</button>
-                        </div>
-                        <div class="col-md-3 ml-3">
-                            <label for="">Categoría</label>
-                                @if($categorias->id == $activo->categoria_id)
-                                    <input type="text" class="form-control" value="{{$categoria->categoria}}">
-                                @endif
-                        </div>
-                        <div class="col-md-3 ml-3">
-                            <label for="">Tipo</label>
-                                @foreach($tipos as $tipo)
-                                    @if($activo->tipo_activo_id == $tipo->id)
-                                        <input type="text" class="form-control" value="{{$tipo->tipo}}">
-                                    @endif
-                                @endforeach
-                                    <input type="hidden" value="{{$activo->id}}" name="activo_id">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="">Marca</label>
-                                @foreach($marcas as $marca)
-                                    @if($activo->marca_id == $marca->id)
-                                        <input type="text" class="form-control" value="{{$marca->marca}}">
-                                    @endif
-                                @endforeach
-                        </div>
-                        <div class="col-md-3 ml-3">
-                            <label for="modelo">Modelo</label>
-                            <input type="text" class="form-control" value="{{$activo->modelo}}">
-                        </div>
-                        <div class="col-md-3 ml-3">
-                            <label for="fecha_adquisicion">Fecha Adquisición</label>
-                            <input type="text" class="form-control" value="{{$activo->fecha_adquisicion}}">
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="estado_id">Estado</label>
-                                @foreach($estados as $estado)
-                                    @if($activo->estado_id == $estado->id)
-                                        <input type="text" class="form-control" value="{{$estado->estado}}">
-                                    @endif
-                                @endforeach
-                        </div>
-
+                <form action="" class="row g-3" method="get">
+                    <div class="col-md-2 mt-4">
+                        <label for="numero_serie">Serie</label>
+                        <input type="text" class="form-control" name="numero_serie" value="{{$_GET['numero_serie']}}">
+                    </div>
+                    <div class="col-md-1 mt-5">
+                        <button class="btn btn-outline-secondary"><img src="/search.svg" alt=""></button>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="categoria_id">Categoría</label>
+                        <input type="text" class="form-control" name="categoria_id" value="{{$activos->categoria}}">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tipo_activo_id">Tipo</label>
+                        <input type="text" class="form-control" name="tipo_activo_id" value="{{$activos->tipo}}">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="marca_id">Marca</label>
+                        <input type="text" class="form-control" name="marca_id" value="{{$activos->marca}}">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" class="form-control" name="modelo" value="{{$activos->modelo}}">
+                    </div>
                 </form>
+
             </div>
 
-            <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        <form action="{{route('baja.store')}}" method="post" class="row g-3">
-                            @csrf
-                            <div class="col-md-3" style="display: none;">
-                                <label for="activo_id">Id Activo</label>
-                                @foreach($activos as $activo)
-                                <input type="text" name="activo_id" value="{{$activo->id}}" class="form-control">
-                                @endforeach
-                            </div>
 
-                            <div class="col-md-3">
-                                <label for="">Fecha</label>
-                                <input type="date" value="<?php echo date("Y-m-d");?>" name="fecha_baja" class="form-control">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="">Tipo de Baja</label>
-                                <select name="tipo_baja_id" id="tipo_baja_id" class="form-select">
-                                    <option selected disabled value="">Seleccione tipo baja...</option>
-                                    @foreach($tiposbaja as $tipo)
-                                        <option class="form-select" value="{{$tipo->id}}">{{$tipo->tipo}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Observación</label>
-                                <input type="text" class="form-control" name="observacion">
-                            </div>
+            <div class="">
+                <form action="{{route('baja.store')}}" method="post" class="row g-3">
+                    @csrf
+                    <div class="col-md-3" style="display: none;">
+                        <label for="activo_id">Id Activo</label>
 
-                            <input type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
-                            <div class="mb-3">
-                                <a href="{{route('baja.index')}}" class="btn btn-outline-default">Cancelar</a>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-
-                        </form>
+                            <input type="text" name="activo_id" value="{{$activos->id}}" class="form-control">
 
                     </div>
-                </div>
+
+                    <div class="col-md-3">
+                        <label for="">Fecha</label>
+                        <input type="date" value="<?php echo date("Y-m-d");?>" name="fecha_baja" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Tipo de Baja</label>
+                        <select name="tipo_baja_id" id="tipo_baja_id" class="form-select">
+                            <option selected disabled value="">Seleccione tipo baja...</option>
+                            @foreach($tiposbaja as $tipo)
+                                <option class="form-select" value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Observación</label>
+                        <input type="text" class="form-control" name="observacion">
+                    </div>
+
+                    <input type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
+                    <div class="mb-3">
+                        <a href="{{route('baja.index')}}" class="btn btn-outline-default">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                </form>
+
             </div>
 
         </div>

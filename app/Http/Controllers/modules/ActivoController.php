@@ -72,7 +72,7 @@ class ActivoController extends Controller
     }
 
     public function search(Request $request){
-        $categorias = CategoriaActivo::all();
+
         $tipos = TipoActivo::all();
         $marcas = Marca::all();
         $estados = Estado::all();
@@ -84,6 +84,7 @@ class ActivoController extends Controller
             ->get();
         }
 
-        return view('modules/bajas/create',compact('activos','tipos','categorias'));
+        $categorias = CategoriaActivo::where('id',$activos->categoria_id)->get();
+        return view('modules/bajas/create',compact('activos','tipos'));
     }
 }

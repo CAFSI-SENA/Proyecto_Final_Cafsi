@@ -15,7 +15,6 @@ class CreateActivosTable extends Migration
     {
         Schema::create('activos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_activo',20);
             $table->string('numero_serie',30);
             $table->string('modelo',30);
             $table->date('fecha_adquisicion');
