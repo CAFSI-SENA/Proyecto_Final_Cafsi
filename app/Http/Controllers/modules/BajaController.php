@@ -61,7 +61,9 @@ class BajaController extends Controller
 
     public function show($id){
         $bajas = Baja::find($id);
-        return view('modules/bajas/show',compact('bajas'));
+        $tipos_baja = TipoBaja::all();
+        $activos = Activo::all();
+        return view('modules/bajas/show',compact('bajas','tipos_baja','activos'));
     }
 
     public function destroy($id){

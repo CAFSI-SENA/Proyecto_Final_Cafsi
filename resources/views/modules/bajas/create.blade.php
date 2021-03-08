@@ -7,26 +7,26 @@
                 <form action="" class="row g-3" method="get">
                     <div class="col-md-2 mt-4">
                         <label for="numero_serie">Serie</label>
-                        <input type="text" class="form-control" name="numero_serie" value="{{$_GET['numero_serie']}}">
+                        <input type="text" class="form-control" name="numero_serie" value="{{@$_GET['numero_serie']}}">
                     </div>
                     <div class="col-md-1 mt-5">
                         <button class="btn btn-outline-secondary"><img src="/search.svg" alt=""></button>
                     </div>
                     <div class="col-md-2">
                         <label for="categoria_id">Categoría</label>
-                        <input type="text" class="form-control" name="categoria_id" value="{{$activos->categoria}}">
+                        <input type="text" class="form-control" name="categoria_id" value="{{@$activos->categoria}}">
                     </div>
                     <div class="col-md-2">
                         <label for="tipo_activo_id">Tipo</label>
-                        <input type="text" class="form-control" name="tipo_activo_id" value="{{$activos->tipo}}">
+                        <input type="text" class="form-control" name="tipo_activo_id" value="{{@$activos->tipo}}">
                     </div>
                     <div class="col-md-2">
                         <label for="marca_id">Marca</label>
-                        <input type="text" class="form-control" name="marca_id" value="{{$activos->marca}}">
+                        <input type="text" class="form-control" name="marca_id" value="{{@$activos->marca}}">
                     </div>
                     <div class="col-md-2">
                         <label for="modelo">Modelo</label>
-                        <input type="text" class="form-control" name="modelo" value="{{$activos->modelo}}">
+                        <input type="text" class="form-control" name="modelo" value="{{@$activos->modelo}}">
                     </div>
                 </form>
 
@@ -39,7 +39,7 @@
                     <div class="col-md-3" style="display: none;">
                         <label for="activo_id">Id Activo</label>
 
-                            <input type="text" name="activo_id" value="{{$activos->id}}" class="form-control">
+                            <input type="text" name="activo_id" value="{{@$activos->id}}" class="form-control">
 
                     </div>
 
