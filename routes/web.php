@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
     Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');
+    Route::post('modules/asignaciones',[AsignacionController::class,'store'])->name('asignacion.store');
 });
 
 

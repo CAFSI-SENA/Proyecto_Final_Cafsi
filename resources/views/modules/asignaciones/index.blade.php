@@ -18,16 +18,16 @@
                         </tbody>
                         <tbody>
                         @foreach($asignaciones as $asignacion)
-                            <td>{{$asignacion->activo_id}}</td>
-                            <td>{{$asignacion->activo_id}}</td>
-                            <td>{{$asignacion->funcionario_id}}</td>
+                            <td>{{$asignacion->numero_serie}}</td>
+                            <td>{{$asignacion->tipo}}</td>
+                            <td>{{$asignacion->nombres.' '.$asignacion->apellidos}}</td>
                             <td>{{$asignacion->tipo_asignacion}}</td>
                             <td>{{$asignacion->fecha_inicio}}</td>
                             <td>{{$asignacion->fecha_fin}}</td>
                             <td>
-                                <a href="" class="btn btn-outline-info"><img src="" alt=""></a>
-                                <a href="" class="btn btn-outline-warning"><img src="" alt=""></a>
-                                <button type="submit" class="btn btn-outline-danger"><img src="" alt=""></button>
+                                <a href="" class="btn btn-outline-info"><img src="/eye.svg" alt=""></a>
+                                <a href="" class="btn btn-outline-warning"><img src="/pencil-square.svg" alt=""></a>
+                                <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg" alt=""></button>
                             </td>
                         @endforeach
                         </tbody>

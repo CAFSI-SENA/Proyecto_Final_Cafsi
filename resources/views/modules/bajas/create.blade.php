@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="" class="row g-3" method="get">
-                    <div class="col-md-2 mt-4">
+                    <div class="col-md-3 mt-4">
                         <label for="numero_serie">Serie</label>
                         <input type="text" class="form-control" name="numero_serie" value="{{@$_GET['numero_serie']}}">
                     </div>

@@ -12,7 +12,13 @@ use App\Models\Funcionario;
 class AsignacionController extends Controller
 {
     public function index(){
-        $asignaciones = Asignacion::all();
+        $asignaciones = Asignacion::join('activos as a','asignaciones.activo_id','=','a.id')
+            ->join('tipos_activo as t','t.id','=','a.tipo_activo_id')
+            ->join('funcionarios as f','f.id','=','asignaciones.funcionario_id')
+            ->join('tipos_asignacion as ta','ta.id','asignaciones.tipo_asignacion')
+            ->select('a.numero_serie','t.tipo','f.nombres','f.apellidos','ta.tipo as tipo_asignacion','asignaciones.fecha_inicio','asignaciones.fecha_fin')
+            ->get();
+
         return view('modules/asignaciones/index', compact('asignaciones'));
     }
 
@@ -31,12 +37,33 @@ class AsignacionController extends Controller
         }
         if (@$_GET['identificacion']) {
             $funcionario = Funcionario::join('areas','areas.id','=','funcionarios.area_id')
-                ->select('funcionarios.*','areas.*')
+                ->select('funcionarios.id','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area')
             ->where('identificacion',$_GET['identificacion'])->first();
         }
 
         $asignaciones = Asignacion::all();
-        $tipos_asignaciones = TipoAsignacion::all();
-        return view('modules/asignaciones/create', compact('asignaciones','funcionario','activo','tipos_asignaciones'));
+        $tipos_asignacion = TipoAsignacion::all();
+        //$asignaciones = Asignacion::join('tipos_asignacion','tipos_asignacion.id','=','asignaciones.tipo_asignacion')
+        //->select('asignaciones.*','tipos_asignacion.tipo','tipos_asignacion.id')
+        //->where('asignaciones.tipo_asignacion','tipos_asignacion.id')
+        //->first();
+        return view('modules/asignaciones/create', compact('asignaciones','funcionario','activo','tipos_asignacion'));
+    }
+
+    public function store(Request $request){
+        $asignaciones = Asignacion::create($request->all());
+        return redirect()->route('asignacion.index');
+    }
+
+    public function update(){
+
+    }
+
+    public function show(){
+
+    }
+
+    public function destroy(){
+
     }
 }

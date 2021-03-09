@@ -29,7 +29,7 @@
                     <input type="text" class="form-control" value="{{ @$activo->modelo }}">
                 </div>
             </form>
-            <form action="" class="row g-3">
+            <form action="" class="row g-3" method="get">
                 <input type="hidden" name="numero_serie" value="{{ @$_GET['numero_serie'] }}">
                 <div class="col-md-2 mt-4">
                     <label for="">No. Documento</label>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4 mt-4">
                     <label for="">Funcionario Prestamo</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos.' '.$funcionario->id }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Celular</label>
@@ -52,26 +52,24 @@
                 </div>
 
             </form>
-            <form action="" class="row g-3">
+            <form action="{{route('asignacion.store')}}" class="row g-3" method="post">
+                @csrf
                 <div class="col-md-3 mt-4">
                     <label for="fecha_inicio">Fecha Prestamo</label>
                     <input type="datetime-local" class="form-control" name="fecha_inicio">
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="tipo_asignacion">Tipo Prestamo</label>
-                    <select name="" id="">
-                        <option selected disabled value="Seleccione tipo de prestamo"></option>
-                        @foreach($tipos_asignaciones as $tipo)
-                            @if($tipo->id == @$asignaciones->tipo_asignacion_id)
-                                <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
-                            @endif
+                    <label for="">Tipo Prestamo</label>
+                    <select name="tipo_asignacion" id="tipo_asignacion" class="form-select">
+                        <option selected disabled value="">Seleccione tipo de prestamo...</option>
+                        @foreach($tipos_asignacion as $tipo)
+                            <option value="{{$tipo->id}}">{{$tipo->tipo.' '.$tipo->id}}</option>
                         @endforeach
                     </select>
-                    <input type="text" class="form-control" name="tipo_asignacion">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="observacion">Observación</label>
-                    <input type="text" class="form-control" name="observacion">
+                    <input type="textarea" class="form-control" name="observacion">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="fecha_fin">Fecha Entrega</label>
@@ -79,11 +77,11 @@
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="activo_id"></label>
-                    <input type="hidden" class="form-control" name="activo_id">
+                    <input type="hidden" class="form-control" name="activo_id" value="{{@$activo->id}}">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="funcionario_id"></label>
-                    <input type="hidden" class="form-control" name="funcionario_id">
+                    <input type="hidden" class="form-control" name="funcionario_id" value="{{@$funcionario->id}}">
                 </div>
                 <div class="mt-3">
                     <a href="{{route('asignacion.index')}}" class="btn btn-outline-dark">Cancelar</a>
