@@ -63,7 +63,7 @@
                     <select name="tipo_asignacion" id="tipo_asignacion" class="form-select">
                         <option selected disabled value="">Seleccione tipo de prestamo...</option>
                         @foreach($tipos_asignacion as $tipo)
-                            <option value="{{$tipo->id}}">{{$tipo->tipo.' '.$tipo->id}}</option>
+                            <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                         @endforeach
                     </select>
                 </div>
