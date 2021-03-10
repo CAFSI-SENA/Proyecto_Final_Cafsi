@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4 mt-4">
                     <label for="">Funcionario Prestamo</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos.' '.$funcionario->id }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Celular</label>
@@ -63,7 +63,7 @@
                     <select name="tipo_asignacion" id="tipo_asignacion" class="form-select">
                         <option selected disabled value="">Seleccione tipo de prestamo...</option>
                         @foreach($tipos_asignacion as $tipo)
-                            <option value="{{$tipo->id}}">{{$tipo->tipo.' '.$tipo->id}}</option>
+                            <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -82,6 +82,7 @@
                 <div class="col-md-3 mt-4">
                     <label for="funcionario_id"></label>
                     <input type="hidden" class="form-control" name="funcionario_id" value="{{@$funcionario->id}}">
+                    <input type="hidden" class="form-control" name="estado_id" value="">
                 </div>
                 <div class="mt-3">
                     <a href="{{route('asignacion.index')}}" class="btn btn-outline-dark">Cancelar</a>

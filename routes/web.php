@@ -10,6 +10,7 @@ use App\Http\Controllers\modules\ActivoController;
 use App\Http\Controllers\modules\BajaController;
 use App\Http\Controllers\modules\UsuarioController;
 use App\Http\Controllers\modules\AsignacionController;
+Use App\Actions\Fortify\UpdateUserPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,8 +85,15 @@ Route::middleware('auth')->group(function(){
     Route::get('modules/bajas/edit/{id}',[BajaController::class,'edit'])->name('baja.edit');
     Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
 
-    Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
-
+    //Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
+    Route::get('/modules/usuarios/index',[UsuarioController::class,'index'])->name('usuario.index');
+    Route::get('modules/usuarios/create',[UsuarioController::class,'create'])->name('usuario.create');
+    Route::post('modules/usuarios',[UsuarioController::class,'store'])->name('usuario.store');
+    Route::get('modules/usuarios/{id}',[UsuarioController::class,'show'])->name('usuario.show');
+    Route::delete('modules/usuarios/{id}',[UsuarioController::class,'destroy'])->name('usuario.destroy');
+    Route::get('modules/usuarios/edit/{id}',[UsuarioController::class,'edit'])->name('usuario.edit');
+    Route::put('modules/usuarios/{id}',[UsuarioController::class,'update'])->name('usuario.update');
+    Route::get('/modules/usuarios/reset/{id}',[UpdateUserPassword::class,'reset'])->name('usuario.reset');
 
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
     Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');

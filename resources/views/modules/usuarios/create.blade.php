@@ -1,6 +1,29 @@
 @extends('layouts.admin.app')
-@extends('title','Crear Usuario')
+@section('title','Crear Usuario')
 @section('content')
+    <div class="row">
+        <div class="col-md-6 offset-4">
+            <form action="{{route('usuario.store')}}" method="post">
+                @csrf
+                <div class="col-md-5">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="col-md-5">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="col-md-5">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="mt-3">
+                    <a href="{{route('usuario.index')}}" class="btn btn-outline-dark">Cancelar</a>
+                    <button type="sutmit" class="btn btn-outline-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

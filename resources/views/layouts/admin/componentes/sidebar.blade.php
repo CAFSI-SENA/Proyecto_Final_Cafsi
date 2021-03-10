@@ -199,7 +199,6 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end" key="t-new">New</span>
                         <i class="bx bx-card"></i>
                         <span key="t-activo">Activos</span>
                     </a>
@@ -216,10 +215,20 @@
                         <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
-                        <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
+                        <li><a href="" key="t-starter-page">Inventario</a></li>
+                        <li><a href="" key="t-maintenance">Activos en Prestamo</a></li>
                     </ul>
                 </li>
+
+            <!--    <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span key="t-utility">Usuario</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="" key="t-starter-page">Cambio de Contraseña</a></li>
+                    </ul>
+                </li> -->
 
                 <li class="menu-title" key="t-administracion">Administración</li>
 <!---
@@ -255,7 +264,6 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bxs-eraser"></i>
-                        <span class="badge rounded-pill bg-danger float-end">6</span>
                         <span key="t-forms">Administrador</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -264,7 +272,7 @@
                         <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
                         <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
                         <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
-                        <li><a href="{{ route('register')}}" key="t-form-elements">Usuario</a></li>
+                        <li><a href="{{ route('usuario.index')}}" key="t-form-elements">Usuario</a></li>
 
                     </ul>
                 </li>
