@@ -66,8 +66,8 @@
                                         <img src="assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
                                     </a>
                                 </div>
-                                <div class="my-auto">
 
+                                <div class="my-auto">
                                     <div>
                                         <img src="/logocolina.jfif" alt="" height="100" class="auth-logo-dark offset-4 mb-3">
                                         <h5 class="text-primary offset-4">Bienvenidos</h5>

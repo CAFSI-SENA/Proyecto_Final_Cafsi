@@ -2,6 +2,16 @@
 @section('title','Crear Asignación')
 @section('content')
     <div class="row">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Asignaciones</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Crear Asignación</a></li>
+                    <li class="breadcrumb-item active">Técnico</li>
+                </ol>
+            </div>
+        </div>
         <div class="col-md-12">
             <form action="" class="row g-3" method="get">
                 <input type="hidden" name="identificacion" value="{{ @$_GET['identificacion'] }}">

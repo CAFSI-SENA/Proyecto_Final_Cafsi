@@ -2,7 +2,17 @@
 @section('title','Actualizar Usuario')
 @section('content')
     <div class="row">
-        <div class="col-md-3 offset-4">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Usuarios</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Actualizar Usuario</a></li>
+                    <li class="breadcrumb-item active">Administrador</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-4 offset-4">
             <form action="{{route('usuario.update',$usuarios->id)}}" method="post">
                 @csrf
                 @method('PUT')

@@ -19,7 +19,12 @@ class UsuarioController extends Controller
     }
 
     public function store(Request $request){
-        $usuarios = User::create($request->all());
+        $usuarios = new User();
+        $usuarios->name = $request->name;
+        $usuarios->email = $request->email;
+        $usuarios->password = bcrypt($request->password);
+        $usuarios->save();
+        //$usuarios = User::create($request->all());
         return redirect()->route('usuario.index');
     }
 
@@ -40,7 +45,7 @@ class UsuarioController extends Controller
 
     public function destroy($id){
         $usuarios = User::find($id)->delete();
-        return view('modules/usuarios/index');
+        return view('modules/usuarios/index', compact('usuarios'));
     }
 
     public function reset(){
