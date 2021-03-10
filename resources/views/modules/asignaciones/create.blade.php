@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4 mt-4">
                     <label for="">Funcionario Prestamo</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos.' '.$funcionario->id }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}">
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Celular</label>
