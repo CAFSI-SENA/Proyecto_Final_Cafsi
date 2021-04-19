@@ -14,6 +14,13 @@ use function GuzzleHttp\Promise\all;
 
 class ActivoController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-activo-create',
+        'show' => 'admin-activo-show',
+        'edit' => 'admin-activo-edit',
+        'delete' => 'admin-activo-delete',
+    ];
+
     public function index(){
         $activos = Activo::all();
         $categorias = CategoriaActivo::all();

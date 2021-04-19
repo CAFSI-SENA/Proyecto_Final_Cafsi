@@ -11,6 +11,13 @@ use App\Models\Funcionario;
 
 class AsignacionController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-asignaciones-create',
+        'show' => 'admin-asignaciones-show',
+        'edit' => 'admin-asignaciones-edit',
+        'delete' => 'admin-asignaciones-delete',
+    ];
+
     public function index(){
         $asignaciones = Asignacion::join('activos as a','asignaciones.activo_id','=','a.id')
             ->join('tipos_activo as t','t.id','=','a.tipo_activo_id')

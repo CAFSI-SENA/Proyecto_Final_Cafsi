@@ -31,7 +31,7 @@ class JetstreamServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the permissions that are available within the application.
+     * Configure the permisos that are available within the application.
      *
      * @return void
      */

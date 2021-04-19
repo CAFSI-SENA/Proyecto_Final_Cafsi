@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class TipoActivoController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-tipo-activo-create',
+        'show' => 'admin-tipo-activo-show',
+        'edit' => 'admin-tipo-activo-edit',
+        'delete' => 'admin-tipo-activo-delete',
+    ];
+
     public function index(){
         $tipos = TipoActivo::all();
         $estados = Estado::all();

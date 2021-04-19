@@ -10,6 +10,8 @@ use App\Http\Controllers\modules\ActivoController;
 use App\Http\Controllers\modules\BajaController;
 use App\Http\Controllers\modules\UsuarioController;
 use App\Http\Controllers\modules\AsignacionController;
+use App\Http\Controllers\modules\RoleController;
+use App\Http\Controllers\modules\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,19 @@ Route::middleware('auth')->group(function(){
     Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
 
     Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
+    Route::get('auth/index',[UsuarioController::class,'show'])->name('usuario.show');
+    Route::get('auth/index',[UsuarioController::class,'edit'])->name('usuario.edit');
+    Route::patch('modules/usuarios/{user}/roles', [UsuarioController::class, 'role'])->name('user.role');
+    Route::patch('modules/usuarios/{user}/permisos', [UsuarioController::class, 'permission'])->name('user.permission');
+
+    Route::resource('roles', RoleController::class)
+        ->names('rol')
+        ->parameters(['permisos' => 'rol']);
+
+    Route::resource('permisos', PermissionController::class)
+        ->names('permission')
+        ->parameters(['permisos' => 'permission'])
+        ->only(['index','show']);
 
 
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');

@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-areas-create',
+        'show' => 'admin-areas-show',
+        'edit' => 'admin-areas-edit',
+        'delete' => 'admin-areas-delete',
+    ];
+
     public function index(){
         $areas = Area::all();
         $estados = Estado::all();

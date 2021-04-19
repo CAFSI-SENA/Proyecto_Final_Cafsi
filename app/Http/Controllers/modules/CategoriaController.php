@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-categorias-create',
+        'show' => 'admin-categorias-show',
+        'edit' => 'admin-categorias-edit',
+        'delete' => 'admin-categorias-delete',
+    ];
+
     public function index(){
         $categorias = CategoriaActivo::all();
         $estados = Estado::all();

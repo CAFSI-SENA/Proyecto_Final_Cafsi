@@ -255,7 +255,7 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bxs-eraser"></i>
-                        <span class="badge rounded-pill bg-danger float-end">6</span>
+                        <span class="badge rounded-pill bg-danger float-end">8</span>
                         <span key="t-forms">Administrador</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -265,6 +265,8 @@
                         <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
                         <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
                         <li><a href="{{ route('register')}}" key="t-form-elements">Usuario</a></li>
+                        <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
+                        <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
 
                     </ul>
                 </li>

@@ -13,6 +13,13 @@ use function GuzzleHttp\Promise\all;
 
 class FuncionarioController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-funcionarios-create',
+        'show' => 'admin-funcionarios-show',
+        'edit' => 'admin-funcionarios-edit',
+        'delete' => 'admin-funcionarios-delete',
+    ];
+
     public function index(){
         $funcionarios = Funcionario::all();
         $areas = Area::all();

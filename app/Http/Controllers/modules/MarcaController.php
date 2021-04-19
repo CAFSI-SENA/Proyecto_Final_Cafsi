@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class MarcaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-marcas-create',
+        'show' => 'admin-marcas-show',
+        'edit' => 'admin-marcas-edit',
+        'delete' => 'admin-marcas-delete',
+    ];
+
     public function index(){
         $marcas = Marca::all();
         $estados = Estado::all();
