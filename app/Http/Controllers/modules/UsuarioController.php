@@ -12,8 +12,14 @@ class UsuarioController extends Controller
         'create' => 'admin-users-create',
         'show' => 'admin-users-show',
         'edit' => 'admin-users-edit',
-        'delete' => 'admin-users-delete',
     ];
+
+    public function __construct()
+    {
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+    }
 
     public function index(){
         $usuarios = User::all();

@@ -4,9 +4,25 @@ namespace App\Http\Controllers\modules;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-roles-create',
+        'show' => 'admin-roles-show',
+        'edit' => 'admin-roles-edit',
+        'delete' => 'admin-roles-delete',
+    ];
+/*
+    public function __construct()
+    {
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +30,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Role::all();
+        return view('modules/roles/index', [
+            'rows' => $rows,
+        ]);
     }
 
     /**
@@ -24,7 +43,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('modules/roles/create', [
+            'row' => new Role(),
+            'permissions' => Permission::all(),
+        ]);
     }
 
     /**
@@ -35,7 +57,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $roles = Role::create($request->all());
+        $roles->permissions()->sync($request->permission);
+        return redirect()->route('rol.index');
     }
 
     /**
