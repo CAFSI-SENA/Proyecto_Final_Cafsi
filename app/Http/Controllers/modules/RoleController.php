@@ -68,11 +68,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
-        return view('modules/roles/show', [
-            'row' => $role->load('permissions','users')
-        ]);
+        //
     }
 
     /**
@@ -81,12 +79,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        return view('modules/roles/edit', [
-            'row' => $role,
-            'permissions' => Permission::all(),
-        ]);
+        //
     }
 
     /**
@@ -96,11 +91,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
-        $role->update($request->all());
-        $role->permissions()->sync($request->permission);
-        return redirect()->route('rol.show', $role->id);
+        //
     }
 
     /**
@@ -111,7 +104,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id)->delete();
-        return redirect()->route('rol.index');
+        //
     }
 }

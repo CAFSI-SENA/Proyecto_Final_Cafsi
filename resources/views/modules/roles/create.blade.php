@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h5>Asignación de permisos</h5>
                         @foreach($permissions as $permission)
-                            <div class="row col-5">
+                            <div class="col-12">
                                 {!! Form::checkbox(
                                     "permission[{$permission->id}]",
                                     $permission->id,

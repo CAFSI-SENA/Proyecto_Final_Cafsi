@@ -252,10 +252,9 @@
                     </ul>
                 </li>
 --->
-
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bxs-user-detail"></i>
+                        <i class="bx bxs-eraser"></i>
                         <span class="badge rounded-pill bg-danger float-end">8</span>
                         <span key="t-forms">Administrador</span>
                     </a>
@@ -265,35 +264,9 @@
                         <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
                         <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
                         <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-users-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('user.index')}}" key="t-form-elements">Usuario</a></li>
-                            </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-roles-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
-                            </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-permissions-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
-                            </div>
-                        @endif
-
-
+                        <li><a href="{{ route('register')}}" key="t-form-elements">Usuario</a></li>
+                        <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
+                        <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
 
                     </ul>
                 </li>
