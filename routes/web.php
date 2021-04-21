@@ -86,9 +86,19 @@ Route::middleware('auth')->group(function(){
     Route::get('modules/bajas/edit/{id}',[BajaController::class,'edit'])->name('baja.edit');
     Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
 
-    Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
-    Route::get('auth/index',[UsuarioController::class,'show'])->name('usuario.show');
-    Route::get('auth/index',[UsuarioController::class,'edit'])->name('usuario.edit');
+    /*Route::get('modules/usuarios/index',[UsuarioController::class,'index'])->name('user.index');
+    Route::get('modules/usuarios/show',[UsuarioController::class,'show'])->name('user.show');
+    Route::get('modules/usuarios/edit',[UsuarioController::class,'edit'])->name('user.edit');*/
+    //Route::resource('modules/usuarios',UsuarioController::class)->names('user');
+
+    Route::get('modules/usuarios/create',[UsuarioController::class,'create'])->name('user.create');
+    Route::post('modules/usuarios',[UsuarioController::class,'store'])->name('user.store');
+    Route::get('modules/usuarios/index',[UsuarioController::class,'index'])->name('user.index');
+    Route::get('modules/usuarios/edit/{user}',[UsuarioController::class,'edit'])->name('user.edit');
+    Route::put('modules/usuarios/edit',[UsuarioController::class,'update'])->name('user.update');
+    Route::get('modules/usuarios/show/{user}',[UsuarioController::class,'show'])->name('user.show');
+    Route::get('modules/usuarios/{user}/show-permissions', [UsuarioController::class,'permissionshow'])->name('user.permissionshow');
+
     Route::patch('modules/usuarios/{user}/roles', [UsuarioController::class, 'role'])->name('user.role');
     Route::patch('modules/usuarios/{user}/permisos', [UsuarioController::class, 'permission'])->name('user.permission');
 

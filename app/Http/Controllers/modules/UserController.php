@@ -3,26 +3,34 @@
 namespace App\Http\Controllers\modules;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     const PERMISSIONS = [
-        'create' => 'admin-roles-create',
-        'show' => 'admin-roles-show',
-        'edit' => 'admin-roles-edit',
-        'delete' => 'admin-roles-delete',
+        //'index' => 'admin-users-index',
+        'create' => 'admin-users-create',
+        'show' => 'admin-users-show',
+        'edit' => 'admin-users-edit',
     ];
-/*
-    public function __construct()
-    {
+
+    public function __construct(){
+        //$this->middleware('role:Admin')->only(('index'));
+        //$this->middleware('pemission:show')->only(['show']);
+        //$this->middleware('permission:'.self::PERMISSIONS['index']);
+        //$this->middleware('permission:'.self::PERMISSIONS['index']);
+
         $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
         $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
         $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
-        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
-    }*/
+
+        //$this->middleware('permission:index')->only('index');
+        //$this->middleware('role:Admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,10 +38,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $rows = Role::all();
-        return view('modules/roles/index', [
-            'rows' => $rows,
-        ]);
+        $users = User::all();
+        return view('modules/usuarios/index', compact('users'));
     }
 
     /**
@@ -43,10 +49,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('modules/roles/create', [
-            'row' => new Role(),
-            'permissions' => Permission::all(),
-        ]);
+        //
     }
 
     /**
@@ -57,21 +60,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $roles = Role::create($request->all());
-        $roles->permissions()->sync($request->permission);
-        return redirect()->route('rol.index');
+        //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
+    public function show(User $user)
     {
-        return view('modules/roles/show', [
-            'row' => $role->load('permissions','users')
+        return view('modules/usuarios/show',[
+            'row' => $user,
+            'roles' => Role::all(),
+            'permissions' => Permission::all(),
         ]);
     }
 
@@ -81,12 +78,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        return view('modules/roles/edit', [
-            'row' => $role,
-            'permissions' => Permission::all(),
-        ]);
+        //
     }
 
     /**
@@ -96,11 +90,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
-        $role->update($request->all());
-        $role->permissions()->sync($request->permission);
-        return redirect()->route('rol.show', $role->id);
+        //
     }
 
     /**
@@ -111,7 +103,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id)->delete();
-        return redirect()->route('rol.index');
+        //
     }
 }
