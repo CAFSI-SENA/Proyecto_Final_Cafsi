@@ -1,1 +1,36 @@
-<h1>Hola mundo</h1>
+@extends('layouts.admin.app')
+@section('title','Listado de Usuarios')
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            <input wire:model="search" name="search" class="form-control" placeholder="Ingrese el correo o nombre de usuario">
+        </div>
+        <div class="card-body">
+            <table class="table table-striped" id="usuarios">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Creación</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($users as $user)
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->created_at->diffForHumans()}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{route('user.edit',$user->id)}}">Editar</a>
+                            <a class="btn btn-primary" href="{{route('user.show',$user->id)}}">Detalle</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+@endsection

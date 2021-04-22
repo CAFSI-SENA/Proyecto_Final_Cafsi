@@ -26,4 +26,12 @@ class PermissionController extends Controller
                 'rows' => $permissions,
             ]);
     }
+
+    public function show(Permission $permission)
+    {
+        return view('modules/permisos/show',
+            [
+                'row' => $permission->load('roles', 'users'),
+            ]);
+    }
 }

@@ -85,10 +85,10 @@ Route::middleware('auth')->group(function(){
     Route::delete('modules/bajas/{id}',[BajaController::class,'destroy'])->name('baja.destroy');
     Route::get('modules/bajas/edit/{id}',[BajaController::class,'edit'])->name('baja.edit');
     Route::put('modules/bajas/{id}',[BajaController::class,'update'])->name('baja.update');
-
+/*
     Route::get('auth/index',[UsuarioController::class,'index'])->name('usuario.index');
     Route::get('auth/index',[UsuarioController::class,'show'])->name('usuario.show');
-    Route::get('auth/index',[UsuarioController::class,'edit'])->name('usuario.edit');
+    Route::get('auth/index',[UsuarioController::class,'edit'])->name('usuario.edit');*/
 
     Route::get('modules/usuarios/create',[UsuarioController::class,'create'])->name('user.create');
     Route::post('modules/usuarios',[UsuarioController::class,'store'])->name('user.store');

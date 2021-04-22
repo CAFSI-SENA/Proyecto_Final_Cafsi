@@ -264,7 +264,7 @@
                         <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
                         <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
                         <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
-                        <li><a href="{{ route('user.index')}}" key="t-form-elements">Usuario</a></li>
+                        <li><a href="{{ route('user.index')}}" key="t-form-elements">Usuarios</a></li>
                         <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
                         <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
 
