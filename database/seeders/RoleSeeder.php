@@ -10,6 +10,8 @@ use App\Http\Controllers\modules\CategoriaController;
 use App\Http\Controllers\modules\EstadoController;
 use App\Http\Controllers\modules\FuncionarioController;
 use App\Http\Controllers\modules\MarcaController;
+use App\Http\Controllers\modules\PermissionController;
+use App\Http\Controllers\modules\RoleController;
 use App\Http\Controllers\modules\TipoActivoController;
 use App\Http\Controllers\modules\TipoBajaController;
 use App\Http\Controllers\modules\UsuarioController;
@@ -29,6 +31,7 @@ class RoleSeeder extends Seeder
         $role1 = Role::create(['name'=>'SuperAdmin','description' => 'Administrador con todos los permisos']);
         $role2 = Role::create(['name'=>'Admin','description' => 'Administrador']);
         $role3 = Role::create(['name'=>'Auxiliar', 'description' => 'Auxiliar de bodega']);
+
         /*
          * Usuarios
          */
@@ -138,15 +141,21 @@ class RoleSeeder extends Seeder
         Permission::updateOrCreate(['name' => TipoActivoController::PERMISSIONS['delete']],
             ['description' => 'Eliminar tipo de activo'])->syncRoles([$role1]);
         /*
-         * Tipos de baja
+         * Roles
+        */
+        Permission::updateOrCreate(['name' => RoleController::PERMISSIONS['create']],
+            ['description' => 'Creación de roles'])->syncRoles([$role1,$role2]);
+        Permission::updateOrCreate(['name' => RoleController::PERMISSIONS['show']],
+            ['description' => 'listado y detalle de rol'])->syncRoles([$role1,$role2]);
+        Permission::updateOrCreate(['name' => RoleController::PERMISSIONS['edit']],
+            ['description' => 'Edición de rol'])->syncRoles([$role1,$role2]);
+        Permission::updateOrCreate(['name' => RoleController::PERMISSIONS['delete']],
+            ['description' => 'Eliminar rol'])->syncRoles([$role1]);
+        /*
+         * Permisos
+         */
+        Permission::updateOrCreate(['name' => PermissionController::PERMISSIONS['show']],
+            ['description' => 'listado y detalle de permisos'])->syncRoles([$role1]);
 
-        Permission::updateOrCreate(['name' => TipoBajaController::PERMISSIONS['create']],
-            ['description' => 'Creación de tipo de activos'])->syncRoles([$role1,$role2]);
-        Permission::updateOrCreate(['name' => TipoBajaController::PERMISSIONS['show']],
-            ['description' => 'listado y detalle de tipo de activo'])->syncRoles([$role1,$role2,$role3]);
-        Permission::updateOrCreate(['name' => TipoBajaController::PERMISSIONS['edit']],
-            ['description' => 'Edición de tipo de activo'])->syncRoles([$role1,$role2]);
-        Permission::updateOrCreate(['name' => TipoBajaController::PERMISSIONS['delete']],
-            ['description' => 'Eliminar tipo de activo'])->syncRoles([$role1]);*/
     }
 }
