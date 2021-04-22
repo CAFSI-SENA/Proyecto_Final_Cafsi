@@ -24,8 +24,16 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->created_at->diffForHumans()}}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{route('user.edit',$user->id)}}">Editar</a>
-                            <a class="btn btn-primary" href="{{route('user.show',$user->id)}}">Detalle</a>
+                            @php
+                                $can_view_permissions = auth()->user()->can('admin-users-edit');
+                            @endphp
+
+                            @if($can_view_permissions)
+                                <a class="btn btn-outline-primary" href="{{route('user.edit',$user->id)}}"><img src="/pencil-square.svg"
+                                                                                                                alt=""></a>
+                            @endif
+                            <a class="btn btn-outline-warning" href="{{route('user.show',$user->id)}}"><img src="/eye.svg"
+                                                                                                            alt=""></a>
                         </td>
                     </tr>
                 @endforeach
