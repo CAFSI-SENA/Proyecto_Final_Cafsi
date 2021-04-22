@@ -199,14 +199,38 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end" key="t-new">New</span>
+
                         <i class="bx bx-card"></i>
                         <span key="t-activo">Activos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
-                        <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
-                        <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-activo-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-bajas-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-asignaciones-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
+                            </div>
+                        @endif
                     </ul>
                 </li>
 
@@ -216,13 +240,31 @@
                         <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
-                        <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-inventarios-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
+                            </div>
+                        @endif
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-activos-prestamo-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
+                            </div>
+                        @endif
+
                     </ul>
                 </li>
 
                 @php
-                    $can_view_permissions = auth()->user()->can(['admin-users-show','admin-marcas-show']);
+                    $can_view_permissions = auth()->user()->can(['admin-users-show','admin-administraciones-show']);
                 @endphp
 
                 @if($can_view_permissions)
@@ -259,7 +301,6 @@
                     </ul>
                 </li>
 --->
-
                 <li>
                         @php
                             $can_view_permissions = auth()->user()->can(['admin-users-show','admin-marcas-show']);
