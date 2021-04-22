@@ -62,38 +62,26 @@ class RoleController extends Controller
         return redirect()->route('rol.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        return view('modules/roles/show', [
+            'row' => $role->load('permissions','users')
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        return view('modules/roles/edit', [
+            'row' => $role,
+            'permissions' => Permission::all(),
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
-        //
+        $role->update($request->all());
+        $role->permissions()->sync($request->permission);
+        return redirect()->route('rol.show', $role->id);
     }
 
     /**
@@ -104,6 +92,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::find($id)->delete();
+        return redirect()->route('rol.index');
     }
 }
