@@ -29,8 +29,8 @@
                         </td>
                         </tbody>
                     </table>
-                    <a href="{{route('marca.index')}}" class="btn btn-default mb-3">Cancelar</a>
-                    <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+                    <a href="{{route('marca.index')}}" class="btn btn-outline-dark mb-3">Cancelar</a>
+                    <button type="submit" class="btn btn-outline-primary mb-3">Guardar</button>
                 </form>
             </div>
         </div>

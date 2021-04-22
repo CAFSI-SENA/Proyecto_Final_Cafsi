@@ -23,8 +23,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                <a href="{{route('marca.index')}}" class="btn btn-default mb-3">Volver</a>
-                <a href="{{route('marca.edit',$marcas->id)}}" class="btn btn-warning mb-3">Editar</a>
+                <a href="{{route('marca.index')}}" class="btn btn-outline-dark mb-3">Volver</a>
+                <a href="{{route('marca.edit',$marcas->id)}}" class="btn btn-outline-warning mb-3">Editar</a>
             </div>
         </div>
     </div>

@@ -5,8 +5,8 @@
         <div class="col-md-6 offset-3">
             <table class="table">
                 <div class="mt-3">
-                    <a href="{{route('rol.index')}}" class="btn btn-default mb-3">Cancelar</a>
-                    <a href="{{route('rol.edit', $row->id)}}" class="btn btn-primary mb-3">Editar</a>
+                    <a href="{{route('rol.index')}}" class="btn btn-outline-dark mb-3">Cancelar</a>
+                    <a href="{{route('rol.edit', $row->id)}}" class="btn btn-outline-primary mb-3">Editar</a>
                 </div>
                 <tbody>
                 <th>Nombre</th>

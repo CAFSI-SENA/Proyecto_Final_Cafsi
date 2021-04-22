@@ -6,7 +6,7 @@
 
             <table class="table">
                 <div class="mt-3">
-                    <a href="{{route('permission.index')}}" class="btn btn-default mb-3">Cancelar</a>
+                    <a href="{{route('permission.index')}}" class="btn btn-outline-dark mb-3">Cancelar</a>
                 </div>
                 <thead>
                 <th>Nombre</th>
