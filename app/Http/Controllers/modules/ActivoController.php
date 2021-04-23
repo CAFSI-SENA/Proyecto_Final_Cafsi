@@ -14,6 +14,21 @@ use function GuzzleHttp\Promise\all;
 
 class ActivoController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-activos-create',
+        'show' => 'admin-activos-show',
+        'edit' => 'admin-activos-edit',
+        'delete' => 'admin-activos-delete',
+    ];
+
+    public function __construct(){
+
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $activos = Activo::all();
         $categorias = CategoriaActivo::all();

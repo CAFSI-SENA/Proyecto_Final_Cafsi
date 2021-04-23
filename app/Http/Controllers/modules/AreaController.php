@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-areas-create',
+        'show' => 'admin-areas-show',
+        'edit' => 'admin-areas-edit',
+        'delete' => 'admin-areas-delete',
+    ];
+
+    public function __construct(){
+
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $areas = Area::all();
         $estados = Estado::all();

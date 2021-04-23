@@ -11,6 +11,21 @@ use App\Models\Funcionario;
 
 class AsignacionController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-asignaciones-create',
+        'show' => 'admin-asignaciones-show',
+        'edit' => 'admin-asignaciones-edit',
+        'delete' => 'admin-asignaciones-delete',
+    ];
+
+    public function __construct(){
+
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $asignaciones = Asignacion::join('activos as a','asignaciones.activo_id','=','a.id')
             ->join('tipos_activo as t','t.id','=','a.tipo_activo_id')

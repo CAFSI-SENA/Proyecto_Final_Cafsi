@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 
 class TipoActivoController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-tipo-activo-create',
+        'show' => 'admin-tipo-activo-show',
+        'edit' => 'admin-tipo-activo-edit',
+        'delete' => 'admin-tipo-activo-delete',
+    ];
+
+    public function __construct()
+    {
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $tipos = TipoActivo::all();
         $estados = Estado::all();

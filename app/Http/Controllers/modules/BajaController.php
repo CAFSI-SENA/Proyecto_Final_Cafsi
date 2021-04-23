@@ -14,6 +14,21 @@ use Illuminate\Http\Request;
 
 class BajaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-bajas-create',
+        'show' => 'admin-bajas-show',
+        'edit' => 'admin-bajas-edit',
+        'delete' => 'admin-bajas-delete',
+    ];
+
+    public function __construct(){
+
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $bajas = Baja::all();
         $activos = Activo::all();

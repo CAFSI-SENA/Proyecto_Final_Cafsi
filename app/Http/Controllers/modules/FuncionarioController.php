@@ -13,6 +13,21 @@ use function GuzzleHttp\Promise\all;
 
 class FuncionarioController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-funcionarios-create',
+        'show' => 'admin-funcionarios-show',
+        'edit' => 'admin-funcionarios-edit',
+        'delete' => 'admin-funcionarios-delete',
+    ];
+
+    public function __construct(){
+
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $funcionarios = Funcionario::all();
         $areas = Area::all();
