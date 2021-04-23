@@ -14,6 +14,13 @@ use Illuminate\Http\Request;
 
 class BajaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-bajas-create',
+        'show' => 'admin-bajas-show',
+        'edit' => 'admin-bajas-edit',
+        'delete' => 'admin-bajas-delete',
+    ];
+
     public function index(){
         $bajas = Baja::all();
         $activos = Activo::all();

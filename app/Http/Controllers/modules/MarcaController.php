@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 
 class MarcaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-marcas-create',
+        'show' => 'admin-marcas-show',
+        'edit' => 'admin-marcas-edit',
+        'delete' => 'admin-marcas-delete',
+    ];
+
+    public function __construct()
+    {
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $marcas = Marca::all();
         $estados = Estado::all();

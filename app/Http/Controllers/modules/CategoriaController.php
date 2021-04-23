@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
+    const PERMISSIONS = [
+        'create' => 'admin-categorias-create',
+        'show' => 'admin-categorias-show',
+        'edit' => 'admin-categorias-edit',
+        'delete' => 'admin-categorias-delete',
+    ];
+
+    public function __construct()
+    {
+        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+    }
+
     public function index(){
         $categorias = CategoriaActivo::all();
         $estados = Estado::all();

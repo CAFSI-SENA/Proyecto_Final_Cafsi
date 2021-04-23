@@ -63,13 +63,15 @@
                                 <form action="{{route('activo.destroy',$activo->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
+                                            <a href="{{route('activo.show',$activo->id)}}" class="btn btn-outline-info"><img src="/eye.svg"></a>
+                                            <a href="{{route('activo.edit',$activo->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg"></a>
+                                        @php
+                                            $can_view_permissions = auth()->user()->can('admin-activo-delete');
+                                        @endphp
 
-                                    <a href="{{route('activo.show',$activo->id)}}" class="btn btn-outline-info"><img
-                                            src="/eye.svg"></a>
-                                    <a href="{{route('activo.edit',$activo->id)}}" class="btn btn-outline-warning"><img
-                                            src="/pencil-square.svg"></a>
-                                    <button class="btn btn-outline-danger" type="submit"><img src="/trash.svg"></button>
-
+                                        @if($can_view_permissions)
+                                            <button class="btn btn-outline-danger" type="submit"><img src="/trash.svg"></button>
+                                        @endif
                                 </form>
                             </td>
                         </tr>
