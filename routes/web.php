@@ -10,6 +10,7 @@ use App\Http\Controllers\modules\ActivoController;
 use App\Http\Controllers\modules\BajaController;
 use App\Http\Controllers\modules\UsuarioController;
 use App\Http\Controllers\modules\AsignacionController;
+
 use App\Http\Controllers\modules\RoleController;
 use App\Http\Controllers\modules\PermissionController;
 
@@ -109,7 +110,6 @@ Route::middleware('auth')->group(function(){
         ->names('permission')
         ->parameters(['permisos' => 'permission'])
         ->only(['index','show']);
-
 
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
     Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');

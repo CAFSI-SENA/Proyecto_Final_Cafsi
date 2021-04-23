@@ -89,7 +89,6 @@ class UsuarioController extends Controller
             'row' => $user,
             'roles' => Role::all(),
             'permissions' => Permission::all(),
-        ]);
-
+        ]);        
     }
 }

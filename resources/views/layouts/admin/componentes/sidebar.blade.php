@@ -199,7 +199,6 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-
                         <i class="bx bx-card"></i>
                         <span key="t-activo">Activos</span>
                     </a>
@@ -269,8 +268,17 @@
 
                 @if($can_view_permissions)
                     <li class="menu-title" key="t-administracion">Administración</li>
-                @endif
+                @endif             
 
+            <!--    <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span key="t-utility">Usuario</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="" key="t-starter-page">Cambio de Contraseña</a></li>
+                    </ul>
+                </li> -->
 <!---
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -391,8 +399,7 @@
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
                             </div>
-                        @endif
-
+                        @endif                   
 
                     </ul>
                 </li>

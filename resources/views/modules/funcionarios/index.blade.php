@@ -2,6 +2,16 @@
 @section('title','Listado Funcionarios')
 @section('content')
     <div class="row">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Funcionarios</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Funcionarios</a></li>
+                    <li class="breadcrumb-item active">Administrador</li>
+                </ol>
+            </div>
+        </div>
         <div class="col-md-12 mt-3">
             <a href="{{route('funcionario.create')}}" class="btn btn-primary mb-3">Crear Funcionario</a>
             @if(session('message'))
@@ -54,9 +64,12 @@
                                 @method('DELETE')
                                 <td>
                                     <div>
-                                        <a href="{{route('funcionario.show',$funcionario->id)}}" class="btn btn-outline-info"><img src="/eye.svg" alt=""></a>
-                                        <a href="{{route('funcionario.edit',$funcionario->id)}}" class="btn btn-outline-warning"><img src="/pencil-square.svg" alt=""></a>
-                                        <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg" alt=""></button>
+                                        <a href="{{route('funcionario.show',$funcionario->id)}}"
+                                           class="btn btn-outline-info"><img src="/eye.svg" alt=""></a>
+                                        <a href="{{route('funcionario.edit',$funcionario->id)}}"
+                                           class="btn btn-outline-warning"><img src="/pencil-square.svg" alt=""></a>
+                                        <button type="submit" class="btn btn-outline-danger"><img src="/trash.svg"
+                                                                                                  alt=""></button>
                                     </div>
                                 </td>
                             </form>
