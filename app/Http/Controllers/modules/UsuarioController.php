@@ -53,6 +53,21 @@ class UsuarioController extends Controller
         ]);
     }
 
+    public function create(){
+        $usuarios = User::all();
+        return view('modules/usuarios/create');
+    }
+
+    public function store(Request $request){
+        $usuarios = new User();
+        $usuarios->name = $request->name;
+        $usuarios->email = $request->email;
+        $usuarios->password = bcrypt($request->password);
+        $usuarios->save();
+        //$usuarios = User::create($request->all());
+        return redirect()->route('user.index');
+    }
+
     public function role(Request $request,User $user)
     {
         $user->roles()->sync($request->roles); //eloquent

@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
+            <a href="{{route('user.create')}}" class="btn btn-primary">Crear Usuario</a>
             <input wire:model="search" name="search" class="form-control" placeholder="Ingrese el correo o nombre de usuario">
         </div>
         <div class="card-body">
