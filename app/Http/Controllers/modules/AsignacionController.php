@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\modules;
 
+use App\Exports\AsignacionExport;
 use App\Http\Controllers\Controller;
 use App\Models\Asignacion;
 use App\Models\TipoAsignacion;
 use Illuminate\Http\Request;
 use App\Models\Activo;
 use App\Models\Funcionario;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AsignacionController extends Controller
 {
@@ -72,5 +74,10 @@ class AsignacionController extends Controller
 
     public function destroy(){
 
+    }
+
+    public function export()
+    {
+        return Excel::download(new AsignacionExport, 'Asignaciones.xlsx');
     }
 }

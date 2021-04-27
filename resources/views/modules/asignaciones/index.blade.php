@@ -13,7 +13,14 @@
             </div>
         </div>
         <div class="col-md-12">
-            <a href="{{route('asignacion.create')}}" class="btn btn-primary">Crear Asignación</a>
+            <div class="row">
+                <div class="col">
+                    <a href="{{route('asignacion.create')}}" class="btn btn-primary">Crear Asignación</a>
+                </div>
+                <div class="col">
+                    <a href="{{route('asignacion.export')}}" class="btn btn-primary float-end">Reporte Asignaciones</a>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tbody>

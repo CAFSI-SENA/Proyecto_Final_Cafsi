@@ -156,6 +156,9 @@ class RoleSeeder extends Seeder
          */
         Permission::updateOrCreate(['name' => PermissionController::PERMISSIONS['show']],
             ['description' => 'listado y detalle de permisos'])->syncRoles([$role1]);
+        /*
+         * Reportes
+         */
 
     }
 }

@@ -114,6 +114,10 @@ class CargueSeeder extends Seeder
             'marca' => 'TOSHIBA',
             'estado_id' => '1',
         ]);
+        Marca::create([
+            'marca' => 'EPSON',
+            'estado_id' => '1',
+        ]);
 
         TipoActivo::create([
             'tipo' => 'ESCRITORIO',
@@ -169,7 +173,7 @@ class CargueSeeder extends Seeder
             'numero_serie' => 'ASDFG12345',
             'modelo' => 'PAVILON',
             'fecha_adquisicion' => '2020/12/31',
-            'categoria_id' => '1',
+            'categoria_id' => '2',
             'tipo_activo_id' => '3',
             'marca_id' => '1',
             'estado_id' => '1',
@@ -178,7 +182,7 @@ class CargueSeeder extends Seeder
             'numero_serie' => 'ZXCVB12345',
             'modelo' => 'G4',
             'fecha_adquisicion' => '2020/10/15',
-            'categoria_id' => '1',
+            'categoria_id' => '2',
             'tipo_activo_id' => '4',
             'marca_id' => '2',
             'estado_id' => '1',
@@ -187,7 +191,7 @@ class CargueSeeder extends Seeder
             'numero_serie' => 'QWERT12345',
             'modelo' => 'INSPIRON',
             'fecha_adquisicion' => '2020/01/20',
-            'categoria_id' => '1',
+            'categoria_id' => '2',
             'tipo_activo_id' => '3',
             'marca_id' => '5',
             'estado_id' => '1',

@@ -12,8 +12,15 @@
                 </ol>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <a href="{{route('activo.create')}}" class="btn btn-primary mb-3 mt-3">Crear Activo</a>
+            </div>
+            <div class="col">
+                <a href="{{route('activo.export')}}" class="btn btn-outline-primary float-end m-3">Reporte Inventario</a>
+            </div>
+        </div>
         <div class="col-md-14 mb-3">
-            <a href="{{route('activo.create')}}" class="btn btn-primary mb-3 mt-3">Crear Activo</a>
             @if(session('message'))
                 <div class="alert alert-{{session('type')}} mt-2" role="alert">
                     {{session('message')}}

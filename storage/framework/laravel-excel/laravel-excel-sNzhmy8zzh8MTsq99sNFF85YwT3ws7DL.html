@@ -1,4 +1,91 @@
-<div class="vertical-menu">
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title> Cafsi | Reporte Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+
+</head>
+
+<body data-sidebar="dark">
+
+<!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+        <header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+
+                <a href="http://127.0.0.1:8000/modules/areas" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo-light.svg" alt="" height="22">
+                                </span>
+                    <span class="logo-lg">
+                                    <img src="assets/images/logo-light.png" alt="" height="19">
+                                </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <!-- App Search-->
+        <!--    <form class="app-search d-none d-lg-block">
+                <div class="position-relative">
+                    <input type="text" class="form-control" placeholder="Buscar...">
+                    <span class="bx bx-search-alt"></span>
+                </div>
+            </form> -->
+
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">Deivy Rodriguez</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a class="dropdown-item" href="http://127.0.0.1:8000/user/profile"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item text-danger" href="javascript:document.getElementById('logout').submit()"
+                    ><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Salir</span></a>
+                    <form action="http://127.0.0.1:8000/logout" id="logout" style="display:none" method="post">
+                        <input type="hidden" name="_token" value="6efYde2uwJ4hbErYzH8qSYYTmQDovJO1PQgf5ka7">                    </form>
+
+                </div>
+            </div>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                    <i class="bx bx-cog bx-spin"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+    <!-- ========== Left Sidebar Start ========== -->
+
+        <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
 
@@ -203,72 +290,36 @@
                         <span key="t-activo">Activos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-activo-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/activos/index" key="t-activo">Activos</a></li>
                             </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-bajas-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
+                                                
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/bajas/index" key="t-baja">Bajas</a></li>
                             </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-asignaciones-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
+                                                
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/asignaciones/index" key="t-asignacion">Asignaciones</a></li>
                             </div>
-                        @endif
-                    </ul>
+                                            </ul>
                 </li>
-<!--
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-file"></i>
                         <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-inventarios-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
-                            </div>
-                        @endif
-
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-activos-prestamo-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
-                            </div>
-                        @endif
-
+                        
+                        
+                        
+                        
                     </ul>
                 </li>
--->
-                @php
-                    $can_view_permissions = auth()->user()->can(['admin-users-show','admin-administraciones-show']);
-                @endphp
 
-                @if($can_view_permissions)
-                    <li class="menu-title" key="t-administracion">Administración</li>
-                @endif
+                
+                             
 
             <!--    <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -310,96 +361,52 @@
                 </li>
 --->
                 <li>
-                        @php
-                            $can_view_permissions = auth()->user()->can(['admin-users-show','admin-marcas-show']);
-                        @endphp
-
-                        @if($can_view_permissions)
-                        <a href="javascript: void(0);" class="waves-effect">
+                        
+                                                <a href="javascript: void(0);" class="waves-effect">
                             <i class="bx bxs-user"></i>
                             <span class="badge rounded-pill bg-danger float-end"></span>
                             <span key="t-forms">Administrador</span>
                         </a>
-                        @endif
-
+                        
                     <ul class="sub-menu" aria-expanded="false">
 
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-areas-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{route('area.index')}}" key="t-form-elements">Areas</a></li>
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/areas" key="t-form-elements">Areas</a></li>
                             </div>
-                        @endif
-
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-categorias-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('categoria.index') }}" key="t-form-elements">Categorias</a></li>
+                        
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/categorias" key="t-form-elements">Categorias</a></li>
                             </div>
-                        @endif
-
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-funcionarios-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
+                        
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/funcionarios/index" key="t-form-elements">Funcionarios</a></li>
                             </div>
-                        @endif
-
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-marcas-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
+                        
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/marcas" key="t-form-elements">Marcas</a></li>
                             </div>
-                        @endif
-
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-tipo-activo-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
+                        
+                        
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/tipos/index" key="t-form-elements">Tipos</a></li>
                             </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-users-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('user.index')}}" key="t-form-elements">Usuario</a></li>
+                                                
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/modules/usuarios/index" key="t-form-elements">Usuario</a></li>
                             </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-roles-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
+                                                
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/roles" key="t-form-elements">Roles</a></li>
                             </div>
-                        @endif
-                        @php
-                            $can_view_permissions = auth()->user()->can('admin-permisos-show');
-                        @endphp
-
-                        @if($can_view_permissions)
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
+                                                
+                                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="http://127.0.0.1:8000/permisos" key="t-form-elements">Permisos</a></li>
                             </div>
-                        @endif
+                                           
 
                     </ul>
                 </li>
@@ -480,3 +487,140 @@
         <!-- Sidebar -->
     </div>
 </div>
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                    <table>
+        <thead>
+        <tr>
+            <th>No. Serie</th>
+            <th>Modelo</th>
+            <th>Fecha Adquisición</th>
+            <th>Categoría</th>
+            <th>Tipo Activo</th>
+            <th>Marca</th>
+            <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+                    <tr>
+                <td>ASDFG12345</td>
+                <td>PAVILON</td>
+                <td>2020-12-31</td>
+                <td>2</td>
+                <td>3</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+                    <tr>
+                <td>ZXCVB12345</td>
+                <td>G4</td>
+                <td>2020-10-15</td>
+                <td>2</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+                    <tr>
+                <td>QWERT12345</td>
+                <td>INSPIRON</td>
+                <td>2020-01-20</td>
+                <td>2</td>
+                <td>3</td>
+                <td>5</td>
+                <td>1</td>
+            </tr>
+                </tbody>
+    </table>
+
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+    <footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>document.write(new Date().getFullYear())</script> © Cafsi.
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Proyecto Formativo SENA
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+<!-- Right Sidebar -->
+<div class="right-bar">
+    <div data-simplebar class="h-100">
+        <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+            <h5 class="m-0 me-2">Settings</h5>
+
+            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                <i class="mdi mdi-close noti-icon"></i>
+            </a>
+        </div>
+
+        <!-- Settings -->
+        <hr class="mt-0" />
+        <h6 class="text-center mb-0">Choose Layouts</h6>
+
+        <div class="p-4">
+            <div class="mb-2">
+                <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="">
+            </div>
+
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+            </div>
+
+            <div class="mb-2">
+                <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="">
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css">
+                <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+            </div>
+
+            <div class="mb-2">
+                <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">
+            </div>
+            <div class="form-check form-switch mb-5">
+                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css">
+                <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+            </div>
+
+
+        </div>
+
+    </div> <!-- end slimscroll-menu-->
+</div>
+<!-- /Right-bar -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+<script src="http://127.0.0.1:8000/js/app.js"></script>
+
+</body>
+</html>

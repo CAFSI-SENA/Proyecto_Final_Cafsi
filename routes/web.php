@@ -13,6 +13,8 @@ use App\Http\Controllers\modules\AsignacionController;
 
 use App\Http\Controllers\modules\RoleController;
 use App\Http\Controllers\modules\PermissionController;
+use Maatwebsite\Excel\Excel;
+use App\Exports\ActivoExport;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +116,11 @@ Route::middleware('auth')->group(function(){
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
     Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');
     Route::post('modules/asignaciones',[AsignacionController::class,'store'])->name('asignacion.store');
+
+    Route::get('export/activos',[ActivoController::class,'export'])->name('activo.export');
+    Route::get('export/asignaciones',[AsignacionController::class,'export'])->name('asignacion.export');
+
+
+    //Route::get('modules/activos/reporte',[ActivoController::class,'export'])->name('activo.export');
+    //Route::get('modules/activos/reporte',[ActivoExport::class,'collection'])->name('activo.export');
 });
-
-

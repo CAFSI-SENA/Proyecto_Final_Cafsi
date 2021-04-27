@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\modules;
 
+use App\Exports\ActivoExport;
 use App\Http\Controllers\Controller;
 use App\Models\Activo;
 use App\Models\CategoriaActivo;
@@ -10,6 +11,7 @@ use App\Models\Marca;
 use App\Models\TipoActivo;
 use App\Models\TipoBaja;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use function GuzzleHttp\Promise\all;
 
 class ActivoController extends Controller
@@ -93,5 +95,10 @@ class ActivoController extends Controller
 
         $categorias = CategoriaActivo::where('id',$activos->categoria_id)->get();
         return view('modules/bajas/create',compact('activos','tipos'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ActivoExport, 'Inventario.xlsx');
     }
 }
