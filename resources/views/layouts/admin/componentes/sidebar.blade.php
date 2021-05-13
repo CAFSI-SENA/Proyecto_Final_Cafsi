@@ -263,7 +263,7 @@
                 </li>
 -->
                 @php
-                    $can_view_permissions = auth()->user()->can(['admin-users-show','admin-administraciones-show']);
+                    $can_view_permissions = auth()->user()->can(['admin-usuarios-show','admin-marcas-show']);
                 @endphp
 
                 @if($can_view_permissions)
@@ -311,7 +311,7 @@
 --->
                 <li>
                         @php
-                            $can_view_permissions = auth()->user()->can(['admin-users-show','admin-marcas-show']);
+                            $can_view_permissions = auth()->user()->can(['admin-usuarios-show','admin-marcas-show']);
                         @endphp
 
                         @if($can_view_permissions)
@@ -374,7 +374,7 @@
                             </div>
                         @endif
                         @php
-                            $can_view_permissions = auth()->user()->can('admin-users-show');
+                            $can_view_permissions = auth()->user()->can('admin-usuarios-show');
                         @endphp
 
                         @if($can_view_permissions)

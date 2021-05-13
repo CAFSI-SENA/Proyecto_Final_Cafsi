@@ -11,10 +11,15 @@
         </ol>
      </div>
 </div>
-    <div class="card">
-        <div class="card-header">
+    <div class="row">
+        <div class="col">
             <a href="{{route('user.create')}}" class="btn btn-primary">Crear Usuario</a>
-            <input wire:model="search" name="search" class="form-control" placeholder="Ingrese el correo o nombre de usuario">
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control float-end" placeholder="Nombre">
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-secondary" type="submit"><img src="/search.svg" alt=""></button>
         </div>
         <div class="card-body">
             <table class="table table-striped" id="usuarios">
@@ -36,7 +41,7 @@
                         <td>{{$user->created_at->diffForHumans()}}</td>
                         <td>
                             @php
-                                $can_view_permissions = auth()->user()->can('admin-users-edit');
+                                $can_view_permissions = auth()->user()->can('admin-usuarios-edit');
                             @endphp
 
                             @if($can_view_permissions)

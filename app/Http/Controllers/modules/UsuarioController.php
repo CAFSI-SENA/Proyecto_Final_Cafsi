@@ -15,15 +15,15 @@ class UsuarioController extends Controller
         'show' => 'admin-usuarios-show',
         'edit' => 'admin-usuarios-edit',
     ];
-/*
+
     public function __construct()
     {
         $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
         $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
         $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
     }
-*/
-    public function index(){
+
+    public function index(Request $request){
         $users = User::all();
         return view('modules/usuarios/index', compact('users'));
     }
@@ -89,6 +89,6 @@ class UsuarioController extends Controller
             'row' => $user,
             'roles' => Role::all(),
             'permissions' => Permission::all(),
-        ]);        
+        ]);
     }
 }

@@ -1,13 +1,13 @@
 @extends('layouts.admin.app')
-@section('title','Crear Asignación')
+@section('title','Crear Devolución')
 @section('content')
     <div class="row">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">Asignaciones</h4>
+            <h4 class="mb-sm-0 font-size-18">Devoluciones</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Crear Asignación</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Crear Devolución</a></li>
                     <li class="breadcrumb-item active">Técnico</li>
                 </ol>
             </div>
@@ -17,7 +17,7 @@
                 <input type="hidden" name="identificacion" value="{{ @$_GET['identificacion'] }}">
                 <div class="col-md-2 mt-4">
                     <label for="" class="form-label">Serie</label>
-                    <input type="text" name="numero_serie" class="form-control" value="{{ @$_GET['numero_serie'] }}" style="text-transform:uppercase" onkeyup="javascript:this.value=this.value.toUpperCase(); maxlength="30" required>
+                    <input type="text" name="numero_serie" class="form-control" value="{{ @$_GET['numero_serie'] }}">
                 </div>
                 <div class="col-md-1 mt-5">
                     <button class="btn btn-outline-secondary" type="submit"><img src="/search.svg" alt=""></button>
@@ -43,7 +43,7 @@
                 <input type="hidden" name="numero_serie" value="{{ @$_GET['numero_serie'] }}">
                 <div class="col-md-2 mt-4">
                     <label for="">No. Documento</label>
-                    <input type="number" value="{{  @$_GET['identificacion'] }}" class="form-control" name="identificacion" maxlength="15" required>
+                    <input type="number" value="{{  @$_GET['identificacion'] }}" class="form-control" name="identificacion">
                 </div>
                 <div class="col-md-1 mt-5">
                     <button type="submit" class="btn btn-outline-secondary"><img src="/search.svg" alt=""></button>
@@ -66,7 +66,7 @@
                 @csrf
                 <div class="col-md-3 mt-4">
                     <label for="fecha_inicio">Fecha Prestamo</label>
-                    <input type="datetime" class="form-control" name="fecha_inicio" value="{{ $hora }}" disabled>
+                    <input type="datetime-local" class="form-control" name="fecha_inicio">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="">Tipo Prestamo</label>
@@ -79,16 +79,20 @@
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="observacion">Observación</label>
-                    <input type="textarea" class="form-control" name="observacion" maxlength="100">
+                    <input type="textarea" class="form-control" name="observacion">
+                </div>
+                <div class="col-md-3 mt-4">
+                    <label for="fecha_fin">Fecha Entrega</label>
+                    <input type="datetime-local" class="form-control" name="fecha_fin">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="activo_id"></label>
-                    <input type="hidden" class="form-control" name="activo_id" value="{{ @$activo->id }}" required>
+                    <input type="hidden" class="form-control" name="activo_id" value="{{@$activo->id}}">
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="funcionario_id"></label>
-                    <input type="hidden" class="form-control" name="funcionario_id" value="{{@$funcionario->id}}" required>
-                    <input type="hidden" class="form-control" name="estado_id" value="5" required>
+                    <input type="hidden" class="form-control" name="funcionario_id" value="{{@$funcionario->id}}">
+                    <input type="hidden" class="form-control" name="estado_id" value="5">
                 </div>
                 <div class="mt-3">
                     <a href="{{route('asignacion.index')}}" class="btn btn-outline-dark">Cancelar</a>

@@ -116,6 +116,9 @@ Route::middleware('auth')->group(function(){
     Route::get('modules/asignaciones/index',[AsignacionController::class,'index'])->name('asignacion.index');
     Route::get('modules/asignaciones/create',[AsignacionController::class,'create'])->name('asignacion.create');
     Route::post('modules/asignaciones',[AsignacionController::class,'store'])->name('asignacion.store');
+    Route::get('modules/asignaciones/edit/{id}',[AsignacionController::class,'edit'])->name('asignacion.edit');
+    Route::put('modules/asignaciones/{id}',[AsignacionController::class,'update'])->name('asignacion.update');
+    Route::get('modules/asignaciones/{id}',[AsignacionController::class,'show'])->name('asignacion.show');
 
     Route::get('export/activos',[ActivoController::class,'export'])->name('activo.export');
     Route::get('export/asignaciones',[AsignacionController::class,'export'])->name('asignacion.export');

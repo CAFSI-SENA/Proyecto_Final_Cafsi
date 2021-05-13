@@ -4,6 +4,7 @@ namespace App\Http\Controllers\modules;
 
 use App\Exports\ActivoExport;
 use App\Http\Controllers\Controller;
+use App\Imports\ActivosImport;
 use App\Models\Activo;
 use App\Models\CategoriaActivo;
 use App\Models\Estado;
@@ -100,5 +101,10 @@ class ActivoController extends Controller
     public function export()
     {
         return Excel::download(new ActivoExport, 'Inventario.xlsx');
+    }
+
+    public function import(){
+        Excel::import(new ActivosImport, 'activos.xlsx');
+        return redirect('/')->with('succes', 'Cargue se realizó con exito');
     }
 }
