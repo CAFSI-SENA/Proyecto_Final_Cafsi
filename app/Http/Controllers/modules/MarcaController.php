@@ -16,8 +16,8 @@ class MarcaController extends Controller
         'delete' => 'admin-marcas-delete',
     ];
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
         $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
         $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
@@ -39,7 +39,7 @@ class MarcaController extends Controller
     public function store(Request $request){
         $marcas = Marca::create($request->all());
         return redirect()->route('marca.index')->with([
-           'message'=>'La marca fue creada con exito :)','type'=>'success'
+            'message'=>'La marca fue creada con exito :)','type'=>'success'
         ]);
     }
 

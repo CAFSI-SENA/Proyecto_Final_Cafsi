@@ -7,7 +7,6 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <!---    <li class="menu-title" key="t-menu">Menu</li>
-
                 <li>
                       <a href="javascript: void(0);" class="waves-effect">
                           <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
@@ -20,7 +19,6 @@
                           <li><a href="dashboard-blog.html" key="t-blog">Blog</a></li>
                       </ul>
                   </li>
-
                   <li>
                       <a href="javascript: void(0);" class="has-arrow waves-effect">
                           <i class="bx bx-layout"></i>
@@ -39,7 +37,6 @@
                                   <li><a href="layouts-scrollable.html" key="t-scrollable">Scrollable</a></li>
                               </ul>
                           </li>
-
                           <li>
                               <a href="javascript: void(0);" class="has-arrow" key="t-horizontal">Horizontal</a>
                               <ul class="sub-menu" aria-expanded="true">
@@ -56,21 +53,18 @@
   -->
                 <!---
                 <li class="menu-title" key="t-apps">Apps</li>
-
                 <li>
                     <a href="calendar.html" class="waves-effect">
                         <i class="bx bx-calendar"></i>
                         <span key="t-calendar">Calendar</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="chat.html" class="waves-effect">
                         <i class="bx bx-chat"></i>
                         <span key="t-chat">Chat</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="apps-filemanager.html" class="waves-effect">
                         <i class="bx bx-file"></i>
@@ -78,7 +72,6 @@
                         <span key="t-file-manager">File Manager</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-store"></i>
@@ -95,7 +88,6 @@
                         <li><a href="ecommerce-add-product.html" key="t-add-product">Add Product</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-bitcoin"></i>
@@ -111,7 +103,6 @@
                         <li><a href="crypto-ico-landing.html" key="t-ico">ICO Landing</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-envelope"></i>
@@ -133,7 +124,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-receipt"></i>
@@ -144,7 +134,6 @@
                         <li><a href="invoices-detail.html" key="t-invoice-detail">Invoice Detail</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-briefcase-alt-2"></i>
@@ -157,7 +146,6 @@
                         <li><a href="projects-create.html" key="t-create-new">Create New</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-task"></i>
@@ -169,7 +157,6 @@
                         <li><a href="tasks-create.html" key="t-create-task">Create Task</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bxs-user-detail"></i>
@@ -181,7 +168,6 @@
                         <li><a href="contacts-profile.html" key="t-profile">Profile</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <span class="badge rounded-pill bg-success float-end" key="t-new">New</span>
@@ -203,22 +189,68 @@
                         <span key="t-activo">Activos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
-                        <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
-                        <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-activos-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('activo.index')}}" key="t-activo">Activos</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-bajas-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('baja.index')}}" key="t-baja">Bajas</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-asignaciones-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('asignacion.index')}}" key="t-asignacion">Asignaciones</a></li>
+                            </div>
+                        @endif
                     </ul>
                 </li>
-
+            <!--
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-file"></i>
                         <span key="t-utility">Reportes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="" key="t-starter-page">Inventario</a></li>
-                        <li><a href="" key="t-maintenance">Activos en Prestamo</a></li>
-                    </ul>
-                </li>
+                        @php
+                $can_view_permissions = auth()->user()->can('admin-inventarios-show');
+            @endphp
+            @if($can_view_permissions)
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <li><a href="pages-starter.html" key="t-starter-page">Inventario</a></li>
+                </div>
+@endif
+            @php
+                $can_view_permissions = auth()->user()->can('admin-activos-prestamo-show');
+            @endphp
+            @if($can_view_permissions)
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <li><a href="pages-maintenance.html" key="t-maintenance">Activos en Prestamo</a></li>
+                </div>
+@endif
+                </ul>
+            </li>
+-->
+                @php
+                    $can_view_permissions = auth()->user()->can(['admin-usuarios-show','admin-marcas-show']);
+                @endphp
+
+                @if($can_view_permissions)
+                    <li class="menu-title" key="t-administracion">Administración</li>
+            @endif
 
             <!--    <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -229,124 +261,197 @@
                         <li><a href="" key="t-starter-page">Cambio de Contraseña</a></li>
                     </ul>
                 </li> -->
-
-                <li class="menu-title" key="t-administracion">Administración</li>
-<!---
+                <!---
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bx-tone"></i>
+                                        <span key="t-ui-elements">UI Elements</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="ui-alerts.html" key="t-alerts">Alerts</a></li>
+                                        <li><a href="ui-buttons.html" key="t-buttons">Buttons</a></li>
+                                        <li><a href="ui-cards.html" key="t-cards">Cards</a></li>
+                                        <li><a href="ui-carousel.html" key="t-carousel">Carousel</a></li>
+                                        <li><a href="ui-dropdowns.html" key="t-dropdowns">Dropdowns</a></li>
+                                        <li><a href="ui-grid.html" key="t-grid">Grid</a></li>
+                                        <li><a href="ui-images.html" key="t-images">Images</a></li>
+                                        <li><a href="ui-lightbox.html" key="t-lightbox">Lightbox</a></li>
+                                        <li><a href="ui-modals.html" key="t-modals">Modals</a></li>
+                                        <li><a href="ui-rangeslider.html" key="t-range-slider">Range Slider</a></li>
+                                        <li><a href="ui-session-timeout.html" key="t-session-timeout">Session Timeout</a></li>
+                                        <li><a href="ui-progressbars.html" key="t-progress-bars">Progress Bars</a></li>
+                                        <li><a href="ui-sweet-alert.html" key="t-sweet-alert">Sweet-Alert</a></li>
+                                        <li><a href="ui-tabs-accordions.html" key="t-tabs-accordions">Tabs & Accordions</a></li>
+                                        <li><a href="ui-typography.html" key="t-typography">Typography</a></li>
+                                        <li><a href="ui-video.html" key="t-video">Video</a></li>
+                                        <li><a href="ui-general.html" key="t-general">General</a></li>
+                                        <li><a href="ui-colors.html" key="t-colors">Colors</a></li>
+                                        <li><a href="ui-rating.html" key="t-rating">Rating</a></li>
+                                        <li><a href="ui-notifications.html" key="t-notifications">Notifications</a></li>
+                                    </ul>
+                                </li>
+                --->
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-tone"></i>
-                        <span key="t-ui-elements">UI Elements</span>
-                    </a>
+                    @php
+                        $can_view_permissions = auth()->user()->can(['admin-usuarios-show','admin-marcas-show']);
+                    @endphp
+
+                    @if($can_view_permissions)
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <i class="bx bxs-user"></i>
+                            <span class="badge rounded-pill bg-danger float-end"></span>
+                            <span key="t-forms">Administrador</span>
+                        </a>
+                    @endif
+
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ui-alerts.html" key="t-alerts">Alerts</a></li>
-                        <li><a href="ui-buttons.html" key="t-buttons">Buttons</a></li>
-                        <li><a href="ui-cards.html" key="t-cards">Cards</a></li>
-                        <li><a href="ui-carousel.html" key="t-carousel">Carousel</a></li>
-                        <li><a href="ui-dropdowns.html" key="t-dropdowns">Dropdowns</a></li>
-                        <li><a href="ui-grid.html" key="t-grid">Grid</a></li>
-                        <li><a href="ui-images.html" key="t-images">Images</a></li>
-                        <li><a href="ui-lightbox.html" key="t-lightbox">Lightbox</a></li>
-                        <li><a href="ui-modals.html" key="t-modals">Modals</a></li>
-                        <li><a href="ui-rangeslider.html" key="t-range-slider">Range Slider</a></li>
-                        <li><a href="ui-session-timeout.html" key="t-session-timeout">Session Timeout</a></li>
-                        <li><a href="ui-progressbars.html" key="t-progress-bars">Progress Bars</a></li>
-                        <li><a href="ui-sweet-alert.html" key="t-sweet-alert">Sweet-Alert</a></li>
-                        <li><a href="ui-tabs-accordions.html" key="t-tabs-accordions">Tabs & Accordions</a></li>
-                        <li><a href="ui-typography.html" key="t-typography">Typography</a></li>
-                        <li><a href="ui-video.html" key="t-video">Video</a></li>
-                        <li><a href="ui-general.html" key="t-general">General</a></li>
-                        <li><a href="ui-colors.html" key="t-colors">Colors</a></li>
-                        <li><a href="ui-rating.html" key="t-rating">Rating</a></li>
-                        <li><a href="ui-notifications.html" key="t-notifications">Notifications</a></li>
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-areas-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{route('area.index')}}" key="t-form-elements">Areas</a></li>
+                            </div>
+                        @endif
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-categorias-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('categoria.index') }}" key="t-form-elements">Categorias</a></li>
+                            </div>
+                        @endif
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-funcionarios-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
+                            </div>
+                        @endif
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-marcas-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
+                            </div>
+                        @endif
+
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-tipo-activo-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-usuarios-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('user.index')}}" key="t-form-elements">Usuario</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-roles-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('rol.index')}}" key="t-form-elements">Roles</a></li>
+                            </div>
+                        @endif
+                        @php
+                            $can_view_permissions = auth()->user()->can('admin-permisos-show');
+                        @endphp
+
+                        @if($can_view_permissions)
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <li><a href="{{ route('permission.index')}}" key="t-form-elements">Permisos</a></li>
+                            </div>
+                        @endif
+
                     </ul>
                 </li>
---->
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bxs-eraser"></i>
-                        <span key="t-forms">Administrador</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('area.index')}}" key="t-form-elements">Areas</a></li>
-                        <li><a href="{{ route('categoria.index') }}" key="t-form-elements">Categorias</a></li>
-                        <li><a href="{{ route('funcionario.index') }}" key="t-form-elements">Funcionarios</a></li>
-                        <li><a href="{{ route('marca.index') }}" key="t-form-elements">Marcas</a></li>
-                        <li><a href="{{ route('tipo.index') }}" key="t-form-elements">Tipos</a></li>
-                        <li><a href="{{ route('usuario.index')}}" key="t-form-elements">Usuario</a></li>
-
-                    </ul>
-                </li>
-<!---
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-list-ul"></i>
-                        <span key="t-tables">Tables</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tables-basic.html" key="t-basic-tables">Basic Tables</a></li>
-                        <li><a href="tables-datatable.html" key="t-data-tables">Data Tables</a></li>
-                        <li><a href="tables-responsive.html" key="t-responsive-table">Responsive Table</a></li>
-                        <li><a href="tables-editable.html" key="t-editable-table">Editable Table</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bxs-bar-chart-alt-2"></i>
-                        <span key="t-charts">Charts</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="charts-apex.html" key="t-apex-charts">Apex Charts</a></li>
-                        <li><a href="charts-echart.html" key="t-e-charts">E Charts</a></li>
-                        <li><a href="charts-chartjs.html" key="t-chartjs-charts">Chartjs Charts</a></li>
-                        <li><a href="charts-flot.html" key="t-flot-charts">Flot Charts</a></li>
-                        <li><a href="charts-tui.html" key="t-ui-charts">Toast UI Charts</a></li>
-                        <li><a href="charts-knob.html" key="t-knob-charts">Jquery Knob Charts</a></li>
-                        <li><a href="charts-sparkline.html" key="t-sparkline-charts">Sparkline Charts</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-aperture"></i>
-                        <span key="t-icons">Icons</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="icons-boxicons.html" key="t-boxicons">Boxicons</a></li>
-                        <li><a href="icons-materialdesign.html" key="t-material-design">Material Design</a></li>
-                        <li><a href="icons-dripicons.html" key="t-dripicons">Dripicons</a></li>
-                        <li><a href="icons-fontawesome.html" key="t-font-awesome">Font awesome</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-map"></i>
-                        <span key="t-maps">Maps</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="maps-google.html" key="t-g-maps">Google Maps</a></li>
-                        <li><a href="maps-vector.html" key="t-v-maps">Vector Maps</a></li>
-                        <li><a href="maps-leaflet.html" key="t-l-maps">Leaflet Maps</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-share-alt"></i>
-                        <span key="t-multi-level">Multi Level</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" key="t-level-1-2">Level 1.2</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="javascript: void(0);" key="t-level-2-1">Level 2.1</a></li>
-                                <li><a href="javascript: void(0);" key="t-level-2-2">Level 2.2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li> -->
+                <!---
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bx-list-ul"></i>
+                                        <span key="t-tables">Tables</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="tables-basic.html" key="t-basic-tables">Basic Tables</a></li>
+                                        <li><a href="tables-datatable.html" key="t-data-tables">Data Tables</a></li>
+                                        <li><a href="tables-responsive.html" key="t-responsive-table">Responsive Table</a></li>
+                                        <li><a href="tables-editable.html" key="t-editable-table">Editable Table</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bxs-bar-chart-alt-2"></i>
+                                        <span key="t-charts">Charts</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="charts-apex.html" key="t-apex-charts">Apex Charts</a></li>
+                                        <li><a href="charts-echart.html" key="t-e-charts">E Charts</a></li>
+                                        <li><a href="charts-chartjs.html" key="t-chartjs-charts">Chartjs Charts</a></li>
+                                        <li><a href="charts-flot.html" key="t-flot-charts">Flot Charts</a></li>
+                                        <li><a href="charts-tui.html" key="t-ui-charts">Toast UI Charts</a></li>
+                                        <li><a href="charts-knob.html" key="t-knob-charts">Jquery Knob Charts</a></li>
+                                        <li><a href="charts-sparkline.html" key="t-sparkline-charts">Sparkline Charts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bx-aperture"></i>
+                                        <span key="t-icons">Icons</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="icons-boxicons.html" key="t-boxicons">Boxicons</a></li>
+                                        <li><a href="icons-materialdesign.html" key="t-material-design">Material Design</a></li>
+                                        <li><a href="icons-dripicons.html" key="t-dripicons">Dripicons</a></li>
+                                        <li><a href="icons-fontawesome.html" key="t-font-awesome">Font awesome</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bx-map"></i>
+                                        <span key="t-maps">Maps</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="maps-google.html" key="t-g-maps">Google Maps</a></li>
+                                        <li><a href="maps-vector.html" key="t-v-maps">Vector Maps</a></li>
+                                        <li><a href="maps-leaflet.html" key="t-l-maps">Leaflet Maps</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                        <i class="bx bx-share-alt"></i>
+                                        <span key="t-multi-level">Multi Level</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
+                                        <li>
+                                            <a href="javascript: void(0);" class="has-arrow" key="t-level-1-2">Level 1.2</a>
+                                            <ul class="sub-menu" aria-expanded="true">
+                                                <li><a href="javascript: void(0);" key="t-level-2-1">Level 2.1</a></li>
+                                                <li><a href="javascript: void(0);" key="t-level-2-2">Level 2.2</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li> -->
 
             </ul>
         </div>

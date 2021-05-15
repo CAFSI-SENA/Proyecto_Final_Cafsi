@@ -9,14 +9,14 @@ use Spatie\Permission\Models\Permission;
 class PermissionController extends Controller
 {
     const PERMISSIONS = [
-        'show' => 'admin-permissions-show',
+        'show' => 'admin-permisos-show',
     ];
-/*
-    public function __construct()
-    {
-        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
-    }
-*/
+    /*
+        public function __construct()
+        {
+            $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+        }
+    */
     public function index()
     {
         $permissions = Permission::orderBy('name')->paginate();

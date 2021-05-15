@@ -16,8 +16,8 @@ class AreaController extends Controller
         'delete' => 'admin-areas-delete',
     ];
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
         $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
         $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
@@ -64,7 +64,7 @@ class AreaController extends Controller
     public function update(Request $request,$id){
         $areas = Area::find($id)->update($request->all());
         return redirect()->route('area.show',$id)->with([
-           'message'=>'El área fue actualizada con exito :)','type'=>'info'
+            'message'=>'El área fue actualizada con exito :)','type'=>'info'
         ]);
     }
 }

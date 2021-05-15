@@ -15,18 +15,22 @@ class RoleController extends Controller
         'edit' => 'admin-roles-edit',
         'delete' => 'admin-roles-delete',
     ];
-
-    public function __construct(){
-
-        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
-        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
-        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
-        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
-    }
-
+    /*
+        public function __construct()
+        {
+            $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
+            $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
+            $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
+            $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
+        }*/
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $rows = Rol::all();
+        $rows = Role::all();
         return view('modules/roles/index', [
             'rows' => $rows,
         ]);

@@ -21,14 +21,6 @@ class BajaController extends Controller
         'delete' => 'admin-bajas-delete',
     ];
 
-    public function __construct(){
-
-        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
-        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
-        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
-        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
-    }
-
     public function index(){
         $bajas = Baja::all();
         $activos = Activo::all();
@@ -42,11 +34,11 @@ class BajaController extends Controller
 
     public function create(){
 
-     //   if ($request){
-     //       $query = $request->get('numero_serie');
-     //       $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )
-     //           ->get();
-     //   }
+        //   if ($request){
+        //       $query = $request->get('numero_serie');
+        //       $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )
+        //           ->get();
+        //   }
 
         $activos = [];
         //$serie = @$_GET['numero_serie'];

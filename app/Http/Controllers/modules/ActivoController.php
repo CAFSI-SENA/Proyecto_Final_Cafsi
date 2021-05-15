@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\modules;
 
+use App\Exports\ActivoExport;
 use App\Http\Controllers\Controller;
+use App\Imports\ActivosImport;
 use App\Models\Activo;
 use App\Models\CategoriaActivo;
 use App\Models\Estado;
@@ -10,24 +12,17 @@ use App\Models\Marca;
 use App\Models\TipoActivo;
 use App\Models\TipoBaja;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use function GuzzleHttp\Promise\all;
 
 class ActivoController extends Controller
 {
     const PERMISSIONS = [
-        'create' => 'admin-activos-create',
-        'show' => 'admin-activos-show',
-        'edit' => 'admin-activos-edit',
-        'delete' => 'admin-activos-delete',
+        'create' => 'admin-activo-create',
+        'show' => 'admin-activo-show',
+        'edit' => 'admin-activo-edit',
+        'delete' => 'admin-activo-delete',
     ];
-
-    public function __construct(){
-
-        $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
-        $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
-        $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
-        $this->middleware('permission:'.self::PERMISSIONS['delete'])->only(['destroy']);
-    }
 
     public function index(){
         $activos = Activo::all();
@@ -96,10 +91,20 @@ class ActivoController extends Controller
         if ($request){
             $query = $request->get('numero_serie');
             $activos = Activo::where('numero_serie', 'LIKE', '%' .$query. '%' )
-            ->get();
+                ->get();
         }
 
         $categorias = CategoriaActivo::where('id',$activos->categoria_id)->get();
         return view('modules/bajas/create',compact('activos','tipos'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ActivoExport, 'Inventario.xlsx');
+    }
+
+    public function import(){
+        Excel::import(new ActivosImport, 'activos.xlsx');
+        return redirect('/')->with('succes', 'Cargue se realizó con exito');
     }
 }

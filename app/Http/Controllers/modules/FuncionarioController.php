@@ -20,8 +20,8 @@ class FuncionarioController extends Controller
         'delete' => 'admin-funcionarios-delete',
     ];
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->middleware('permission:'.self::PERMISSIONS['create'])->only(['create','store']);
         $this->middleware('permission:'.self::PERMISSIONS['show'])->only(['index','show']);
         $this->middleware('permission:'.self::PERMISSIONS['edit'])->only(['edit','update']);
@@ -65,7 +65,7 @@ class FuncionarioController extends Controller
     public function destroy($id){
         $funcionarios = Funcionario::find($id)->delete();
         return redirect()->route('funcionario.index')->with([
-           'message'=>'El funcionario fue eliminado con exito :_(','type'=>'danger'
+            'message'=>'El funcionario fue eliminado con exito :_(','type'=>'danger'
         ]);
     }
 
