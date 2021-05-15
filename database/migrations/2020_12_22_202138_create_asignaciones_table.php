@@ -16,8 +16,13 @@ class CreateAsignacionesTable extends Migration
         Schema::create('asignaciones', function (Blueprint $table) {
             $table->id();
             $table->dateTime('fecha_inicio');
+<<<<<<< Updated upstream
             $table->dateTime('fecha_fin');
             $table->string('observacion',100);
+=======
+            $table->dateTime( 'fecha_fin', null);
+            $table->string('observacion',100, null);
+>>>>>>> Stashed changes
 
             $table->bigInteger('funcionario_id')->unsigned();
             $table->bigInteger('activo_id')->unsigned();
