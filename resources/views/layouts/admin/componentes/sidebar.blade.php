@@ -292,7 +292,7 @@
                                 </li>
                 --->
                 <li>
-                    @php
+          <!--          @php
                         $can_view_permissions = auth()->user()->can(['admin-usuarios-show','admin-marcas-show']);
                     @endphp
 
@@ -302,7 +302,13 @@
                             <span class="badge rounded-pill bg-danger float-end"></span>
                             <span key="t-forms">Administrador</span>
                         </a>
-                    @endif
+                    @endif -->
+
+              <a href="javascript: void(0);" class="waves-effect">
+                  <i class="bx bxs-user"></i>
+                  <span class="badge rounded-pill bg-danger float-end"></span>
+                  <span key="t-forms">Administrador</span>
+              </a>
 
                     <ul class="sub-menu" aria-expanded="false">
 

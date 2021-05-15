@@ -1,4 +1,3 @@
-<?php
 @extends('layouts.admin.app')
 @section('title','Editar rol')
 @section('content')
