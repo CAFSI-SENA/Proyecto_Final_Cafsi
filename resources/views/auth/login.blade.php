@@ -22,7 +22,7 @@
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                         <div class="item">
                                                             <div class="py-3">
-                                                                <p class="font-size-16 mb-4"></p>
+                                                                <p class="font-size-36 mb-4"></p>
                                                                 <img src="/colina.jpeg" class="d-block w-100" alt="...">
                                                                 <div>
                                                                     <h4 class="font-size-16 text-primary"></h4>

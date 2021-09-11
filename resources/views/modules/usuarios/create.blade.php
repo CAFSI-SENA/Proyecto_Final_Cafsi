@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-md-6 offset-4">
-            <form action="{{route('usuario.store')}}" method="post">
+            <form action="{{route('user.store')}}" method="post">
                 @csrf
                 <div class="col-md-5">
                     <label for="name">Nombre</label>
@@ -29,7 +29,7 @@
                     <input type="password" class="form-control" name="password" required autocomplete="new-password">
                 </div>
                 <div class="mt-3">
-                    <a href="{{route('usuario.index')}}" class="btn btn-outline-dark">Cancelar</a>
+                    <a href="{{route('user.index')}}" class="btn btn-outline-dark">Cancelar</a>
                     <button type="sutmit" class="btn btn-outline-primary">Guardar</button>
                 </div>
             </form>
