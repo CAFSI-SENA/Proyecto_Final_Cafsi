@@ -17,7 +17,7 @@
                 @csrf
                 <div class="col-md-4">
                     <label for="">No. Serie</label>
-                    <input type="text" class="form-control" name="numero_serie" required>
+                    <input type="text" class="form-control" name="numero_serie">
                 </div>
                 <div class="col-md-4">
                     <label for="categoria_id">Categoría</label>
@@ -54,6 +54,16 @@
                     <label for="fecha_adquisicion">Fecha Adquisición</label>
                     <input type="date" class="form-control" name="fecha_adquisicion">
                 </div>
+                <br>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-md-4">
                     <input type="hidden" name="estado_id" value="1">
                 </div>

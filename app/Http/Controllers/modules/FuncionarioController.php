@@ -47,6 +47,16 @@ class FuncionarioController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'nombres' => 'required|max:30',
+            'apellidos' => 'required|max:30',
+            'identificacion' => 'required|unique:funcionarios|max:15',
+            'telefono' => 'required|max:10',
+            'celular' => 'required|max:10',
+            'tipo_identificacion_id' => 'required',
+            'genero_id' => 'required',
+            'area_id' => 'required',
+        ]);
         $funcionarios = Funcionario::create($request->all());
         return redirect()->route('funcionario.index')->with([
             'message'=>'El funcionario fue creado con exito :)','type'=>'success'

@@ -57,8 +57,12 @@ class AsignacionController extends Controller
             $activo = Activo::join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
                 ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
                 ->join('marcas','marcas.id','=','activos.marca_id')
+                ->leftjoin('asignaciones','asignaciones.activo_id','=','activos.id')
                 ->select('activos.*','categorias_activo.*','tipos_activo.*','marcas.*')
-            ->where('numero_serie',$_GET['numero_serie'])->first();
+                ->where('numero_serie',$_GET['numero_serie'])
+                ->whereNull('asignaciones.estado_id')
+                ->orWhere('asignaciones.estado_id','=','7')
+                ->first();
 
         }
         if (@$_GET['identificacion']) {
@@ -79,11 +83,11 @@ class AsignacionController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'fecha_inicio' => 'required',
             'funcionario_id' => 'required',
             'activo_id' => 'required',
             'tipo_asignacion' => 'required',
-            'estado_id' => 'required'
+            'estado_id' => 'required',
+            'observacion' => 'required'
         ]);
         $asignaciones = Asignacion::create($request->all());
         return redirect()->route('asignacion.index');

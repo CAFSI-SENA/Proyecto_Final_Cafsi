@@ -37,6 +37,9 @@ class TipoActivoController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'tipo' => 'required|unique:tipos_activo|max:20',
+        ]);
         $tipos = TipoActivo::create($request->all());
         return redirect()->route('tipo.index',compact('tipos'));
     }

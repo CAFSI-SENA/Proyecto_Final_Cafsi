@@ -43,6 +43,14 @@ class ActivoController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'numero_serie' => 'required|unique:activos|max:30',
+            'modelo' => 'required|max:30',
+            'fecha_adquisicion' => 'required',
+            'categoria_id' => 'required',
+            'tipo_activo_id' => 'required',
+            'marca_id' => 'required',
+        ]);
         $activos = Activo::create($request->all());
         return redirect()->route('activo.index')->with([
             'message'=>'El activo fue creado con exito :)','type'=>'info'

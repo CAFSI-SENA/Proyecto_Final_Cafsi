@@ -18,14 +18,12 @@
                 <div class="col-md-6">
                     <label for="nombres" class="form-label">Nombres</label>
                     <input type="text" name="nombres" class="form-control" style="text-transform:uppercase"
-                           onkeyup="javascript:this.value=this.value.toUpperCase();" name="nombres" maxlength="30"
-                           required>
+                           onkeyup="javascript:this.value=this.value.toUpperCase();" name="nombres" maxlength="30">
                 </div>
                 <div class="col-md-6">
                     <label for="apellidos" class="form-label">Apellidos</label>
                     <input type="text" name="apellidos" class="form-control" style="text-transform:uppercase"
-                           onkeyup="javascript:this.value=this.value.toUpperCase();" name="apellidos" maxlength="30"
-                           required>
+                           onkeyup="javascript:this.value=this.value.toUpperCase();" name="apellidos" maxlength="30">
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_identificacion_id" class="form-label">Tipo Identificación</label>
@@ -38,15 +36,15 @@
                 </div>
                 <div class="col-md-3">
                     <label for="identificacion" class="form-label">Identificación</label>
-                    <input type="number" name="identificacion" class="form-control" required>
+                    <input type="number" name="identificacion" class="form-control">
                 </div>
                 <div class="col-md-3">
                     <label for="telefono" class="form-label">Telefono</label>
-                    <input type="number" name="telefono" class="form-control" required>
+                    <input type="number" name="telefono" class="form-control">
                 </div>
                 <div class="col-md-3">
                     <label for="celular" class="form-label">Celular</label>
-                    <input type="number" name="celular" class="form-control" required>
+                    <input type="number" name="celular" class="form-control">
                 </div>
                 <div class="col-md-6">
                     <label for="area_id" class="form-label">Área</label>
@@ -69,6 +67,15 @@
                 <div class="col-md-3">
                     <input type="hidden" name="estado_id" value="1">
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-md-4">
                     <a href="{{route('funcionario.index')}}" class="btn btn-default mb-3">Cancelar</a>
                     <button type="submit" class="btn btn-primary mb-3">Guardar</button>

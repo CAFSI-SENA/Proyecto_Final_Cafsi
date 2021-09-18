@@ -37,6 +37,9 @@ class CategoriaController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'categoria' => 'required|unique:categorias_activo|max:25',
+        ]);
         $categorias = CategoriaActivo::create($request->all());
         return redirect()->route('categoria.index')->with([
             'message'=>'La categoría fue creada con exito','type'=>'success'

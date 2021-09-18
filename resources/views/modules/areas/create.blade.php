@@ -20,6 +20,10 @@
                     <input type="text" class="form-control" name="area" style="text-transform:uppercase"
                            onkeyup="javascript:this.value=this.value.toUpperCase();" name="area" maxlength="20">
                 </div>
+                <br>
+                @error('area')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="form-group">
                     <input type="hidden" name="estado_id" value="1">
                 </div>

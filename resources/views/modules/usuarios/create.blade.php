@@ -18,16 +18,26 @@
                 @csrf
                 <div class="col-md-5">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" name="name" required autofocus autocomplete="name" >
+                    <input type="text" class="form-control" name="name" autofocus autocomplete="name" >
                 </div>
                 <div class="col-md-5">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" required>
+                    <input type="email" class="form-control" name="email">
                 </div>
                 <div class="col-md-5">
                     <label for="password">Contraseña</label>
-                    <input type="password" class="form-control" name="password" required autocomplete="new-password">
+                    <input type="password" class="form-control" name="password" autocomplete="new-password">
                 </div>
+                <br>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="mt-3">
                     <a href="{{route('user.index')}}" class="btn btn-outline-dark">Cancelar</a>
                     <button type="sutmit" class="btn btn-outline-primary">Guardar</button>

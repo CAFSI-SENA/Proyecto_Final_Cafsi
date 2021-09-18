@@ -62,6 +62,13 @@ class BajaController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'fecha_baja' => 'required',
+            'observacion' => 'required|max:100',
+            'activo_id' => 'required',
+            'tipo_baja_id' => 'required',
+            'usuario_id' => 'required',
+        ]);
         $bajas = Baja::create($request->all());
         return redirect()->route('baja.index',compact('bajas'));
     }

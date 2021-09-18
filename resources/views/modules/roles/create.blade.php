@@ -14,6 +14,16 @@
                     <label for="description">Descripción</label>
                     <input type="text" name="description" class="form-control">
                 </div>
+                <br>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-body">
                         <h5>Asignación de permisos</h5>

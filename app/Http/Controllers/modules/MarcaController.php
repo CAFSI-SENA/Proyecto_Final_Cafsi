@@ -37,6 +37,9 @@ class MarcaController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'marca' => 'required|unique:marcas|max:20',
+        ]);
         $marcas = Marca::create($request->all());
         return redirect()->route('marca.index')->with([
            'message'=>'La marca fue creada con exito :)','type'=>'success'

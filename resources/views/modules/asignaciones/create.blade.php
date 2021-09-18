@@ -19,6 +19,9 @@
                     <label for="" class="form-label">Serie</label>
                     <input type="text" name="numero_serie" class="form-control" value="{{ @$_GET['numero_serie'] }}" style="text-transform:uppercase" onkeyup="javascript:this.value=this.value.toUpperCase(); maxlength="30" required>
                 </div>
+                @error('numero_serie')
+                <small>*{{$message}}</small>
+                @enderror
                 <div class="col-md-1 mt-5">
                     <button class="btn btn-outline-secondary" type="submit"><img src="/search.svg" alt=""></button>
                 </div>
@@ -71,7 +74,7 @@
                 <div class="col-md-3 mt-4">
                     <label for="">Tipo Prestamo</label>
                     <select name="tipo_asignacion" id="tipo_asignacion" class="form-select">
-                        <option selected disabled value="">Seleccione tipo de prestamo...</option>
+                        <option selected disabled value="{{ old('tipo_asignacion') }}">Seleccione tipo de prestamo...</option>
                         @foreach($tipos_asignacion as $tipo)
                             <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                         @endforeach
@@ -79,8 +82,18 @@
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="observacion">Observación</label>
-                    <input type="textarea" class="form-control" name="observacion" maxlength="100">
+                    <input type="textarea" class="form-control @error('title') is-invalid @enderror" name="observacion" maxlength="100" value="{{ old('observacion') }}">
                 </div>
+                <br>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-md-3 mt-4">
                     <label for="activo_id"></label>
                     <input type="hidden" class="form-control" name="activo_id" value="{{ @$activo->id }}" required>

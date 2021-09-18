@@ -69,6 +69,16 @@
                 </div>
 
                 <input type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
+                <br>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="mb-3">
                     <a href="{{route('baja.index')}}" class="btn btn-outline-default">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>

@@ -36,6 +36,9 @@ class AreaController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'area' => 'required|unique:areas|max:20',
+        ]);
         $areas = Area::create($request->all());
         return redirect()->route('area.index')->with([
             'message'=>'El área fue creada con exito :)', 'type'=>'success'
