@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\modules;
 
 use App\Http\Controllers\Controller;
-use App\Models\Funcionario;
-use Illuminate\Http\Request;
 use App\Models\Area;
 use App\Models\Estado;
+use App\Models\Funcionario;
 use App\Models\Genero;
 use App\Models\TipoIdentificacion;
+use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
 
 class FuncionarioController extends Controller

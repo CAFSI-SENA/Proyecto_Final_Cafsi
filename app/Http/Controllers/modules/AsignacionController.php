@@ -4,13 +4,13 @@ namespace App\Http\Controllers\modules;
 
 use App\Exports\AsignacionExport;
 use App\Http\Controllers\Controller;
+use App\Models\Activo;
 use App\Models\Asignacion;
+use App\Models\Funcionario;
 use App\Models\TipoAsignacion;
 use Carbon\Carbon;
-use Database\Seeders\CargueSeeder;
+use http\Env\Response;
 use Illuminate\Http\Request;
-use App\Models\Activo;
-use App\Models\Funcionario;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AsignacionController extends Controller
@@ -52,42 +52,53 @@ class AsignacionController extends Controller
 
         $funcionario = [];
         $activo = [];
+        $asignaciones = [];
 
-        if (@$_GET['numero_serie']) {
-            $activo = Activo::join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
-                ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
-                ->join('marcas','marcas.id','=','activos.marca_id')
-                ->leftjoin('asignaciones','asignaciones.activo_id','=','activos.id')
-                ->select('activos.*','categorias_activo.*','tipos_activo.*','marcas.*')
-                ->where('numero_serie',$_GET['numero_serie'])
-                ->whereNull('asignaciones.estado_id')
-                ->orWhere('asignaciones.estado_id','=','7')
-                ->first();
+        if (@$_GET['numero_serie'])
+        {
+            //valida si existe activo ya asignado
+            $asignaciones=Asignacion::join('Activos','activo_id','=','asignaciones.acivo_id')
+                ->select('activo_id')
+                ->where('numero_serie',$_GET['numero_serie']);
 
+            //si no existe activo asignado trae info activo para asignar.
+            if($asignaciones == null)
+            {
+                $activo = Activo::join('categorias_activo', 'categorias_activo.id', '=', 'activos.categoria_id')
+                    ->join('tipos_activo', 'tipos_activo.id', '=', 'activos.tipo_activo_id')
+                    ->join('marcas', 'marcas.id', '=', 'activos.marca_id')
+                    ->select('activos.*', 'categorias_activo.*', 'tipos_activo.*', 'marcas.*')
+                    ->where('numero_serie', $_GET['numero_serie'])
+                    ->first();
+            }
+            else
+            {
+                return view('modules/asignaciones/create',compact('asignaciones'));
+            }
         }
         if (@$_GET['identificacion']) {
             $funcionario = Funcionario::join('areas','areas.id','=','funcionarios.area_id')
                 ->select('funcionarios.id','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area')
-            ->where('identificacion',$_GET['identificacion'])->first();
+                ->where('identificacion',$_GET['identificacion'])->first();
         }
 
-        $asignaciones = Asignacion::all();
+        //$asignaciones = Asignacion::all();
         $tipos_asignacion = TipoAsignacion::all();
         $hora = Carbon::now();
         //$asignaciones = Asignacion::join('tipos_asignacion','tipos_asignacion.id','=','asignaciones.tipo_asignacion')
         //->select('asignaciones.*','tipos_asignacion.tipo','tipos_asignacion.id')
         //->where('asignaciones.tipo_asignacion','tipos_asignacion.id')
         //->first();
-        return view('modules/asignaciones/create', compact('asignaciones','funcionario','activo','tipos_asignacion','hora'));
+        return view('modules/asignaciones/create', compact('funcionario','activo','tipos_asignacion','hora'));
     }
 
     public function store(Request $request){
         $request->validate([
+            'fecha_inicio' => 'required',
             'funcionario_id' => 'required',
             'activo_id' => 'required',
             'tipo_asignacion' => 'required',
-            'estado_id' => 'required',
-            'observacion' => 'required'
+            'estado_id' => 'required'
         ]);
         $asignaciones = Asignacion::create($request->all());
         return redirect()->route('asignacion.index');
@@ -98,7 +109,37 @@ class AsignacionController extends Controller
         $funcionario = [];
         $activo = [];
 
-  /*      if (@$_GET['numero_serie']) {
+        /*      if (@$_GET['numero_serie']) {
+              $activo = Asignacion::join('funcionarios','funcionarios.id','=','asignaciones.funcionario_id')
+                  ->join('activos','activos.id','=','asignaciones.activo_id')
+                  ->join('estados','estados.id','=','asignaciones.estado_id')
+                  ->join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
+                  ->join('tipos_asignacion','tipos_asignacion.id','=','asignaciones.tipo_asignacion')
+                  ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
+                  ->join('marcas','marcas.id','=','activos.marca_id')
+                  ->join('areas','areas.id','=','funcionarios.area_id')
+                  ->select('activos.numero_serie','activos.modelo','categorias_activo.categoria','tipos_activo.tipo',
+                           'marcas.marca','funcionarios.identificacion','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
+                           'asignaciones.fecha_inicio','tipos_asignacion.tipo','asignaciones.observacion','asignaciones.id','estados.estado')
+                  ->where('numero_serie',$_GET['numero_serie'])->first();
+              }
+              if (@$_GET['identificacion']) {
+                  $funcionario = Asignacion::join('funcionarios','funcionarios.id','=','asignaciones.funcionario_id')
+                      ->join('activos','activos.id','=','asignaciones.activo_id')
+                      ->join('estados','estados.id','=','estado_id')
+                      ->join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
+                      ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
+                      ->join('marcas','marcas.id','=','activos.marca_id')
+                      ->join('areas','areas.id','=','funcionarios.area_id')
+                      ->select('activos.numero_serie','activos.modelo','categorias_activo.categoria','tipos_activo.tipo',
+                          'marcas.marca','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
+                          'asignaciones.fecha_inicio','tipos_asignacion.tipo','estados.estado')
+                      ->where('identificacion',$_GET['identificacion'])->first();
+              }
+              $hora = Carbon::now();
+              return view('modules/asignaciones/edit', compact('funcionario','activo','hora'));*/
+
+
         $activo = Asignacion::join('funcionarios','funcionarios.id','=','asignaciones.funcionario_id')
             ->join('activos','activos.id','=','asignaciones.activo_id')
             ->join('estados','estados.id','=','asignaciones.estado_id')
@@ -108,39 +149,9 @@ class AsignacionController extends Controller
             ->join('marcas','marcas.id','=','activos.marca_id')
             ->join('areas','areas.id','=','funcionarios.area_id')
             ->select('activos.numero_serie','activos.modelo','categorias_activo.categoria','tipos_activo.tipo',
-                     'marcas.marca','funcionarios.identificacion','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
-                     'asignaciones.fecha_inicio','tipos_asignacion.tipo','asignaciones.observacion','asignaciones.id','estados.estado')
-            ->where('numero_serie',$_GET['numero_serie'])->first();
-        }
-        if (@$_GET['identificacion']) {
-            $funcionario = Asignacion::join('funcionarios','funcionarios.id','=','asignaciones.funcionario_id')
-                ->join('activos','activos.id','=','asignaciones.activo_id')
-                ->join('estados','estados.id','=','estado_id')
-                ->join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
-                ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
-                ->join('marcas','marcas.id','=','activos.marca_id')
-                ->join('areas','areas.id','=','funcionarios.area_id')
-                ->select('activos.numero_serie','activos.modelo','categorias_activo.categoria','tipos_activo.tipo',
-                    'marcas.marca','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
-                    'asignaciones.fecha_inicio','tipos_asignacion.tipo','estados.estado')
-                ->where('identificacion',$_GET['identificacion'])->first();
-        }
-        $hora = Carbon::now();
-        return view('modules/asignaciones/edit', compact('funcionario','activo','hora'));*/
-
-
-            $activo = Asignacion::join('funcionarios','funcionarios.id','=','asignaciones.funcionario_id')
-                ->join('activos','activos.id','=','asignaciones.activo_id')
-                ->join('estados','estados.id','=','asignaciones.estado_id')
-                ->join('categorias_activo','categorias_activo.id','=','activos.categoria_id')
-                ->join('tipos_asignacion','tipos_asignacion.id','=','asignaciones.tipo_asignacion')
-                ->join('tipos_activo','tipos_activo.id','=','activos.tipo_activo_id')
-                ->join('marcas','marcas.id','=','activos.marca_id')
-                ->join('areas','areas.id','=','funcionarios.area_id')
-                ->select('activos.numero_serie','activos.modelo','categorias_activo.categoria','tipos_activo.tipo',
-                    'marcas.marca','funcionarios.identificacion','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
-                    'asignaciones.fecha_inicio','tipos_asignacion.tipo','asignaciones.observacion','asignaciones.id','estados.estado')
-                ->where('asignaciones.id',$id)->first();
+                'marcas.marca','funcionarios.identificacion','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area',
+                'asignaciones.fecha_inicio','tipos_asignacion.tipo','asignaciones.observacion','asignaciones.id','estados.estado')
+            ->where('asignaciones.id',$id)->first();
 
         $hora = Carbon::now();
         return view('modules/asignaciones/edit', compact('funcionario','activo','hora'));

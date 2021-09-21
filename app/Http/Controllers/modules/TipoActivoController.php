@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\modules;
 
 use App\Http\Controllers\Controller;
-use App\Models\TipoActivo;
 use App\Models\Estado;
+use App\Models\TipoActivo;
 use Illuminate\Http\Request;
 
 class TipoActivoController extends Controller

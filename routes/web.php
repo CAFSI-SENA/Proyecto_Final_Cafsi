@@ -1,20 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\modules\AreaController;
-use App\Http\Controllers\modules\CategoriaController;
-use App\Http\Controllers\modules\MarcaController;
-use App\Http\Controllers\modules\TipoActivoController;
-use App\Http\Controllers\modules\FuncionarioController;
-use App\Http\Controllers\modules\ActivoController;
-use App\Http\Controllers\modules\BajaController;
-use App\Http\Controllers\modules\UsuarioController;
-use App\Http\Controllers\modules\AsignacionController;
-
-use App\Http\Controllers\modules\RoleController;
-use App\Http\Controllers\modules\PermissionController;
-use Maatwebsite\Excel\Excel;
 use App\Exports\ActivoExport;
+use App\Http\Controllers\modules\ActivoController;
+use App\Http\Controllers\modules\AreaController;
+use App\Http\Controllers\modules\AsignacionController;
+use App\Http\Controllers\modules\BajaController;
+use App\Http\Controllers\modules\CategoriaController;
+use App\Http\Controllers\modules\FuncionarioController;
+use App\Http\Controllers\modules\MarcaController;
+use App\Http\Controllers\modules\PermissionController;
+use App\Http\Controllers\modules\RoleController;
+use App\Http\Controllers\modules\TipoActivoController;
+use App\Http\Controllers\modules\UsuarioController;
+use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Excel;
 
 /*
 |--------------------------------------------------------------------------

@@ -5,10 +5,6 @@ namespace App\Http\Controllers\modules;
 use App\Http\Controllers\Controller;
 use App\Models\Activo;
 use App\Models\Baja;
-use App\Models\CategoriaActivo;
-use App\Models\Estado;
-use App\Models\Marca;
-use App\Models\TipoActivo;
 use App\Models\TipoBaja;
 use Illuminate\Http\Request;
 

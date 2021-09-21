@@ -16,8 +16,8 @@ use App\Http\Controllers\modules\TipoActivoController;
 use App\Http\Controllers\modules\TipoBajaController;
 use App\Http\Controllers\modules\UsuarioController;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 {
