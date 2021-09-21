@@ -9,7 +9,6 @@ use App\Models\Asignacion;
 use App\Models\Funcionario;
 use App\Models\TipoAsignacion;
 use Carbon\Carbon;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -67,8 +66,10 @@ class AsignacionController extends Controller
                 $activo = Activo::join('categorias_activo', 'categorias_activo.id', '=', 'activos.categoria_id')
                     ->join('tipos_activo', 'tipos_activo.id', '=', 'activos.tipo_activo_id')
                     ->join('marcas', 'marcas.id', '=', 'activos.marca_id')
+                    ->leftjoin('asignaciones','activo_id','=','activos.id')
                     ->select('activos.*', 'categorias_activo.*', 'tipos_activo.*', 'marcas.*')
                     ->where('numero_serie', $_GET['numero_serie'])
+                    ->where('asignaciones.estado_id','7')
                     ->first();
             }
             else
