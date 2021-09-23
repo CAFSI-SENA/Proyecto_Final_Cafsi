@@ -4,7 +4,11 @@
     <div class="row">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
             <h4 class="mb-sm-0 font-size-18">Asignaciones</h4>
-
+            @if(Session::has('message'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    {{Session::get('message')}}
+                </div>
+            @endif
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Crear Asignación</a></li>

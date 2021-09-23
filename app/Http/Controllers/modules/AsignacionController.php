@@ -10,7 +10,10 @@ use App\Models\Funcionario;
 use App\Models\TipoAsignacion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
+use function PHPUnit\Framework\isEmpty;
+
 
 class AsignacionController extends Controller
 {
@@ -52,45 +55,50 @@ class AsignacionController extends Controller
         $funcionario = [];
         $activo = [];
         $asignaciones = [];
+        $hora = Carbon::now();
+        $asignaciones = Asignacion::all();
+        $tipos_asignacion = TipoAsignacion::all();
 
-        if (@$_GET['numero_serie'])
-        {
+        if (@$_GET['numero_serie']) {
             //valida si existe activo ya asignado
-            $asignaciones=Asignacion::join('Activos','activo_id','=','asignaciones.acivo_id')
-                ->select('activo_id')
-                ->where('numero_serie',$_GET['numero_serie']);
+
+            $asignaciones = Asignacion::join('activos as a', 'a.id', '=', 'activo_id')
+                ->select('a.id')
+                ->where('a.numero_serie', $_GET['numero_serie'])
+                ->where('asignaciones.estado_id','<>', '7')
+                ->first();
 
             //si no existe activo asignado trae info activo para asignar.
-            if($asignaciones == null)
+
+            if (empty($asignaciones))
             {
                 $activo = Activo::join('categorias_activo', 'categorias_activo.id', '=', 'activos.categoria_id')
                     ->join('tipos_activo', 'tipos_activo.id', '=', 'activos.tipo_activo_id')
                     ->join('marcas', 'marcas.id', '=', 'activos.marca_id')
-                    ->leftjoin('asignaciones','activo_id','=','activos.id')
                     ->select('activos.*', 'categorias_activo.*', 'tipos_activo.*', 'marcas.*')
                     ->where('numero_serie', $_GET['numero_serie'])
-                    ->where('asignaciones.estado_id','7')
                     ->first();
-            }
-            else
+
+            } else
             {
-                return view('modules/asignaciones/create',compact('asignaciones'));
+                return redirect()->route('asignacion.create')->with('message','El activo a consultar se encuentra asignado');
             }
+
         }
         if (@$_GET['identificacion']) {
             $funcionario = Funcionario::join('areas','areas.id','=','funcionarios.area_id')
                 ->select('funcionarios.id','funcionarios.nombres','funcionarios.apellidos','funcionarios.celular','areas.area')
                 ->where('identificacion',$_GET['identificacion'])->first();
+
+            if(empty($funcionario))
+                return back()->with('message','El funcionario a Consultar no se encuentra registrado');
         }
 
-        //$asignaciones = Asignacion::all();
-        $tipos_asignacion = TipoAsignacion::all();
-        $hora = Carbon::now();
         //$asignaciones = Asignacion::join('tipos_asignacion','tipos_asignacion.id','=','asignaciones.tipo_asignacion')
         //->select('asignaciones.*','tipos_asignacion.tipo','tipos_asignacion.id')
         //->where('asignaciones.tipo_asignacion','tipos_asignacion.id')
         //->first();
-        return view('modules/asignaciones/create', compact('funcionario','activo','tipos_asignacion','hora'));
+        return view('modules/asignaciones/create', compact('asignaciones','funcionario','activo','tipos_asignacion','hora'))->with('message','El Activo a Consultar se Encuentra Asignado');
     }
 
     public function store(Request $request){
