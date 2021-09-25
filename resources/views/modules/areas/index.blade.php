@@ -68,6 +68,7 @@
             </div>
         </div>
     </div>
+    {{ $areas->links() }}
 @endsection
 
 

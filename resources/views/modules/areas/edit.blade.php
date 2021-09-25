@@ -26,7 +26,7 @@
                         <tbody>
                         <th>Estado</th>
                         <td>
-                            <select name="" id="" class="form-control">
+                            <select name="estado_id" id="estado_id" class="form-control">
                                 @foreach($estados as $estado)
                                     <option value="{{$estado->id}}"
                                             @if($estado->id == $areas->estado_id)

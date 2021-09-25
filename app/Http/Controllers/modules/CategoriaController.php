@@ -25,7 +25,7 @@ class CategoriaController extends Controller
     }
 
     public function index(){
-        $categorias = CategoriaActivo::all();
+        $categorias = CategoriaActivo::paginate(5);
         $estados = Estado::all();
         return view('modules/categorias/index',compact('categorias','estados'));
     }
@@ -61,7 +61,9 @@ class CategoriaController extends Controller
 
     public function edit($id){
         $categorias = CategoriaActivo::find($id);
-        $estados = Estado::all();
+        $estados = Estado::where('id',1)
+            ->orwhere('id',2)
+            ->get();
         return view('modules/categorias/edit',compact('categorias','estados'));
     }
 

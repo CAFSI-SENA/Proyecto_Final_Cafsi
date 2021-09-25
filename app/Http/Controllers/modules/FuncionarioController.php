@@ -29,7 +29,7 @@ class FuncionarioController extends Controller
     }
 
     public function index(){
-        $funcionarios = Funcionario::all();
+        $funcionarios = Funcionario::paginate(5);
         $areas = Area::all();
         $estados = Estado::all();
         $generos = Genero::all();
