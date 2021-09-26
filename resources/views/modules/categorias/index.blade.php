@@ -14,6 +14,13 @@
         </div>
         <div class="col-md-12 mt-3">
             <a href="{{route('categoria.create')}}" class="btn btn-primary mb-3">Crear Categoría</a>
+
+            @if(session('message'))
+                <div class="alert alert-{{session('type')}} mt-2" role="alert">
+                    {{session('message')}}
+                </div>
+            @endif
+
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -33,7 +40,7 @@
                                     <td>{{$estado->estado}}</td>
                                 @endif
                             @endforeach
-                            <td>{{$categoria->created_at}}</td>
+                            <td>{{$categoria->created_at->diffForHumans()}}</td>
                             <td>
                                 <form action="{{route('categoria.destroy',$categoria->id)}}" method="post">
                                     @csrf
@@ -52,5 +59,6 @@
             </div>
         </div>
     </div>
+    {{ $categorias->links() }}
 @endsection
 

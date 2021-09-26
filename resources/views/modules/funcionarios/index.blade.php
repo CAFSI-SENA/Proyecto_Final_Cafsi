@@ -80,6 +80,5 @@
             </div>
         </div>
     </div>
-
-
+    {{ $funcionarios->links() }}
 @endsection

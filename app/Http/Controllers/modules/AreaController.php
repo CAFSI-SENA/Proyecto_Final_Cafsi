@@ -25,7 +25,7 @@ class AreaController extends Controller
     }
 
     public function index(){
-        $areas = Area::all();
+        $areas = Area::paginate(5);
         $estados = Estado::all();
         return view('modules/areas/index', compact('areas','estados'));
     }
@@ -60,7 +60,9 @@ class AreaController extends Controller
 
     public function edit($id){
         $areas = Area::find($id);
-        $estados = Estado::all();
+        $estados = Estado::where('id',1)
+                           ->orwhere('id',2)
+                          ->get();
         return view('modules/areas/edit',compact('areas','estados'));
     }
 

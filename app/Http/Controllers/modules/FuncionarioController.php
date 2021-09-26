@@ -29,7 +29,7 @@ class FuncionarioController extends Controller
     }
 
     public function index(){
-        $funcionarios = Funcionario::all();
+        $funcionarios = Funcionario::paginate(5);
         $areas = Area::all();
         $estados = Estado::all();
         $generos = Genero::all();
@@ -82,7 +82,9 @@ class FuncionarioController extends Controller
     public function edit($id){
         $funcionarios = Funcionario::find($id);
         $areas = Area::all();
-        $estados = Estado::all();
+        $estados = Estado::where('id',1)
+            ->orwhere('id',2)
+            ->get();
         $generos = Genero::all();
         $tiposidentificacion = TipoIdentificacion::all();
         return view('modules/funcionarios/edit',compact('funcionarios','areas','estados','generos','tiposidentificacion'));
@@ -90,6 +92,8 @@ class FuncionarioController extends Controller
 
     public function update(Request $request,$id){
         $funcionarios = Funcionario::find($id)->update($request->all());
-        return redirect()->route('funcionario.show',$id);
+        return redirect()->route('funcionario.show',$id)->with([
+            'message'=>'El Funcionario fue actualizado con exito','type'=>'info'
+        ]);
     }
 }

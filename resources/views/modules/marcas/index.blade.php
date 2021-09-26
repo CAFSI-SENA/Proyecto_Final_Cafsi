@@ -38,7 +38,7 @@
                                     <td>{{$estado->estado}}</td>
                                 @endif
                             @endforeach
-                            <td>{{$marca->created_at}}</td>
+                            <td>{{$marca->created_at->diffForHumans()}}</td>
                             <td>
                                 <form action="{{route('marca.destroy',$marca->id)}}" method="post">
                                     @csrf
@@ -57,6 +57,7 @@
             </table-responsive>
         </div>
     </div>
+    {{ $marcas->links() }}
 @endsection
 
 

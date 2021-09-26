@@ -33,7 +33,7 @@
                                     <td>{{$estado->estado}}</td>
                                 @endif
                             @endforeach
-                            <td>{{$tipo->created_at}}</td>
+                            <td>{{$tipo->created_at->diffForHumans()}}</td>
                             <td>
                                 <form action="{{route('tipo.destroy',$tipo->id)}}" method="post">
                                     @csrf
@@ -52,4 +52,5 @@
             </div>
         </div>
     </div>
+    {{ $tipos->links() }}
 @endsection

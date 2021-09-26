@@ -13,6 +13,13 @@
             </div>
         </div>
         <div class="col-md-4 offset-4">
+
+            @if(session('message'))
+                <div class="alert alert-{{session('type')}} mt-2" role="alert">
+                    {{session('message')}}
+                </div>
+            @endif
+
             <table class="table">
                 <tbody>
                 <th>Nombres</th>

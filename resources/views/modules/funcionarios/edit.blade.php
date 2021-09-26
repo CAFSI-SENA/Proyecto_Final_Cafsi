@@ -34,9 +34,9 @@
                     <tbody>
                     <th>Tipo Identificación</th>
                     <td>
-                        <select name="" id="" class="form-select">
+                        <select name="tipo_identificacion_id" id="tipo_identificacion_id" class="form-select">
                             @foreach($tiposidentificacion as $tipo)
-                                <option value="{{$funcionarios->tipo_identificacion_id}}"
+                                <option value="{{$tipo->id}}"
                                         @if($funcionarios->tipo_identificacion_id == $tipo->id)
                                         selected
                                     @endif
@@ -62,7 +62,7 @@
                     <td>
                         <select name="genero_id" id="genero_id" class="form-select">
                             @foreach($generos as $genero)
-                                <option value="{{$funcionarios->genero_id}}"
+                                <option value="{{$genero->id}}"
                                         @if($funcionarios->genero_id == $genero->id)
                                         selected
                                     @endif
@@ -76,7 +76,7 @@
                     <td>
                         <select name="area_id" id="area_id" class="form-select">
                             @foreach($areas as $area)
-                                <option value="{{$funcionarios->area_id}}"
+                                <option value="{{$area->id}}"
                                         @if($funcionarios->area_id == $area->id)
                                         selected
                                     @endif
@@ -90,7 +90,7 @@
                     <td>
                         <select name="estado_id" id="estado_id" class="form-select">
                             @foreach($estados as $estado)
-                                <option value="{{$funcionarios->estado_id}}"
+                                <option value="{{$estado->id}}"
                                         @if($funcionarios->estado_id == $estado->id)
                                         selected
                                     @endif

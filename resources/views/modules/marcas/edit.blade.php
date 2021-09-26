@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 @section('title','Editar Marca')
 @section('content')
-    <div class="container">                
+    <div class="container">
     <div class="row">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
             <h4 class="mb-sm-0 font-size-18">Marcas</h4>
@@ -28,7 +28,7 @@
                     <tbody>
                     <th>Estado</th>
                     <td>
-                        <select name="estado_id" id="estado_id" class="form-control">
+                        <select name="estado_id" id="estado_id" class="form-select">
                             @foreach($estados as $estado)
                                 <option value="{{$estado->id}}"
                                         @if($marcas->estado_id == $estado->id)
