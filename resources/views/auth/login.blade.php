@@ -74,6 +74,16 @@
                                         <!--<p class="text-muted">Sign in to continue to Skote.</p>-->
                                     </div>
 
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                                     <div class="mt-4">
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
@@ -85,7 +95,12 @@
 
                                             <div class="mb-3">
                                                 <div class="float-end">
-                                                    <a href="auth-recoverpw-2.html" class="text-muted">Forgot password?</a>
+                                                  <!--  <a href="{{route('password.reset',csrf_token())}}" class="text-muted">¿Olvido su contraseña?</a>-->
+                                                   @if (Route::has('password.request'))
+                                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                                            {{ __('¿Olvido su contraseña?') }}
+                                                        </a>
+                                                    @endif
                                                 </div>
                                                 <label class="form-label">Contraseña</label>
                                                 <div class="input-group auth-pass-inputgroup">
@@ -108,13 +123,10 @@
                                         </form>
                                     </div>
                                 </div>
-
                                 <div class="mt-4 mt-md-5 text-center">
                                     <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Cafsi. </p>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

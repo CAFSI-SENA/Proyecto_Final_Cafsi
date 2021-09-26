@@ -1,36 +1,102 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+@extends('layouts.admin.appreset')
+@section('title','Cambio de Contraseña')
+@section('content')
 
-        <x-jet-validation-errors class="mb-4" />
+    <div class="account-pages my-5 pt-sm-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="card overflow-hidden">
+                        <div class="bg-primary bg-soft">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="text-primary p-4">
+                                        <h5 class="text-primary">Cambio de Contraseña</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div>
+                                <a href="index.html">
+                                    <div class="avatar-md profile-user-wid mb-4">
+                                            <span class="avatar-title rounded-circle bg-light">
+                                                <img src="/logo.gif" alt="" class="rounded-circle" height="60">
+                                            </span>
+                                    </div>
+                                </a>
+                            </div>
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                            <div class="p-2">
+                                <form method="POST" action="{{ route('password.update') }}">
+                                    @csrf
 
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                                    <div class="mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" autofocus autocomplete="email" placeholder="Ingrese email" required >
+                                        <div class="invalid-feedback">
+                                            Please Enter Email
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="password">Contraseña</label>
+                                        <input type="password" class="form-control" name="password" id="password" autocomplete="new-password" placeholder="Ingresar contraseña" required>
+                                        <div class="invalid-feedback">
+                                            Please Enter Password
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="password_confirmation">Confirmar Contraseña</label>
+                                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña" required>
+                                        <div class="invalid-feedback">
+                                            Please Enter Password
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 d-grid">
+                                        <button type="sutmit" class="btn btn-primary waves-effect waves-light">Cambio Contraseña</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <div>
+                            <p>Ya tienes una cuenta ? <a href="{{route('login')}}" class="fw-medium text-primary"> Inicio de Sesión</a> </p>
+                            <p>© <script>document.write(new Date().getFullYear())</script> Cafsi.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Reset Password') }}
-                </x-jet-button>
-            </div>
+
+
+
+
+
+
+
+
+
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+@endsection

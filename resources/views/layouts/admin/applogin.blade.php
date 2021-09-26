@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="auth-body-bg">
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 
