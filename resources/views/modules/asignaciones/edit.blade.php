@@ -4,7 +4,6 @@
     <div class="row">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
             <h4 class="mb-sm-0 font-size-18">Devoluciones</h4>
-
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Crear Devolución</a></li>
@@ -41,7 +40,7 @@
                     <input type="number" value="{{ $activo->identificacion }}" class="form-control" disabled>
                 </div>
                 <div class="col-md-4 mt-4">
-                    <label for="">Funcionario Prestamo</label>
+                    <label for="">Funcionario Asignación/Prestamo</label>
                     <input type="text" class="form-control" value="{{ $activo->nombres.' '.$activo->apellidos }}" disabled>
                 </div>
                 <div class="col-md-2 mt-4">
@@ -57,11 +56,11 @@
                     <input type="text" class="form-control" value="{{ $activo->estado }}" disabled>
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="fecha_inicio">Fecha Prestamo</label>
-                    <input type="datetime" class="form-control" value="{{ $activo->fecha_inicio}}" disabled>
+                    <label for="fecha_inicio">Fecha Asignación/Prestamo</label>
+                    <input type="datetime" class="form-control" name="fecha_inicio" value="{{ $activo->fecha_inicio}}" disabled>
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="">Tipo Prestamo</label>
+                    <label for="">Tipo de Asignación</label>
                     <input type="text" class="form-control" value="{{ $activo->tipo}}" disabled>
                 </div>
                 <div class="col-md-3 mt-4">
