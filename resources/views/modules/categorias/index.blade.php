@@ -40,7 +40,7 @@
                                     <td>{{$estado->estado}}</td>
                                 @endif
                             @endforeach
-                            <td>{{$categoria->created_at}}</td>
+                            <td>{{$categoria->created_at->diffForHumans()}}</td>
                             <td>
                                 <form action="{{route('categoria.destroy',$categoria->id)}}" method="post">
                                     @csrf

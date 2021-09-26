@@ -25,7 +25,7 @@ class MarcaController extends Controller
     }
 
     public function index(){
-        $marcas = Marca::all();
+        $marcas = Marca::paginate(5);
         $estados = Estado::all();
         return view('modules/marcas/index',compact('marcas','estados'));
     }
@@ -61,7 +61,9 @@ class MarcaController extends Controller
 
     public function edit($id){
         $marcas = Marca::find($id);
-        $estados = Estado::all();
+        $estados = Estado::where('id',1)
+            ->orwhere('id',2)
+            ->get();
         return view('modules/marcas/edit',compact('marcas','estados'));
     }
 

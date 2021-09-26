@@ -50,7 +50,7 @@
                                         <td>{{$estado->estado}}</td>
                                     @endif
                                 @endforeach
-                                <td>{{$area->created_at}}</td>
+                                <td>{{$area->created_at->diffForHumans()}}</td>
                                 <td>
                                     <form action="{{route('area.destroy',$area->id)}}" method="post">
                                         @csrf

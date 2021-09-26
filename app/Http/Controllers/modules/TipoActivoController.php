@@ -25,7 +25,7 @@ class TipoActivoController extends Controller
     }
 
     public function index(){
-        $tipos = TipoActivo::all();
+        $tipos = TipoActivo::paginate(5);
         $estados = Estado::all();
         return view('modules/tipos/index',compact('tipos','estados'));
     }
@@ -59,7 +59,9 @@ class TipoActivoController extends Controller
 
     public function edit($id){
         $tipos = TipoActivo::find($id);
-        $estados= Estado::all();
+        $estados= Estado::where('id',1)
+            ->orwhere('id',2)
+            ->get();
         return view('modules/tipos/edit', compact('tipos','estados'));
     }
 
