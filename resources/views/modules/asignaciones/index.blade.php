@@ -9,6 +9,11 @@
                     {{Session::get('error')}}
                 </div>
             @endif
+            @if(session('message'))
+                <div class="alert alert-{{session('type')}} mt-2" role="alert">
+                    {{session('message')}}
+                </div>
+            @endif
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Asignación</a></li>

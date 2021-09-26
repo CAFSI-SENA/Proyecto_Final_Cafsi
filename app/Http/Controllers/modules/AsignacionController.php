@@ -38,7 +38,7 @@ class AsignacionController extends Controller
                     'asignaciones.id')
                 ->where('numero_serie', 'LIKE', "%$numero_serie%")
                 //->whereNull('asignaciones.fecha_fin')
-                ->paginate(2)
+                ->paginate(3)
             ;
         }else
             $asignaciones = Asignacion::join('activos as a', 'asignaciones.activo_id', '=', 'a.id')
@@ -48,7 +48,7 @@ class AsignacionController extends Controller
                 ->select('a.numero_serie', 't.tipo', 'f.nombres', 'f.apellidos', 'ta.tipo as tipo_asignacion', 'asignaciones.fecha_inicio', 'asignaciones.fecha_fin',
                     'asignaciones.id')
                 //->where('asignaciones.fecha_fin', '=', null)
-                ->paginate(2)
+                ->paginate(3)
             ;
 
 
@@ -81,8 +81,9 @@ class AsignacionController extends Controller
                     ->join('tipos_activo', 'tipos_activo.id', '=', 'activos.tipo_activo_id')
                     ->join('marcas', 'marcas.id', '=', 'activos.marca_id')
                     ->select('activos.*', 'categorias_activo.*', 'tipos_activo.*', 'marcas.*')
-                    ->where('numero_serie', $_GET['numero_serie'])
+                    ->where('numero_serie','=', $_GET['numero_serie'])
                     ->first();
+
 
                 if(empty($activo))
                     return redirect()->route('asignacion.create')->with('message','El activo a consultar no se encuentra registrado');
@@ -118,9 +119,13 @@ class AsignacionController extends Controller
             'estado_id' => 'required'
         ]);
 
+        //return $request;
+
         $asignaciones = Asignacion::create($request->all());
 
-        return redirect()->route('asignacion.index')->with('messageOK','Asignación creada exitosamente...');
+        return redirect()->route('asignacion.index')->with([
+            'message'=>'La asignación fue creado con exito :)','type'=>'info'
+        ]);
     }
 
     public function edit($id){
