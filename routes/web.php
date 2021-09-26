@@ -118,6 +118,7 @@ Route::middleware('auth')->group(function(){
     Route::get('modules/asignaciones/edit/{id}',[AsignacionController::class,'edit'])->name('asignacion.edit');
     Route::put('modules/asignaciones/{id}',[AsignacionController::class,'update'])->name('asignacion.update');
     Route::get('modules/asignaciones/{id}',[AsignacionController::class,'show'])->name('asignacion.show');
+    Route::get('modules/asignaciones',[AsignacionController::class,'destroy'])->name('asignacion.destroy');
 
     Route::get('export/activos',[ActivoController::class,'export'])->name('activo.export');
     Route::get('export/asignaciones',[AsignacionController::class,'export'])->name('asignacion.export');

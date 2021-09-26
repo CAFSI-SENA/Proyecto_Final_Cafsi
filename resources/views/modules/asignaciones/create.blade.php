@@ -31,19 +31,19 @@
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="" class="form-label">Categoría</label>
-                    <input type="text" class="form-control" value="{{ @$activo->categoria }}">
+                    <input type="text" class="form-control" value="{{ @$activo->categoria }}" disabled>
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Tipo</label>
-                    <input type="text" class="form-control" value="{{ @$activo->tipo }}">
+                    <input type="text" class="form-control" value="{{ @$activo->tipo }}" disabled>
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Marca</label>
-                    <input type="text" class="form-control" value="{{ @$activo->marca }}">
+                    <input type="text" class="form-control" value="{{ @$activo->marca }}" disabled>
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Modelo</label>
-                    <input type="text" class="form-control" value="{{ @$activo->modelo }}">
+                    <input type="text" class="form-control" value="{{ @$activo->modelo }}" disabled>
                 </div>
             </form>
             <form action="" class="row g-3" method="get">
@@ -56,29 +56,29 @@
                     <button type="submit" class="btn btn-outline-secondary"><img src="/search.svg" alt=""></button>
                 </div>
                 <div class="col-md-4 mt-4">
-                    <label for="">Funcionario Prestamo</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}">
+                    <label for="">Funcionario Asignacion/Prestamo</label>
+                    <input type="text" class="form-control" value="{{ @$funcionario->nombres.' '.@$funcionario->apellidos }}" disabled>
                 </div>
                 <div class="col-md-2 mt-4">
                     <label for="">Celular</label>
-                    <input type="number" class="form-control" value="{{ @$funcionario->celular }}">
+                    <input type="number" class="form-control" value="{{ @$funcionario->celular }}" disabled>
                 </div>
                 <div class="col-md-3 mt-4">
                     <label for="">Área</label>
-                    <input type="text" class="form-control" value="{{ @$funcionario->area }}">
+                    <input type="text" class="form-control" value="{{ @$funcionario->area }}" disabled>
                 </div>
 
             </form>
             <form action="{{route('asignacion.store')}}" class="row g-3" method="post">
                 @csrf
                 <div class="col-md-3 mt-4">
-                    <label for="fecha_inicio">Fecha Prestamo</label>
+                    <label for="fecha_inicio">Fecha Asignación/Prestamo</label>
                     <input type="datetime" class="form-control" name="fecha_inicio" value="{{ $hora }}" disabled>
                 </div>
                 <div class="col-md-3 mt-4">
-                    <label for="">Tipo Prestamo</label>
+                    <label for="">Tipo de Asignación</label>
                     <select name="tipo_asignacion" id="tipo_asignacion" class="form-select">
-                        <option selected disabled value="{{ old('tipo_asignacion') }}">Seleccione tipo de prestamo...</option>
+                        <option selected disabled value="{{ old('tipo_asignacion') }}">Seleccione tipo de asignación...</option>
                         @foreach($tipos_asignacion as $tipo)
                             <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
                         @endforeach
