@@ -30,6 +30,22 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 Route::middleware('auth')->group(function(){
     Route::get('modules/areas',[AreaController::class,'index'])->name('area.index');
     Route::get('modules/areas/create',[AreaController::class,'create'])->name('area.create');
@@ -123,6 +139,7 @@ Route::middleware('auth')->group(function(){
     Route::get('export/activos',[ActivoController::class,'export'])->name('activo.export');
     Route::get('export/asignaciones',[AsignacionController::class,'export'])->name('asignacion.export');
 
+    //Auth::routes(['verify' => true]);
 
     //Route::get('modules/activos/reporte',[ActivoController::class,'export'])->name('activo.export');
     //Route::get('modules/activos/reporte',[ActivoExport::class,'collection'])->name('activo.export');
