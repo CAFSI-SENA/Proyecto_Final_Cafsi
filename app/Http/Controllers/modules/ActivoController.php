@@ -6,6 +6,7 @@ use App\Exports\ActivoExport;
 use App\Http\Controllers\Controller;
 use App\Imports\ActivosImport;
 use App\Models\Activo;
+use App\Models\Asignacion;
 use App\Models\CategoriaActivo;
 use App\Models\Estado;
 use App\Models\Marca;
@@ -67,7 +68,18 @@ class ActivoController extends Controller
     }
 
     public function destroy($id){
+
+        $asignacion=Asignacion::join('activos as a','asignaciones.activo_id','=','a.id')
+            ->select('a.id')
+            ->where('a.id','=',$id)
+            ->first();
+        if(!empty($asignacion))
+            return redirect()->route('activo.index')->with([
+                'Errormessage'=>'El activo no puede ser eliminado, ya que existe una asigación, por favor validar con el administrador','type'=>'error'
+            ]);
+
         $activos = Activo::find($id)->delete();
+
         return redirect()->route('activo.index')->with([
             'message'=>'El activo fue eliminado con exito :_(','type'=>'danger'
         ]);
